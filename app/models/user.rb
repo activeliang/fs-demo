@@ -21,4 +21,16 @@ class User < ApplicationRecord
   def cancel_join!(job)
     apply_job.delete(job)
   end
+
+  def is_employ_it?(resume)
+    who_i_want.include?(resume)
+  end
+
+  def employ_it!(resume)
+    who_i_want << resume
+  end
+
+  def cancel_employ!(resume)
+    who_i_want.delete(resume)
+  end
 end

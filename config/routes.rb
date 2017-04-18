@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   root 'resumes#index'
 
-  resources :resumes
+  resources :resumes do
+    member do
+      post :employ_it
+      post :cancel_employ
+    end
+  end
   resources :jobs do
     member do
       post :apply_join

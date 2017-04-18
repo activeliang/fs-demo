@@ -34,3 +34,10 @@
   <% end %>
 </div>
 <hr>
+<div class="pull-right">
+  <% if !current_user.is_employ_it?(@resume) %>
+  <%= link_to("我要挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn btn-primary") %>
+<% else %>
+  <%= link_to("撤消聘请", cancel_employ_resume_path(@resume), method: :post, class: "btn btn-primary") %>
+  <% end %>
+</div>

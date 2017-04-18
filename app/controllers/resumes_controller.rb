@@ -47,6 +47,29 @@ class ResumesController < ApplicationController
     end
   end
 
+  def employ_it
+    @resume = Resume.find(params[:id])
+    if !current_user.is_employ_it?(@resume)
+      current_user.employ_it!(@resume)
+      flash[:notice] = "已成功发送邀请给TA~"
+    else
+      flash[:warning] = "你已经邀请过了哦~"
+    end
+    redirect_to resume_path(@resume)
+  end
+
+  def cancel_employ
+    @resume = Resume.find(params[:id])
+    if current_user.is_employ_it?(@resume)
+      current_user.cancel_employ!(@resume)
+      flash[:alert] = "成功撤消邀请……"
+    else
+      flash[:warning] = "你还未邀请TA哦~"
+    end
+    redirect_to resume_path(@resume)
+  end
+
+
   private
   def require_resume_permission
     @resume = Resume.find(params[:id])
