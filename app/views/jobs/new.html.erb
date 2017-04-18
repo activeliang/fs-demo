@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Add a Job</h1>
+
+  <%= simple_form_for @job do |f| %>
+  <%= f.input :title %>
+  <%= f.input :task %>
+  <%= f.input :wage_upper_bound %>
+  <%= f.input :wage_lower_bound %>
+  <%= f.input :detail %>
+  <%= f.input :scale %>
+  <%= f.input :website %>
+  <%= f.input :work_time %>
+  <%= f.input :five_gold %>
+  <%= f.input :overtime_pay %>
+  <%= f.input :address %>
+  <%= f.input :contact_wechat %>
+  <%= f.submit "Submit" %>
+  <% end %>
+
+</div>

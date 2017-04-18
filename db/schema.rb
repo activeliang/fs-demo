@@ -10,7 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417125905) do
+ActiveRecord::Schema.define(version: 20170418090916) do
+
+  create_table "job_relationships", force: :cascade do |t|
+    t.integer  "job_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "task"
+    t.text     "description"
+    t.integer  "wage_upper_bound"
+    t.integer  "wage_lower_bound"
+    t.text     "detail"
+    t.integer  "scale"
+    t.string   "website"
+    t.string   "work_time"
+    t.string   "five_gold"
+    t.boolean  "overtime_pay",     default: true
+    t.string   "address"
+    t.string   "contact_wechat"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "resume_id"
+    t.string   "avatar"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resume_relationships", force: :cascade do |t|
+    t.integer  "resume_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "resumes", force: :cascade do |t|
     t.string   "semester"

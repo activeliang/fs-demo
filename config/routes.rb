@@ -5,4 +5,15 @@ Rails.application.routes.draw do
   root 'resumes#index'
 
   resources :resumes
+  resources :jobs do
+    member do
+      post :apply_join
+      post :cancel_join
+    end
+  end
+  namespace :account do
+    resources :resumes
+    resources :jobs
+  end
+
 end

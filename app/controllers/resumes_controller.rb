@@ -1,13 +1,25 @@
 class ResumesController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create, :destroy, :edit, :update]
+  before_action :require_resume_permission, only:[:edit, :update, :destroy]
   def new
     @resume = Resume.new
+    @photo = @resume.photos.build
+  end
+
+  def show
+    @resume = Resume.find(params[:id])
+    @photos = @resume.photos.all
   end
 
   def create
     @resume = Resume.new(resume_params)
-    @resume.user_id = current_user
+    @resume.user = current_user
     if @resume.save
+            if params[:photos] != nil
+        params[:photos]['avatar'].each do |a|
+          @photo = @resume.photos.create(:avatar => a)
+        end
+      end
       redirect_to resumes_path, notice: "created!"
     else
       render :new
@@ -15,11 +27,9 @@ class ResumesController < ApplicationController
   end
 
   def edit
-    @resume = Resume.find(params[:id])
   end
 
   def update
-    @resume = Resume.find(params[:id])
     if @resume.update(resume_params)
       redirect_to resumes_path, notice: "updated!"
     else
@@ -28,17 +38,23 @@ class ResumesController < ApplicationController
   end
 
   def index
-    @resume = Resume.all
+    @resumes = Resume.all
   end
 
   def destroy
-    @resume = Resume.find(params[:id])
     if @resume.destroy
       redirect_to resumes_path, warning: "Deleted!"
     end
   end
 
   private
+  def require_resume_permission
+    @resume = Resume.find(params[:id])
+    if current_user != @resume.user
+      redirect_to resumes_path, alert: "您无法修改他人简历哦~"
+    end
+  end
+
   def resume_params
     params.require(:resume).permit(:name, :semester, :work_place, :description, :app_image, :logdown, :fs_username, :contact_email )
   end

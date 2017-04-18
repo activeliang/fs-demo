@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>我发布的招聘</h1>
+
+  <table class="table table-boldered">
+    <% @jobs.each do |job| %>
+    <tr>
+      <td><%= link_to job.title, job_path(job) %></td>
+      <td><%= job.task %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</div>

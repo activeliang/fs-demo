@@ -1,2 +1,21 @@
-<h1>Add a resume</h1>
-<%= link_to("Add a resume", new_resume_path, class: "btn btn-primary") %>
+<div class="container">
+  <h1>Add a resume</h1>
+  <%= link_to("Add a resume", new_resume_path, class: "btn btn-primary pull-right") %>
+  <br>
+  <hr>
+  <table class="table table-boldered table-hover">
+    <% @resumes.each do |resume| %>
+    <tr>
+      <td><%= link_to resume.name, resume_path(resume) %></td>
+      <td>
+        <% if resume.photos.present? %>
+        <%= image_tag(resume.photos[0].avatar.thumb.url, class: "thumbnail") %>
+        <% end %>
+      </td>
+      <td><%= resume.logdown %></td>
+      <td></td>
+    </tr>
+    <% end  %>
+  </table>
+
+</div>
