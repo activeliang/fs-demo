@@ -33,4 +33,8 @@ class User < ApplicationRecord
   def cancel_employ!(resume)
     who_i_want.delete(resume)
   end
+
+  def admin?
+    is_admin
+  end
 end

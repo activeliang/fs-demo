@@ -1,0 +1,34 @@
+<h1>所有数据</h1>
+<h3>所有的简历</h3>
+<table class="table">
+  <% @resumes.each do |resume| %>
+  <tr>
+    <td><%= link_to resume.name, resume_path(resume) %></td>
+    <td><%= resume.logdown %></td>
+    <td><%= link_to("Edit", edit_admin_resume_path(resume), class: "btn btn-primary") %></td>
+    <td><%= link_to("Delete", admin_resume_path(resume), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary") %></td>
+  </tr>
+  <% end  %>
+</table>
+
+<h3>所有的职位</h3>
+<table class="table">
+  <% @jobs.each do |job| %>
+  <tr>
+    <td><%= link_to job.title, job_path(job) %></td>
+    <td><%= job.task %></td>
+    <td><%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-primary") %></td>
+    <td><%= link_to("Delete", admin_job_path(job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary") %></td>
+  </tr>
+  <% end %>
+</table>
+
+<table class="table table-boldered">
+  <% @jobs.each do |job| %>
+  <tr>
+    <td><%= link_to job.title, job_path(job) %></td>
+    <td><%= job.task %></td>
+
+  </tr>
+  <% end %>
+</table>

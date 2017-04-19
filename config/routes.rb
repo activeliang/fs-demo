@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'resumes#index'
+  root 'welcome#index'
 
   resources :resumes do
     member do
@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     resources :resumes
     resources :jobs
     resources :apply_jobs
+  end
+
+  namespace :admin do
+    resources :resumes
+    resources :jobs
+    resources :dashboard
   end
 
 end
