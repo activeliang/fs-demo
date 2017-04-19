@@ -11,21 +11,20 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 production:
-  qiniu_access_key: q3CLvxlEX86BlUIUGil0U_ErSctIq2HyD5xCgz4b  # 你的 qiniu AccessKey
+  AWS_ACCESS_KEY_ID: "AKIAIXIPZB22JZV36J3Q"  # 你的 Access key ID
 
-  qiniu_secret_key: n66bzDYANMztUNq5tNTXxGd1rWYohzwl6SEDFbBY  # 你的 qiniu SecretKey
+  AWS_SECRET_ACCESS_KEY: "iVxcGOaDb62d8uKGbGvyYb0hzACRXWboA0EDtOHi"  # 你的 Secret access key
 
-  qiniu_bucket: myapp-ipic  # 你的 qiniu bucket
+  AWS_REGION: "ap-northeast-1"  # 你的 S3 bucket 的 Region 位置
 
-  qiniu_bucket_domain: oonp9imi2.bkt.clouddn.com  # 你的 qiniu bucket domain
-
+  AWS_BUCKET_NAME: "activeliang2ipic"  # 你设定的 bucket name
 
 
 development:
-  qiniu_access_key: q3CLvxlEX86BlUIUGil0U_ErSctIq2HyD5xCgz4b  # 你的 qiniu AccessKey
+  AWS_ACCESS_KEY_ID: "AKIAIXIPZB22JZV36J3Q"  # 你的 Access key ID
 
-  qiniu_secret_key: n66bzDYANMztUNq5tNTXxGd1rWYohzwl6SEDFbBY  # 你的 qiniu SecretKey
+  AWS_SECRET_ACCESS_KEY: "iVxcGOaDb62d8uKGbGvyYb0hzACRXWboA0EDtOHi"  # 你的 Secret access key
 
-  qiniu_bucket: myapp-ipic  # 你的 qiniu bucket
+  AWS_REGION: "ap-northeast-1"  # 你的 S3 bucket 的 Region 位置
 
-  qiniu_bucket_domain: oonp9imi2.bkt.clouddn.com  # 你的 qiniu bucket domain
+  AWS_BUCKET_NAME: "activeliang2ipic"  # 你设定的 bucket name
