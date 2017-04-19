@@ -1,17 +1,34 @@
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
+<div class="form-inputs">
+  <%= f.input :email, required: true, autofocus: true %>
+  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+  <%= f.input :password_confirmation, required: true %>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+<%= f.input :name, autofocus: true %>
+<div><%= f.check_box :is_female, {}, true %>
+  <%= f.label :is_female, "Female" %>
+</div>
+<div><%= f.check_box :is_female, {}, false %>
+  <%= f.label :is_female, "Male" %>
+</div>
+<%= f.input :date_of_birth, :date_select => :date_of_birth%>
+
+<div class="form-group">
+  <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
+  <div class="col-sm-6">
+    <%= f.file_field :avatar %>
   </div>
+</div>
+<br>
+
+<div class="form-actions">
+  <%= f.button :submit, "Sign up" %>
+</div>
 <% end %>
 
 <%= render "devise/shared/links" %>
