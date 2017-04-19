@@ -11,21 +11,21 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 production:
-  qiniu_access_key: xxxx  # 你的 qiniu AccessKey
+  qiniu_access_key: q3CLvxlEX86BlUIUGil0U_ErSctIq2HyD5xCgz4b  # 你的 qiniu AccessKey
 
-  qiniu_secret_key: xxxx  # 你的 qiniu SecretKey
+  qiniu_secret_key: n66bzDYANMztUNq5tNTXxGd1rWYohzwl6SEDFbBY  # 你的 qiniu SecretKey
 
-  qiniu_bucket: xxxx  # 你的 qiniu bucket
+  qiniu_bucket: myapp-ipic  # 你的 qiniu bucket
 
-  qiniu_bucket_domain: xxxx  # 你的 qiniu bucket domain
+  qiniu_bucket_domain: oonp9imi2.bkt.clouddn.com  # 你的 qiniu bucket domain
 
 
 
 development:
-  qiniu_access_key: xxxx  # 你的 qiniu AccessKey
+  qiniu_access_key: q3CLvxlEX86BlUIUGil0U_ErSctIq2HyD5xCgz4b  # 你的 qiniu AccessKey
 
-  qiniu_secret_key: xxxx  # 你的 qiniu SecretKey
+  qiniu_secret_key: n66bzDYANMztUNq5tNTXxGd1rWYohzwl6SEDFbBY  # 你的 qiniu SecretKey
 
-  qiniu_bucket: xxxx  # 你的 qiniu bucket
+  qiniu_bucket: myapp-ipic  # 你的 qiniu bucket
 
-  qiniu_bucket_domain: xxxx  # 你的 qiniu bucket domain
+  qiniu_bucket_domain: oonp9imi2.bkt.clouddn.com  # 你的 qiniu bucket domain
