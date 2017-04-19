@@ -2,3 +2,6 @@
   <%= link_to("发职位找人才", jobs_path, class: "btn btn-primary") %>
   <%= link_to("发简历找工作", resumes_path, class: "btn btn-success") %>
 </div>
+
+<li class="haha"><%= image_tag(current_user.avatar.url(:medium)) %></li>
+<li class="haha"><%= image_tag(current_user.avatar.url(:thumb))%></li>
