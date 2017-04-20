@@ -1,3 +1,14 @@
+/*CSS reset*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
+blockquote,th,td {margin:0;padding:0;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:0}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ol,ul {list-style:none}
+caption,th {text-align:left}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal}
+q:before,q:after {content:''}
+abbr,acronym { border:0}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -16,8 +27,43 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 @import "font-awesome";
+@import "welcome";
 
 
+// 所有字体
+h1, h2, h3, h4, h5, h6, p, a, li, span, div, input, button, label, form {
+  font-family: Hiragino Sans GB, STHeiti, Microsoft Yahei, sans-serif !important;
+}
+// 以下是导航条
+.navbar-default {
+  background-color : #ffffff;
+  border-width :0;
+  margin-bottom: 0;
+  height :10%;
+  padding: 1rem .9375rem 1rem .9375rem
+}
+.navbar-brand > img {
+  display: inline-block;
+  width: 42px;
+  margin: 0;
+  margin-right: 10px;
+  // height: 32px;
+}
+.navbar-brand {
+  font-size: 1.7em;
+  font-weight: 900;
+  color: #07c257;
+  letter-spacing: 2px;
+  font-family: Hiragino Sans GB, STHeiti, Microsoft Yahei, sans-serif !important;
+}
+.navbar-default .navbar-brand {
+  color: #07c257;
+}
+#navbar-img {
+  padding: 0;
+}
+
+// 以下用户头像
 .round-image-50 {
     background-color: white;
     border: 1px solid #d9d9d9;
@@ -29,4 +75,22 @@
     overflow: hidden;
     text-align: center;
     img { width: 100% }
+}
+
+// 以下是页脚
+.footer-content {
+  background-color: #F0F0F0;
+  padding: 20px 0 15px 0;
+  height: 61px;
+  margin-top: 20px
+}
+.footer-link {
+  float: left;
+}
+.footer-link a{
+  color: rgb(111, 111, 111);
+}
+.design p{
+  float: right;
+  color: rgb(111, 111, 111);
 }

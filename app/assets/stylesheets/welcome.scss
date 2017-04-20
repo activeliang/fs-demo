@@ -1,3 +1,151 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 以下是首图
+.jumbotron-1 {
+  // background-image: url("http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-20-Nipic_5000999_20120716162831459145.jpg");
+  background-repeat: no-repeat;
+  position: relative;
+  height: 670px;
+  /*background: url(https://source.unsplash.com/kVf7VRgg4p8/1920x1080) no-repeat center center; */
+  background: asset-data-url("2.jpg") no-repeat center center ;
+  background-size: cover;
+  margin: 0 -15px;
+  border-radius: 0;//圆角为0
+}
+.container-fluid .jumbotron-1 {
+  border-radius: 0;//圆角为0
+}
+.jumbotron-1 h1 {
+  font-family: "webfont_light",Helvetica,Arial,sans-serif;
+  text-align: center;
+  color: #ffffff;
+  font-size: 3.375rem;
+}
+.content-container {
+  color: #ffffff;
+position: absolute;
+top: 50%;
+left: 50%;
+-webkit-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+z-index: 3;
+padding: 50px;
+// background: rgba(0,0,0,0.3);
+border-radius: 0;//圆角为0
+
+}
+.my-button {
+  width: 100%;
+  padding: 11px;
+  font-size: 1.9rem;
+  letter-spacing: .3rem;
+}
+.my-button:hover {
+  background-color: transparent;
+}
+.content {
+  position: relative;
+max-width: 600px;
+margin: 0 auto 0 auto;
+text-align: center;
+font-size: 1.0rem;
+line-height: 3.5rem;
+}
+.sub-copy {
+  text-align: center;
+  display: block;
+}
+.sign-up-form {
+    position: relative;
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.line {
+  display: block;
+  position: relative;
+  top: 10px;
+  width: 80%;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+  margin: 0 auto;
+}
+.log-in-link a:hover {
+  color: #ffffff;
+  font-size: 3rem;
+}
+
+// 以下是首页上的横条
+.jumbotron-2 {
+  border-radius: 0 !important;//圆角为0
+  background-size: cover;
+  background-color: #414141;
+  border-top:3px solid #282828;
+  color: #ffffff;
+  height: 5em;
+  padding: 0;
+}
+.jumbotron-2 p {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+}
+.gr-text {
+  color: #2DBE57;
+}
+
+// 以下是学员被录取目录
+.content-4 {
+  text-align: center;
+  padding: 70px 0 70px 0;
+}
+.lp-section-5 .content-5 p {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.lp-section-5 .content-5 .list img{
+  max-height: 40px;
+  margin: 5px auto 15px;
+}
+.lp-section-5 .content-5 .more {
+  // max-width: 960px;
+  // text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+// 以下是首页底下的注册
+.jumbotron-3 {
+  padding: 20px;
+  background-color: rgb(78, 169, 110);
+  margin: 0 -15px 0 -15px;
+  border-radius: 0 !important;//圆角为0
+}
+.form-actions-2 .btn-1 {
+  background-color: transparent;
+  height: 52px;
+  width: 100%;
+  color: #ffffff;
+}
+.form-actions-2 .btn-1:hover {
+  background-color: #ffffff;
+  color: #55b070;
+}
+.welcome-sign {
+  width: 460px;
+  margin: 0 auto;
+}
+.welcome-sign .content h2,p{
+  color: #ffffff;
+}
+.form-item input {
+  height: 43px;
+}

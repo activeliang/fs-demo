@@ -1,10 +1,82 @@
+<div class="jumbotron jumbotron-1">
+
+  <div class="content-container">
+    <div class="content">
+      <h1>轻松找工作</h1>
+      <div class="line"></div>
+      <br>
+      <p class="sub-cop">工作无处不在。在这里，帮你连接整个职缺市场，放心学习，轻松找Rails全栈工作。</p>
+    </div>
+
+    <div class="sign-up-form">
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.input :email, label: false, placeholder: '邮箱'%>
+        </div>
+        <div class="col-sm-6">
+          <%= f.input :password, label: false, placeholder: '密码', hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        </div>
+      </div>
+      <p class="text-center" style="color: #ffffff; font-size: .5em;">点击注册即表明你同意本服务条款 和隐私条款。</p>
+      <div class="form-actions">
+        <%= f.button :submit, "免费注册", class: "my-button btn btn-success"%>
+        <br><br>
+        已有账号？<%= link_to("登入", new_user_session_path, id:"log-in-link", style: "font-size: 1.9rem;") %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="jumbotron jumbotron-2">
+    <p class="text-center">
+      与全球的<span class="gr-text">全栈营小伙伴</span>一起，从这里找全栈工作，找全栈人才~
+    </p>
+  </div>
+</div>
 <div class="container">
   <%= link_to("发职位找人才", jobs_path, class: "btn btn-primary") %>
   <%= link_to("发简历找工作", resumes_path, class: "btn btn-success") %>
 </div>
-<% if current_user %>
-<% if current_user.avatar.present? %>
-<li class="haha"><%= image_tag(current_user.avatar.url(:medium)) %></li>
-<li class="haha"><%= image_tag(current_user.avatar.url(:thumb))%></li>
-<% end %>
-<% end  %>
+
+<div class="jumbotron jumbotron-3">
+  <div class="welcome-sign">
+    <div class="content">
+      <h2>立即注册</h2>
+      <p>开始你的全栈生活</p>
+    </div>
+    <div class="sign-in-form">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="form-item">
+        <%= f.input :email, class: "form-1",label: false, placeholder: '邮箱'%>
+      </div>
+      <div class="form-item">
+        <%= f.input :password, class: "form-1",label: false, placeholder: '密码', hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      </div>
+      <p class="text-center" style="color: #ffffff;font-size: .5em;">点击注册即表明你同意本服务条款 和隐私条款。</p>
+      <div class="form-actions-2">
+        <%= f.button :submit, "免费注册", class: "btn-1"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="lp-section-4 lp-section-5">
+  <div class="content-4 content-5">
+    <p class="des">我们的小伙伴被以下公司录取了</p>
+    <div class="list">
+      <img src="https://fullstack.xinshengdaxue.com/images/jinshuju.png">
+      <img src="https://fullstack.xinshengdaxue.com/images/strikingly.png">
+      <img src="https://fullstack.xinshengdaxue.com/images/caicheng.png">
+      <img src="https://fullstack.xinshengdaxue.com/images/yunbi.png">
+      <img src="https://fullstack.xinshengdaxue.com/images/meow.png">
+    </div>
+    <p class="des more">更多精彩，等你创造……</p>
+  </div>
+</div>
