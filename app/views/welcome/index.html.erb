@@ -43,47 +43,6 @@
 
 </section>
 
-<!--
-<div class="jumbotron jumbotron-1">
-
-  <video autoplay="autoplay" loop="loop">
-    <source class="webm" type="video/webm" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video@2x.webm">
-    <source class="mp4" type="video/mp4" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video@2x.mp4">
-  </video>
-  <img src="https://cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still@2x.jpg" class="mobile-fallback" alt="" style="display: none;">
-  <div class="content-container">
-    <div class="content">
-      <h1>轻松找工作</h1>
-      <div class="line"></div>
-      <br>
-      <p class="sub-cop">工作无处不在。在这里，帮你连接整个职缺市场，放心学习，轻松找Rails全栈工作。</p>
-    </div>
-
-    <div class="sign-up-form">
-
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
-
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.input :email, label: false, placeholder: '邮箱'%>
-        </div>
-        <div class="col-sm-6">
-          <%= f.input :password, label: false, placeholder: '密码', hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        </div>
-      </div>
-      <p class="text-center" style="color: #ffffff; font-size: .5em;">点击注册即表明你同意本服务条款 和隐私条款。</p>
-      <div class="form-actions">
-        <%= f.button :submit, "免费注册", class: "my-button btn btn-success"%>
-        <br><br>
-        已有账号？<%= link_to("登入", new_user_session_path, id:"log-in-link", style: "font-size: 1.9rem;") %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-
-  <!-- </section> -->
-
 <div class="row">
   <div class="jumbotron jumbotron-2">
     <p class="text-center">
@@ -91,11 +50,70 @@
     </p>
   </div>
 </div>
-<div class="container">
-  <%= link_to("发职位找人才", jobs_path, class: "btn btn-primary") %>
-  <%= link_to("发简历找工作", resumes_path, class: "btn btn-success") %>
+<div class="container btn-4">
+  <div class="row">
+    <div class="col-sm-6 col-xs-12 text-center">
+      <div class="btn-btn">
+        <%= link_to("发职位找人才", jobs_path, class: "btn btn-primary btn-2") %>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 text-center">
+      <div class="btn-btn">
+        <%= link_to("发简历找工作", resumes_path, class: "btn btn-success btn-2") %>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="container">
+  <div class="story">
+    <div class="row story-item">
+      <div class="col-sm-6 col-xs-12 story-text">
+        <div class="text-item">
+          <h1>发表简历找工作</h1>
+          <p>这里是Ruby on Rails全栈工程师的招聘网站，最聚集的职位。发表你的简历，立即寻找你的心仪工作。</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12 image-right">
+        <img src="/images/103.jpg" class="img-responsive desv thumbnail" alt="">
+      </div>
+    </div>
+    <div class="row story-item">
+      <div class="col-sm-6 col-xs-12 image-left">
+        <img src="/images/104.png" class="img-responsive desv thumbnail" alt="">
+      </div>
+      <div class="col-sm-6 col-xs-12 story-text">
+        <div class="text-item tet">
+          <h1>发表职位找人才</h1>
+          <p>这里聚集着全栈营的优质学员，业界喜欢的编程“新手”，我们不仅懂写作，懂沟通，还懂如何跟他人协作。来这里找人才，就对了！</p>
+        </div>
+      </div>
+    </div>
+    <div class="row story-item">
+      <div class="col-sm-6 col-xs-12 story-text">
+        <div class="text-item">
+          <h1>Ruby on Rails相关工作</h1>
+          <p>旨在服务全栈小伙伴，所以，我们只涉及Rails相关工作。在这里，你能看到的全是符合你的专业。</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12 image-right">
+        <img src="/images/102.jpg" class="img-responsive desv thumbnail" alt="">
+      </div>
+    </div>
+    <div class="row story-item">
+      <div class="col-sm-6 col-xs-12 image-left">
+        <img src="/images/105.jpg" class="img-responsive desv thumbnail" alt="">
+      </div>
+      <div class="col-sm-6 col-xs-12 story-text">
+        <div class="text-item tet">
+          <h1>未毕业也能发表简历</h1>
+          <p>来吧，发表你的简历，我们希望你在学习过程中能被关注，相信优质的学员，总是很稀缺的。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 <div class="jumbotron jumbotron-3">
   <div class="welcome-sign">
     <div class="content">
@@ -121,7 +139,7 @@
 
 <div class="lp-section-4 lp-section-5">
   <div class="content-4 content-5">
-    <p class="des">我们的小伙伴被以下公司录取了</p>
+    <p class="des " style="text-align: center;">我们的小伙伴被以下公司录取了</p>
     <div class="list">
       <img src="https://fullstack.xinshengdaxue.com/images/jinshuju.png">
       <img src="https://fullstack.xinshengdaxue.com/images/strikingly.png">
@@ -129,6 +147,6 @@
       <img src="https://fullstack.xinshengdaxue.com/images/yunbi.png">
       <img src="https://fullstack.xinshengdaxue.com/images/meow.png">
     </div>
-    <p class="des more">更多精彩，等你创造……</p>
+    <p class="des more" style="text-align: center;">更多精彩，等你创造……</p>
   </div>
 </div>

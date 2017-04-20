@@ -193,13 +193,73 @@ video {
   color: #2DBE57;
 }
 
+
+// 以下是按钮
+.btn-2 {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 2rem;
+}
+.btn-4 {
+  padding: 30px;
+}
+.btn-2:hover {
+  background-color: transparent;
+  color: #409c6a;
+}
+
+// 以下是介绍区
+.stroy-item .image-left {
+  float: left;
+}
+.story .story-item .image-right img {
+  position: relative;
+  right: 0;
+  float:right;
+}
+.story-text .text-item{
+  width: 80%;
+}
+.desv {
+  border-width: 0;
+  border-radius:  0;
+  width: 80%;
+}
+.story-item {
+  padding:30px;
+}
+.story-item .story-text h1 {
+  color: rgba(30,30, 30,0.7);
+  font-size: 2.3rem;
+  padding: 10px;
+}
+.story-item .story-text p {
+  color: rgba(30,30, 30,0.7);
+  font-size: 1.5rem;
+  letter-spacing: 0.21rem;
+}
+.story-text {
+  margin: auto 0;
+  align-items:center;
+}
+.story-text .tet {
+  position: absolute;
+  right: 0;
+}
+.text-item {
+  padding: 50px 0;
+}
+
+
+
 // 以下是学员被录取目录
 .content-4 {
   text-align: center;
   padding: 70px 0 70px 0;
 }
 .lp-section-5 .content-5 p {
-  text-align: center;
+  text-align: center !important;
   color: #666;
   font-size: 18px;
   margin-bottom: 30px;
