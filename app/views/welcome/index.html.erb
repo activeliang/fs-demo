@@ -1,5 +1,56 @@
+<section class="home-video-hero">
+
+  <div class="video-frame" data-video="/evernote.com/video/homepage/homepage-hero-video" data-image="/evernote.com/img/homepage/homepage-hero-video-desktop-still.jpg" data-mobile="/evernote.com/img/homepage/homepage-hero-video-mobile-still.jpg">
+    <div class="video-overlay"></div>
+
+    <video autoplay="autoplay" loop="loop" poster="https://cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still@2x.jpg">
+      <source class="webm" type="video/webm" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video@2x.webm">
+      <source class="mp4" type="video/mp4" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video@2x.mp4">
+    </video>
+    <div class="content-container col-sm-4 col-xs-12">
+      <div class="content">
+        <h1>轻松找工作</h1>
+        <div class="line"></div>
+        <br>
+        <h3 class="sub-cop">工作无处不在。在这里，帮你连接整个职缺市场，放心学习，轻松找Rails全栈工作。</h3>
+      </div>
+
+      <div class="sign-up-form">
+
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.input :email, label: false, placeholder: '邮箱'%>
+          </div>
+          <div class="col-sm-6">
+            <%= f.input :password, label: false, placeholder: '密码', hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          </div>
+        </div>
+        <p class="text-center" style="color: #ffffff; font-size: .5em; padding:18px;">点击注册即表明你同意本服务条款 和隐私条款。</p>
+        <div class="form-actions">
+          <%= f.button :submit, "免费注册", class: "my-button btn btn-success"%>
+          <br><br>
+          已有账号？<%= link_to("登入", new_user_session_path, id:"log-in-link", style: "font-size: 1.9rem;") %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <img src="https://cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still@2x.jpg" class="mobile-fallback" alt="" style="display: none;">
+  </div>
+
+</section>
+
+<!--
 <div class="jumbotron jumbotron-1">
 
+  <video autoplay="autoplay" loop="loop">
+    <source class="webm" type="video/webm" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video@2x.webm">
+    <source class="mp4" type="video/mp4" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video@2x.mp4">
+  </video>
+  <img src="https://cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still@2x.jpg" class="mobile-fallback" alt="" style="display: none;">
   <div class="content-container">
     <div class="content">
       <h1>轻松找工作</h1>
@@ -30,7 +81,8 @@
       <% end %>
     </div>
   </div>
-</div>
+
+  <!-- </section> -->
 
 <div class="row">
   <div class="jumbotron jumbotron-2">
@@ -48,7 +100,7 @@
   <div class="welcome-sign">
     <div class="content">
       <h2>立即注册</h2>
-      <p>开始你的全栈生活</p>
+      <h4>开始你的全栈生活</h4>
     </div>
     <div class="sign-in-form">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -58,7 +110,7 @@
       <div class="form-item">
         <%= f.input :password, class: "form-1",label: false, placeholder: '密码', hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       </div>
-      <p class="text-center" style="color: #ffffff;font-size: .5em;">点击注册即表明你同意本服务条款 和隐私条款。</p>
+      <p class="text-center" style="color: #ffffff;font-size: .5em; padding: 5px;">点击注册即表明你同意本服务条款 和隐私条款。</p>
       <div class="form-actions-2">
         <%= f.button :submit, "免费注册", class: "btn-1"%>
       </div>

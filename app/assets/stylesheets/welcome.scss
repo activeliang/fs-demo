@@ -1,58 +1,67 @@
+/*CSS reset*/
+ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
+ blockquote,th,td {margin:0;padding:0;}
+ table {border-collapse:collapse;border-spacing:0;}
+ fieldset,img {border:0}
+ address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ ol,ul {list-style:none}
+ caption,th {text-align:left}
+ h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal}
+ q:before,q:after {content:''}
+ abbr,acronym { border:0}
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// 以下是首图
-.jumbotron-1 {
-  // background-image: url("http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-20-Nipic_5000999_20120716162831459145.jpg");
-  background-repeat: no-repeat;
-  position: relative;
-  height: 670px;
-  /*background: url(https://source.unsplash.com/kVf7VRgg4p8/1920x1080) no-repeat center center; */
-  background: asset-data-url("2.jpg") no-repeat center center ;
-  background-size: cover;
-  margin: 0 -15px;
-  border-radius: 0;//圆角为0
-}
-.container-fluid .jumbotron-1 {
-  border-radius: 0;//圆角为0
-}
-.jumbotron-1 h1 {
-  font-family: "webfont_light",Helvetica,Arial,sans-serif;
-  text-align: center;
-  color: #ffffff;
-  font-size: 3.375rem;
-}
+
+
+
 .content-container {
   color: #ffffff;
-position: absolute;
-top: 50%;
-left: 50%;
--webkit-transform: translate(-50%, -50%);
--ms-transform: translate(-50%, -50%);
-transform: translate(-50%, -50%);
-z-index: 3;
-padding: 50px;
-// background: rgba(0,0,0,0.3);
-border-radius: 0;//圆角为0
-
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  padding: 50px;
+}
+.content-container h3 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  padding-bottom: 10px;
+}
+.form-group {
+  margin: 0;
+  padding: 0;
+}
+.form-item {
+  width: 100%;
+}
+.content-container input {
+  height: 40px;
+  margin: 0;
 }
 .my-button {
   width: 100%;
-  padding: 11px;
-  font-size: 1.9rem;
+  padding: 10px;
+  font-size: 1.7rem;
+  line-height: 1.7rem;
   letter-spacing: .3rem;
+  text-align: center;
 }
 .my-button:hover {
   background-color: transparent;
 }
 .content {
   position: relative;
-max-width: 600px;
-margin: 0 auto 0 auto;
-text-align: center;
-font-size: 1.0rem;
-line-height: 3.5rem;
+  max-width: 600px;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  font-size: 1.0rem;
+  line-height: 3.5rem;
 }
 .sub-copy {
   text-align: center;
@@ -61,8 +70,8 @@ line-height: 3.5rem;
 .sign-up-form {
     position: relative;
     max-width: 580px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin: 0;
+    padding: 0;
 }
 .line {
   display: block;
@@ -70,13 +79,95 @@ line-height: 3.5rem;
   top: 10px;
   width: 80%;
   height: 1px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.5);
   margin: 0 auto;
 }
 .log-in-link a:hover {
   color: #ffffff;
   font-size: 3rem;
 }
+
+
+// 以下是视频.\
+.home-video-hero {
+  position: relative;
+  margin: 0 -15px 0 -15px;
+  bottom: -5px;
+}
+.home-video-hero .video-frame {
+  position: relative;
+}
+.home-video-hero .video-frame video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    background-size: cover;
+    position: relative;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    min-height: auto;
+    z-index: -10;
+    background-size: cover;
+}
+video {
+
+}
+.home-video-hero .video-overlay {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    // background: rgba(0,0,0,0.3);
+    z-index: 2;
+}
+.home-video-hero .content-container {
+    width: 670px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(+50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+.home-video-hero h1 {
+    font-size: 38px;
+    font-size:4rem;
+    line-height: 48px;
+    line-height: 3rem;
+    text-align: center;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 10px;
+}
+.home-video-hero .sub-copy {
+    font-family: "webfont",Helvetica,Arial,sans-serif;
+    font-size: 1.25rem;
+    line-height: 30px;
+    line-height: 1.875rem;
+    text-align: center;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+.home-video-hero p {
+    font-family: "Gotham_SSm_4r",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-size: 1.5rem;
+    line-height: 1.125rem;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+.home-video-hero .sign-up-form {
+    position: relative;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 
 // 以下是首页上的横条
 .jumbotron-2 {
@@ -87,6 +178,7 @@ line-height: 3.5rem;
   color: #ffffff;
   height: 5em;
   padding: 0;
+  margin-top: 0;
 }
 .jumbotron-2 p {
   position: relative;
@@ -122,9 +214,12 @@ line-height: 3.5rem;
   margin-top: 20px;
   margin-bottom: 0;
 }
+
+
+
 // 以下是首页底下的注册
 .jumbotron-3 {
-  padding: 20px;
+  padding: 40px;
   background-color: rgb(78, 169, 110);
   margin: 0 -15px 0 -15px;
   border-radius: 0 !important;//圆角为0
@@ -143,9 +238,18 @@ line-height: 3.5rem;
   width: 460px;
   margin: 0 auto;
 }
-.welcome-sign .content h2,p{
+.welcome-sign .content h2,h4{
+  text-align: center;
   color: #ffffff;
+}
+.jumbotron-3 h4 {
+  font-size: 1.99rem;
+  padding:20px;
 }
 .form-item input {
   height: 43px;
+  margin-bottom: 20px;
+}
+.jumbotron-3 h2 {
+  font-size: 3rem;
 }
