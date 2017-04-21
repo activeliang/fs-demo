@@ -7,6 +7,8 @@
       <source class="webm" type="video/webm" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video@2x.webm">
       <source class="mp4" type="video/mp4" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video@2x.mp4">
     </video>
+
+    <% if !current_user %>
     <div class="content-container col-sm-4 col-xs-12">
       <div class="content">
         <h1>轻松找工作</h1>
@@ -37,6 +39,7 @@
         <% end %>
       </div>
     </div>
+    <% end %>
 
     <img src="https://cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still@2x.jpg" class="mobile-fallback" alt="" style="display: none;">
   </div>
@@ -61,6 +64,15 @@
       <div class="btn-btn">
         <%= link_to("发简历找工作", resumes_path, class: "btn btn-success btn-2") %>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- 以下是简历展示 -->
+<div class="row">
+  <div class="col-xs-6 col-sm-3">
+    <div class="thumbnail">
+      <%= image_tag() %>
     </div>
   </div>
 </div>
@@ -112,8 +124,10 @@
       </div>
     </div>
   </div>
-
 </div>
+<!-- 以下是底部的注册模块 -->
+<% if !current_user %>
+
 <div class="jumbotron jumbotron-3">
   <div class="welcome-sign">
     <div class="content">
@@ -136,6 +150,7 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <div class="lp-section-4 lp-section-5">
   <div class="content-4 content-5">
