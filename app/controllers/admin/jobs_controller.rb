@@ -27,6 +27,6 @@ class Admin::JobsController < ApplicationController
 
   private
   def job_params
-    params.require(:job).permit(:title, :task, :wage_upper_bound, :wage_lower_bound, :description, :detail, :scale, :website, :work_time, :five_gold, :overtime_pay, :address, :contact_wechat)
+    params.require(:job).permit(:title, :task, :wage_upper_bound, :wage_lower_bound, :description, :detail, :scale, :website, :work_time, :five_gold, :overtime_pay, :address, :contact_wechat, :is_show)
   end
 end

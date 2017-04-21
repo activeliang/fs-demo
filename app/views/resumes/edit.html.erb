@@ -14,6 +14,7 @@
     <%= f.label :avatar %><br>
     <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
   </div>
+  <%= f.input :is_show %>
   <%= f.submit "提交" %>
   <% end %>
 
