@@ -11,7 +11,7 @@
     <div class="col-md-6">
       <h1><%= @resume.name %></h1>
       <p><%= @resume.description %></p>
-      <p><%= @resume.user_id %></p>
+      <p><%= @resume.semester %></p>
     </div>
 
   </div>
@@ -39,5 +39,23 @@
   <%= link_to("我要挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn btn-primary") %>
 <% else %>
   <%= link_to("撤消聘请", cancel_employ_resume_path(@resume), method: :post, class: "btn btn-primary") %>
+  <% end %>
+</div>
+
+<% if @tags.present? %>
+<table class="table">
+  <% @tags.each do |tag| %>
+  <tr>
+    <td><%= tag.re_tag %></td>
+  </tr>
+  <% end %>
+</table>
+<% end %>
+<hr>
+<div class="row">
+  <h1>为简历增加标签</h1>
+  <%= simple_form_for [@resume,@tag] do |f| %>
+  <%= f.input :re_tag %>
+  <%= f.button :submit, "增加", class: "btn btn-success"  %>
   <% end %>
 </div>

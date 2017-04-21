@@ -3,12 +3,17 @@
 
   <%= simple_form_for @resume do |f| %>
   <%= f.input :name, label: "姓名" %>
-  <%= f.input :description, label: "自我陈述" %>
+  <%= f.input :description, as: :text, label: "自我陈述" %>
   <%= f.input :logdown, label: "Logdown 地址"%>
   <%= f.input :fs_username, label: "全栈营ID"%>
   <%= f.input :semester, label: "第几期学员"%>
+  <%= f.check_box :semester, {}, "1" %>
+  <%= f.label :semester, "第一期学员" %>
+  <%= f.check_box :semester, {}, "2" %>
+  <%= f.label :semester, "第二期学员" %>
   <%= f.input :work_place,lable: "希望工作城市"%>
   <%= f.input :contact_email, lable: "联系方式" %>
+  <%= f.input :introduction, label: "用几句话简介自己，将会用于标签使用" %>
   <div class="group">
     <%#= f.input :image, as: :file %>
     <%= f.label :avatar %><br>

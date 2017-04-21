@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'dash' => 'welcome'
   resources :resumes do
+    resources :tags
     member do
       post :employ_it
       post :cancel_employ
@@ -27,5 +28,6 @@ Rails.application.routes.draw do
     resources :jobs
     resources :dashboard
   end
+
 
 end
