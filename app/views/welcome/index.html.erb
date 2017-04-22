@@ -66,80 +66,56 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <% @resumes.each do |resume| %>
-  <div class="col-sm-3 col-xs-12">
-    <div class="panel panel-default text-center">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-xs-5">
-            <%= image_tag(resume.user.avatar.url(:thumb), class: "img-circle img-responsive") %>
-          </div>
-          <div class="col-xs-7">
-            <h2><%= resume.name %></h2>
-          </div>
-        </div>
-      </div>
-      <div class="panel-body">
-        <p>
-          <strong>20</strong>
-          Lorem</p>
-        <p>
-          <strong>15</strong>
-          Ipsum</p>
-        <p>
-          <strong>5</strong>
-          Dolor</p>
-        <p>
-          <strong>2</strong>
-          Sit</p>
-        <p>
-          <strong>Endless</strong>
-          Amet</p>
-      </div>
-      <div class="panel-footer">
-        <h3>$19</h3>
-        <h4>per month</h4>
-        <button class="btn btn-lg">Sign Up</button>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
+  <!-- 以下是简历区 -->
 
-<!-- 以下是简历展示 -->
-<div class="container">
-  <div class="row">
+  <div class="container clearfix">
     <% @resumes.each do |resume| %>
-    <div class="col-xs-6 col-sm-3">
-      <div class="thumbnail">
-        <%= image_tag(resume.user.avatar.url(:medium)) %>
-        <div class="caption">
-          <h1>这是我的小苹果哦</h1>
-          <p>哈哈中，你在说些什么呢~？</p>
-          <p>这是第三段文字哦</p>
-          <% resume.tags.each do |tag| %>
-          <p class="label label-success"><%= tag.re_tag %></p>
-          <% end %>
-          <%= link_to("查看详情", resume_path(resume), class: "btn btn-success") %>
-        </div>
-      </div>
-    </div>
-    <% end %>
+    <div class="test">
+      <div class="col-sm-3 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <div class="panel-bc">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-xs-5">
+                    <%= image_tag(resume.user.avatar.url(:thumb), class: "img-responsive  user-img") %>
+                  </div>
+                  <div class="col-xs-7">
+                    <h2><%= resume.name %></h2>
+                    <span class="label label-success">
+                      <%= resume.semester %>
+                    </span>
 
-    <% @resumes.each do |resume| %>
-    <div class="col-xs-6 col-sm-3">
-      <div class="thumbnail">
-        <%= image_tag(resume.user.avatar.url(:medium)) %>
-        <div class="caption">
-          <h1>这是我的小苹果哦</h1>
-          <p>哈哈中，你在说些什么呢~？</p>
-          <p>这是第三段文字哦</p>
-          <%= link_to("查看详情", resume_path(resume), class: "btn btn-success") %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel-bc-img">
+              <%= image_tag(resume.user.avatar.url(:thumb), class: "img-responsive thumbnail") %>
+              <!-- <%= image_tag("http://www.imooc.com/courseimg/s/cover017_s.jpg", class: "thumbnail") %> -->
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="bc-1">
+              <div class="row intro">
+                <h3><%= resume.introduction %></h3>
+              </div>
+              <div class="row">
+                <% resume.tags.each do |tag| %>
+                <span class="label label-success">
+                  <%= tag.re_tag %>
+                </span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%= link_to("接近TA", resume_path(resume), class: "btn btn-success") %>
+          </div>
         </div>
       </div>
+
     </div>
     <% end %>
   </div>
@@ -233,6 +209,5 @@
     <p class="des more" style="text-align: center;">更多精彩，等你创造……</p>
   </div>
 </div>
-e" style="text-align: center;">更多精彩，等你创造……</p>
 </div>
 </div>

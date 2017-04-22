@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Edit a resume</h1>
 
-  <%= simple_form_for @resume do |f| %>
+  <%= simple_form_for [:admin, @resume] do |f| %>
   <%= f.input :name, label: "姓名" %>
   <%= f.input :description, label: "自我陈述" %>
   <%= f.input :logdown, label: "Logdown 地址"%>
@@ -9,8 +9,8 @@
   <%= f.input :semester, label: "第几期学员"%>
   <%= f.input :work_place,lable: "希望工作城市"%>
   <%= f.input :contact_email, lable: "联系方式" %>
-  <%= f.input :contact_email, lable: "联系方式" %>
-
+  <%= f.input :introduction, lable: "用一句" %>
+  <%= f.input :fs_link, lael: "全栈营的个人主页" %>
   <div class="group">
     <%#= f.input :image, as: :file %>
     <%= f.label :avatar %><br>

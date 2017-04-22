@@ -1,7 +1,7 @@
 class Admin::ResumesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
-  layout 'admin'
+  layout 'admin', only: [:edit]
 
 
   def index
@@ -29,6 +29,6 @@ class Admin::ResumesController < ApplicationController
 
   private
   def resume_params
-    params.require(:resume).permit(:name, :semester, :work_place, :description, :app_image, :logdown, :fs_username, :contact_email, :is_show, :introduction )
+    params.require(:resume).permit(:name, :semester, :work_place, :description, :app_image, :logdown, :fs_username, :contact_email, :is_show, :introduction, :fs_link )
   end
 end

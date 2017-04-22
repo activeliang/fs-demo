@@ -14,8 +14,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-
 .content-container {
   color: #ffffff;
   position: absolute;
@@ -57,7 +55,7 @@
 }
 .content {
   position: relative;
-  max-width: 600px;
+  max-width: 80%;
   margin: 0 auto 0 auto;
   text-align: center;
   font-size: 1.0rem;
@@ -208,6 +206,117 @@ video {
   background-color: transparent;
   color: #409c6a;
 }
+
+
+
+// 以下是panel
+.panel {
+    box-shadow: 0 5px 8px 0 rgba(7,17,27,.1);
+    transition: .3s all linear;
+    border-width: 0;
+    margin-top: 80px;
+}
+.panel-default .user-img {
+  background-color: #ff00ff;
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  width: 75px;
+  border-radius: 7px;
+}
+.panel-default h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  float: left;
+}
+.panel-default .panel-body .label {
+  // display: block;
+  float: right;
+  background-color: #fff;
+  border: 1px solid #07c257;
+  margin-right: 4px;
+  color: #07c257;
+  margin-top: 14px;
+  margin-bottom: -7px;
+  float: left;
+}
+.panel-heading {
+  position: relative;
+  padding: 0;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.panel .panel-bc-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  border-width: 0;
+  padding: 0;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  background-size: contain;
+}
+.panel-bc {
+  position: relative;
+  display: block;
+  z-index: 1;
+  background: linear-gradient(270deg,rgba(0,185,90,.65),#00b95a);
+  background-size: contain;
+  height: 100%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  padding: 16px;
+}
+.panel-bc .label {
+  position: absolute;
+  top: 0;
+}
+.panel-body {
+  padding: 20px 30px;
+}
+.panel-body .intro {
+  max-height: 100px;
+  min-height: 100px;
+  overflow: hidden;
+}
+.panel-body h3 {
+  font-size: 1.6rem;
+  color: rgba(20,20,20, 0.75);
+  line-height: 1.8rem;
+}
+
+.panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+.panel-footer .btn:hover {
+    border: 1px solid #07c257;
+    background-color: #fff !important;
+    color: #07c257;
+}
+
+.panel-footer {
+    background-color: #fff !important;
+    padding: 10px;
+}
+.panel-footer .btn {
+    margin: 15px 0;
+    background-color: #10c14c;
+    color: #fff;
+    width: 70%;
+    height: 35px;
+    line-height: 1.8rem;
+    font-size: 1.8rem;
+    letter-spacing: .3rem;
+}
+
 
 // 以下是介绍区
 .stroy-item .image-left {

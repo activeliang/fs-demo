@@ -1,0 +1,5 @@
+class AddFsLinksToResume < ActiveRecord::Migration[5.0]
+  def change
+    add_column :resumes, :fs_link, :string
+  end
+end
