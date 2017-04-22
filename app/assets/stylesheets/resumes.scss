@@ -3,11 +3,73 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 以下是简历详情resume_show页面
-.page-body {
-  background-color: #f3f3f3;
-  margin-left: -15px;
-  margin-right: -15px;
+.re_index {
+  margin: 0 -15px 0;
+  margin-top: 90px;
 }
-.body {
-  background-color: #f3f3f3;
+.reitem-1 {
+  background-color: #fff;
+  margin-bottom: 15px;
+  // margin-top: 90px;
+}
+.reitem-1 img {
+  width: 140px;
+  position: absolute;
+  top: -60px;
+  left: 50px;
+  box-shadow: 0 5px 8px 0 rgba(7,17,27,.2);
+}
+.reitem-1-right {
+  padding-left: 25px;
+}
+.reitem-1-right h1 {
+  font-size: 2.7rem;
+  margin-top: 30px;
+  letter-spacing: .155rem;
+  font-weight: 450;
+  color: rgba(20,20,20, 0.8);
+}
+.reitem-1-right .label-1 {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  width: 1.3rem;
+  position: relative;
+  top: -5px;
+  border-radius: 25px;
+  margin-left: 15px;
+}
+.re_index .reitem-1 .line-1 {
+  display: block;
+  top: 10px;
+  width: 90%;
+  float: left;
+  height: 3px;
+  background: rgba(40,40,40,0.6);
+  color: #009933;
+  margin: 0 auto;
+}
+.re_index .reitem-1-right .label-item {
+  margin-top: 15px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.reitem-1-right .label-2 {
+  font-size: 1.3rem;
+  border-radius: 5px;
+  margin-right: 15px;
+  background-color: #fff;
+  color: #10c14c;
+  border: 1px solid #07c257;
+}
+
+// 以下是app-item
+.app-item {
+  // margin-right: 15px;
+  background-color: #ffffff;
+  margin-left: -15px;
+}
+.app-item img {
+  overflow: hidden;
+  border-width: 0;
+  padding: 0;
 }

@@ -1,30 +1,30 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="page-body">
-      <div class="container">
-        <div class="re_index">
-          <div class="row">
-            <div class="reitem-1">
-              <div class="col-xs-2">
-                <%= image_tag(@resume.user.avatar.url(:medium), class: "thumbnail img-responsive") %>
-              </div>
-              <div class="col-xs-10">
-                <div class="reitem-1-right">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h1><%= @resume.name %></h1>
-                      <span class="label label-success">
-                        <%= @resume.semester %>
-                      </span>
-                    </div>
+    <div class="container container-1">
+      <div class="re_index">
+        <div class="row reitem-1">
+          <div class="reitem-1">
+            <div class="col-xs-2">
+              <%= image_tag(@resume.user.avatar.url(:medium), class: "thumbnail img-responsive") %>
+            </div>
+            <div class="col-xs-10">
+              <div class="reitem-1-right">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h1><%= @resume.name %>
+                      <span class="label label-success label-1">
+                        第<%= @resume.semester %></h1>
+                    </span>
                   </div>
-                  <div class="reitem-1-line"></div>
-                  <div class="row">
-                    <div class="col-xs-12">
+                </div>
+                <div class="line line-1"></div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="label-item">
                       <% @resume.tags.each do |tag| %>
-                      <div class="label-2">
+                      <span class="label label-success label-2">
                         <%= tag.re_tag %>
-                      </div>
+                      </span>
                       <% end %>
                     </div>
                   </div>
@@ -32,67 +32,67 @@
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col-sm-4 col-xs-12">
-              <div class="app-item">
-                <div class="row">
-                  <%= image_tag("http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-22-051345.jpg", class: "thumbnail img-responsive") %>
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <div class="app-item">
+
+              <%= image_tag("http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-22-051345.jpg", class: "thumbnail img-responsive") %>
+
+              <div class="work-detail">
+                <h1>作品</h1>
+                <h4>作品名称</h4>
+              </div>
+              <div class="work-link row">
+                <div class="col-xs-6">
+                  <%= link_to("浏览作品网站", '#') %>
                 </div>
-                <div class="row">
-                  <h1>作品</h1>
-                  <h4>作品名称</h4>
-                </div>
-                <div class="row">
-                  <div class="col-xs-6">
-                    <%= link_to("浏览作品网站", '#') %>
-                  </div>
-                  <div class="col-xs-6">
-                    <%= link_to("查看作品源码", '#') %>
-                  </div>
+                <div class="col-xs-6">
+                  <%= link_to("查看作品源码", '#') %>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="col-sm-8 col-xs-12">
-              <div class="row">
-                <div class="reitem-2">
-                  <div class="title">
-                    <h1>个人信息</h1>
-                  </div>
-                  <h2>全栈营个人首页：<%= link_to("全栈营人个首页", '#') %></h2>
-                  <h2>Logdown地址：<%= link_to("Logdown博客首页", '#') %></h2>
-                  <p>期望工作地点：<%= @resume.work_place %></p>
+          <div class="col-sm-8 col-xs-12">
+            <div class="row">
+              <div class="reitem-2">
+                <div class="title">
+                  <h1>个人信息</h1>
                 </div>
+                <h2>全栈营个人首页：<%= link_to("全栈营人个首页", '#') %></h2>
+                <h2>Logdown地址：<%= link_to("Logdown博客首页", '#') %></h2>
+                <p>期望工作地点：<%= @resume.work_place %></p>
               </div>
-              <div class="row">
-                <div class="reitem-3">
-                  <div class="title">
-                    <h1>自己简介</h1>
-                  </div>
-                  <p><%= @resume.description %></p>
+            </div>
+            <div class="row">
+              <div class="reitem-3">
+                <div class="title">
+                  <h1>自己简介</h1>
                 </div>
+                <p><%= @resume.description %></p>
               </div>
-              <div class="row">
-                <div class="reitem-4">
-                  <div class="title">
-                    <h1>作品截图展示</h1>
-                  </div>
-                  <div class="app_image">
-                    <% if @photos.present? %>
-                    <% @photos.each_with_index do |p, index| %>
-                    <% if index == 0 %>
-                    <%= image_tag p.avatar.medium.url %>
-                    <div style="letter-spacing: -8px">
-                    <% else %>
-                      <%= image_tag p.avatar.medium.url %>
-                      <% end %>
-                      <% end %>
-                    </div>
+            </div>
+            <div class="row">
+              <div class="reitem-4">
+                <div class="title">
+                  <h1>作品截图展示</h1>
+                </div>
+                <div class="app_image">
+                  <% if @photos.present? %>
+                  <% @photos.each_with_index do |p, index| %>
+                  <% if index == 0 %>
+                  <%= image_tag p.avatar.medium.url %>
+                  <div style="letter-spacing: -8px">
                   <% else %>
-                    <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+                    <%= image_tag p.avatar.medium.url %>
+                    <% end %>
                     <% end %>
                   </div>
+                <% else %>
+                  <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -103,14 +103,10 @@
   </div>
 </div>
 
-<!-- <div class="pull-right">
-  <% if !current_user.is_employ_it?(@resume) %>
-  <%= link_to("我要挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn btn-primary") %>
-<% else %>
-  <%= link_to("撤消聘请", cancel_employ_resume_path(@resume), method: :post, class: "btn btn-primary") %>
+<div class="pull-right">
+  <% if current_user %>
   <% end %>
-</div> -->
-<!--
+</div>
 <% if @tags.present? %>
 <table class="table">
   <% @tags.each do |tag| %>
@@ -127,4 +123,4 @@
   <%= f.input :re_tag %>
   <%= f.button :submit, "增加", class: "btn btn-success"  %>
   <% end %>
-</div> -->
+</div>

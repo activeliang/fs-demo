@@ -1,6 +1,7 @@
 class ResumesController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create, :destroy, :edit, :update]
   before_action :require_resume_permission, only:[:edit, :update, :destroy]
+  layout 'bc', only: [:show]
   def new
     @resume = Resume.new
     @photo = @resume.photos.build
