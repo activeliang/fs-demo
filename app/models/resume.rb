@@ -1,5 +1,7 @@
 class Resume < ApplicationRecord
   mount_uploader :app_image, AppImageUploader
+  mount_uploader :wmf, WmfUploader
+  mount_uploader :wms, WmsUploader
   has_many :tags
   has_many :photos
   accepts_nested_attributes_for :photos

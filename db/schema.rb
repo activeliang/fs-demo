@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421133623) do
+ActiveRecord::Schema.define(version: 20170422114317) do
 
   create_table "job_relationships", force: :cascade do |t|
     t.integer  "job_id"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20170421133623) do
     t.boolean  "is_show",       default: false
     t.text     "introduction"
     t.string   "fs_link"
+    t.string   "wmf"
+    t.string   "wms"
   end
 
   create_table "tags", force: :cascade do |t|
