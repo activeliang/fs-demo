@@ -6,7 +6,7 @@ class ResumesController < ApplicationController
     @resume = Resume.new
     @photo = @resume.photos.build
     if current_user.resumes.present?
-      redirect_to :back, alert: "你已经有简历存在了，一人只能生成一张简历哦~"
+      redirect_to "/", alert: "你已经有简历存在了，一人只能生成一张简历哦~"
     end
   end
 
@@ -19,7 +19,7 @@ class ResumesController < ApplicationController
     @resume = Resume.new(resume_params)
     @resume.user = current_user
     if current_user.resumes.present?
-      redirect_to :back, alert: "你已经有简历存在了，一人只能生成一张简历哦~"
+      redirect_to "/", alert: "你已经有简历存在了，一人只能生成一张简历哦~"
 
     elsif @resume.save
             if params[:photos] != nil
