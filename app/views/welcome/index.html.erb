@@ -16,12 +16,9 @@
         <br>
         <h3 class="sub-cop">工作无处不在。在这里，帮你连接整个职缺市场，放心学习，轻松找Rails全栈工作。</h3>
       </div>
-
       <div class="sign-up-form">
-
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-
         <div class="row">
           <div class="col-sm-6">
             <%= f.input :email, label: false, placeholder: '邮箱'%>
@@ -39,33 +36,47 @@
         <% end %>
       </div>
     </div>
-    <% end %>
+  <% else %>
+    <div class="content-container col-sm-4 col-xs-12">
+      <div class="content">
+        <h1>轻松找到全栈好工作</h1>
+        <div class="line"></div>
+        <br>
+        <h3 class="sub-cop">工作无处不在。在这里，帮你连接整个职缺市场，放心学习，轻松找Rails全栈工作。</h3>
+        <div class="col-xs-3 col-xs-offset-4">
+          <%= link_to("发简历找工作",'#',class: "btn btn-success") %>
+        </div>
+        <div class="col-xs-3 col-xs-offset-1">
+          <%= link_to("发职位找人才", '#', class: "btn btn-success") %>
+        </div>
+      </div>
+      <% end %>
 
-    <img src="https://cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still@2x.jpg" class="mobile-fallback" alt="" style="display: none;">
-  </div>
+      <img src="https://cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still@2x.jpg" class="mobile-fallback" alt="" style="display: none;">
+    </div>
 
-</section>
+  </section>
 
-<div class="row">
-  <div class="jumbotron jumbotron-2">
-    <p class="text-center">
-      与全球的<span class="gr-text">全栈营小伙伴</span>一起，从这里找全栈工作，找全栈人才~
-    </p>
-  </div>
-</div>
-<div class="container btn-4">
   <div class="row">
-    <div class="col-sm-6 col-xs-12 text-center">
-      <div class="btn-btn">
-        <%= link_to("发职位找人才", jobs_path, class: "btn btn-primary btn-2") %>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xs-12 text-center">
-      <div class="btn-btn">
-        <%= link_to("发简历找工作", resumes_path, class: "btn btn-success btn-2") %>
-      </div>
+    <div class="jumbotron jumbotron-2">
+      <p class="text-center">
+        与全球的<span class="gr-text">全栈营小伙伴</span>一起，从这里找全栈工作，找全栈人才~
+      </p>
     </div>
   </div>
+  <!-- <div class="container btn-4">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12 text-center">
+        <div class="btn-btn">
+          <%= link_to("发职位找人才", jobs_path, class: "btn btn-success btn-2") %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-12 text-center">
+        <div class="btn-btn">
+          <%= link_to("发简历找工作", resumes_path, class: "btn btn-success btn-2") %>
+        </div>
+      </div>
+    </div> -->
 
   <!-- 以下是简历区 -->
 
@@ -97,17 +108,21 @@
             </div>
           </div>
           <div class="panel-body">
-            <div class="bc-1">
-              <div class="row intro">
-                <h3><%= resume.introduction %></h3>
+            <div class="intro">
+              <h3><%= resume.introduction %></h3>
+            </div>
+            <div class="wel-label-item">
+              <% if resume.tags.present? %>
+              <% resume.tags.each do |tag| %>
+              <div class="label label-success label-item-1">
+                <%= tag.re_tag %>
               </div>
-              <div class="row">
-                <% resume.tags.each do |tag| %>
-                <span class="label label-success">
-                  <%= tag.re_tag %>
-                </span>
-                <% end %>
+              <% end %>
+            <% else %>
+              <div class="label label-success label-item-1">
+                教是最好的学
               </div>
+              <% end %>
             </div>
           </div>
           <div class="panel-footer">

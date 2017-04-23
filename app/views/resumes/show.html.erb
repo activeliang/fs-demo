@@ -17,16 +17,16 @@
                     </span>
                   </div>
                 </div>
-                <div class="line line-1"></div>
-                <div class="row">
-                  <div class="col-xs-12">
-                    <div class="label-item">
-                      <% @resume.tags.each do |tag| %>
-                      <span class="label label-success label-2">
-                        <%= tag.re_tag %>
-                      </span>
-                      <% end %>
-                    </div>
+                <div class="line line-1">
+                  <br>
+                </div>
+                <div class="col-xs-12">
+                  <div class="label-item">
+                    <% @resume.tags.each do |tag| %>
+                    <p class="label label-success label-2">
+                      <%= tag.re_tag %>
+                    </p>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -36,91 +36,121 @@
 
         <div class="row">
           <div class="col-sm-4 col-xs-12">
+
+            <% if @resume.wmf.url.present? %>
             <div class="app-item">
-
-              <%= image_tag("http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-22-051345.jpg", class: "thumbnail img-responsive") %>
-
+              <%= image_tag(@resume.wmf.url, class: "thumbnail img-responsive") %>
               <div class="work-detail">
-                <h1>作品</h1>
-                <h4>作品名称</h4>
+                <h1>Job-Listing 魔改大赛</h1>
+                <h4>全栈营个人大赛</h4>
               </div>
-              <div class="work-link row">
-                <div class="col-xs-6">
-                  <%= link_to("浏览作品网站", '#') %>
-                </div>
-                <div class="col-xs-6">
-                  <%= link_to("查看作品源码", '#') %>
-                </div>
+              <div class="work-link text-center">
+                <%= link_to @resume.wmf_link, :target => "_blank" do %>
+                <div class="work-link-1">浏览作品网站</div>
+                <% end %>
+
+                <%= link_to @resume.wmf_git, :target => "_blank" do %>
+                <div class="work-link-2">查看作品源码</div>
+                <% end %>
+
               </div>
             </div>
+            <div class="app-item">
+              <%= image_tag(@resume.wms.url, class: "thumbnail img-responsive") %>
+              <div class="work-detail">
+                <h1>JD-Store 商店创意大赛</h1>
+                <h4>全栈营两人合作大赛</h4>
+              </div>
+              <div class="work-link text-center">
+                <%= link_to @resume.wms_link, :target => "_blank" do %>
+                <div class="work-link-1">浏览作品网站</div>
+                <% end %>
+                <%= link_to @resume.wms_git, :target => "_blank" do %>
+                <div class="work-link-2">查看作品源码</div>
+                <% end %>
+              </div>
+
+            </div>
+            <% end %>
           </div>
 
           <div class="col-sm-8 col-xs-12">
-            <div class="row">
-              <div class="reitem-2">
+            <div class="reitem-2">
+              <div class="reitem-2-1">
                 <div class="title">
                   <h1>个人信息</h1>
                 </div>
-                <h2>全栈营个人首页：<%= link_to("全栈营人个首页", '#') %></h2>
-                <h2>Logdown地址：<%= link_to("Logdown博客首页", '#') %></h2>
-                <p>期望工作地点：<%= @resume.work_place %></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="reitem-3">
-                <div class="title">
-                  <h1>自己简介</h1>
+                <div class="haha">
+                  <h2>
+                    <span class="ui-box"></span>全栈营个人首页：<%= link_to("查看学习状况", @resume.fs_link, class: "btn btn-success btn-xs") %></h2>
+                  <h2>
+                    <span class="ui-box"></span>Logdown 地 址 ：<%= link_to("查看技术博客", @resume.logdown, class: "btn btn-success btn-xs") %></h2>
                 </div>
-                <p><%= @resume.description %></p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="reitem-4">
-                <div class="title">
-                  <h1>作品截图展示</h1>
-                </div>
-                <div class="app_image">
-                  <% if @photos.present? %>
-                  <% @photos.each_with_index do |p, index| %>
-                  <% if index == 0 %>
-                  <%= image_tag p.avatar.medium.url %>
-                  <div style="letter-spacing: -8px">
-                  <% else %>
-                    <%= image_tag p.avatar.medium.url %>
+                <div class="re-show-btn">
+                  <div class="re-show-btn-1">
+                    <button class="btn btn-success liang-btn" onclick="on()">查看联系信息</button>
+                  </div>
+
+                  <div class="re-show-btn-2">
+                    <% if current_user %>
+                    <% if current_user.is_employ_it?(@resume) %>
+                    <button type="button" class="btn btn-success liang-btn disabled" name="button">已申请挖走TA</button>
+                    <%= link_to("取消", cancel_employ_resume_path(@resume), method: :post) %>
+                    <% elsif %>
+                    <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
                     <% end %>
+                  <% else %>
+                    <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
                     <% end %>
                   </div>
+                </div>
+                <div class="work_place">
+                  <p>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    期望工作地点：<%= @resume.work_place %></p>
+                </div>
+              </div>
+
+              <div class="title">
+
+                <h5>自我简介</h5>
+              </div>
+              <div class="p2">
+                <p><%= @resume.description %></p>
+              </div>
+
+            </div>
+
+            <div class="reitem-3">
+              <div class="title">
+                <h1>作品截图展示</h1>
+              </div>
+              <div class="app_image">
+                <% if @photos.present? %>
+                <% @photos.each_with_index do |p, index| %>
+                <% if index == 0 %>
+                <%= image_tag p.avatar.url, class: "thumbnail img-responsive" %>
+                <div style="letter-spacing: -8px">
                 <% else %>
-                  <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+                  <%= image_tag p.avatar.url, class: "thumbnail img-responsive" %>
+                  <% end %>
                   <% end %>
                 </div>
+              <% else %>
+                <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<div class="pull-right">
-  <% if current_user %>
-  <% end %>
-</div>
-<% if @tags.present? %>
-<table class="table">
-  <% @tags.each do |tag| %>
-  <tr>
-    <td><%= tag.re_tag %></td>
-  </tr>
-  <% end %>
-</table>
-<% end %>
-<hr>
-<div class="row">
-  <h1>为简历增加标签</h1>
-  <%= simple_form_for [@resume,@tag] do |f| %>
-  <%= f.input :re_tag %>
-  <%= f.button :submit, "增加", class: "btn btn-success"  %>
-  <% end %>
-</div>
+      <div id="overlay" onclick="off()">
+        <div id="text">Overlay Textt
+          <% if @resume.wechatimg.present? %>
+          <%= image_tag(@resume.wechatimg.url, class: "thumbnail img-responsive") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+          <% end %>
+        </div>
+      </div>

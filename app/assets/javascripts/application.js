@@ -32,3 +32,13 @@ $(function(){
     footerPosition();
     $(window).resize(footerPosition);
 });
+
+
+//以下是微信二维码
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}

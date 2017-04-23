@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422114317) do
+ActiveRecord::Schema.define(version: 20170423045855) do
 
   create_table "job_relationships", force: :cascade do |t|
     t.integer  "job_id"
@@ -70,6 +70,11 @@ ActiveRecord::Schema.define(version: 20170422114317) do
     t.string   "fs_link"
     t.string   "wmf"
     t.string   "wms"
+    t.string   "wmf_link"
+    t.string   "wms_link"
+    t.string   "wms_git"
+    t.string   "wmf_git"
+    t.string   "wechatimg"
   end
 
   create_table "tags", force: :cascade do |t|

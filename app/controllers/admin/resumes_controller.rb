@@ -29,6 +29,6 @@ class Admin::ResumesController < ApplicationController
 
   private
   def resume_params
-    params.require(:resume).permit(:name, :semester, :work_place, :description, :app_image, :logdown, :fs_username, :contact_email, :is_show, :introduction, :fs_link, :wmf, :wms )
+    params.require(:resume).permit(:name, :semester, :work_place, :description, :app_image, :logdown, :fs_username, :contact_email, :is_show, :introduction, :fs_link, :wmf, :wms, :wmf_link, :wmf_git, :wms_link, :wms_git, :wechatimg )
   end
 end

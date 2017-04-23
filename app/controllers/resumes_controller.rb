@@ -5,19 +5,23 @@ class ResumesController < ApplicationController
   def new
     @resume = Resume.new
     @photo = @resume.photos.build
+    if current_user.resumes.present?
+      redirect_to :back, alert: "你已经有简历存在了，一人只能生成一张简历哦~"
+    end
   end
 
   def show
     @resume = Resume.find(params[:id])
     @photos = @resume.photos.all
-    @tag = Tag.new
-    @tags = @resume.tags
   end
 
   def create
     @resume = Resume.new(resume_params)
     @resume.user = current_user
-    if @resume.save
+    if current_user.resumes.present?
+      redirect_to :back, alert: "你已经有简历存在了，一人只能生成一张简历哦~"
+
+    elsif @resume.save
             if params[:photos] != nil
         params[:photos]['avatar'].each do |a|
           @photo = @resume.photos.create(:avatar => a)
@@ -30,6 +34,8 @@ class ResumesController < ApplicationController
   end
 
   def edit
+    @tag = Tag.new
+    @tags = @resume.tags
   end
 
   def update
@@ -52,13 +58,18 @@ class ResumesController < ApplicationController
 
   def employ_it
     @resume = Resume.find(params[:id])
-    if !current_user.is_employ_it?(@resume)
+    if !current_user
+      flash[:warning] = "请先登入哦~！"
+      redirect_to :back
+
+    elsif !current_user.is_employ_it?(@resume)
       current_user.employ_it!(@resume)
       flash[:notice] = "已成功发送邀请给TA~"
+      redirect_to resume_path(@resume)
     else
       flash[:warning] = "你已经邀请过了哦~"
+      redirect_to resume_path(@resume)
     end
-    redirect_to resume_path(@resume)
   end
 
   def cancel_employ
@@ -82,6 +93,6 @@ class ResumesController < ApplicationController
   end
 
   def resume_params
-    params.require(:resume).permit(:name, :semester, :work_place, :description, :app_image, :logdown, :fs_username, :contact_email, :is_show, :introduction, :fs_link, :wmf, :wms )
+    params.require(:resume).permit(:name, :semester, :work_place, :description, :app_image, :logdown, :fs_username, :contact_email, :is_show, :introduction, :fs_link, :wmf, :wms, :wmf_link, :wms_link, :wms_git, :wmf_git, :wechatimg )
   end
 end

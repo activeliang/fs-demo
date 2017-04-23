@@ -1,4 +1,5 @@
 class Resume < ApplicationRecord
+  mount_uploader :wechatimg, WechatimgUploader
   mount_uploader :app_image, AppImageUploader
   mount_uploader :wmf, WmfUploader
   mount_uploader :wms, WmsUploader

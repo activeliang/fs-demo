@@ -81,7 +81,20 @@
     text-align: center;
     img { width: 100% }
 }
+.navbar-nav>li>a {
+  padding: 0;
+}
+.nav>li>a {
+  padding: 0;
+}
+.navbar-nav>li>a:active {
+  background-color: #fff;
+  color: #fff;
+}
+.navbar-nav>li>a:visited {
+  background-color: #fff;
 
+}
 
 
 

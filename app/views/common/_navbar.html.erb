@@ -14,8 +14,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><%= link_to("Jobs", jobs_path) %></li>
-        <li><%= link_to("Resumes", resumes_path) %></li>
+        <!-- <li><%= link_to("Jobs", jobs_path) %></li> -->
+        <!-- <li><%= link_to("Resumes", resumes_path) %></li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>
@@ -23,9 +23,9 @@
         </li>
         <li><%= link_to("登入", new_user_session_path) %></li>
       <% else %>
-        <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %>
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
@@ -34,7 +34,7 @@
             <li><%= link_to("我申请的职位", account_apply_jobs_path) %></li>
             <li><%= link_to("我想挖走的人才", '#') %></li>
             <li><%= link_to("管理员后台", admin_dashboard_index_path) %></li>
-            <li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
+            <li><%= link_to '个人中心',edit_user_registration_path %></li>
             <li><%= link_to("登出", destroy_user_session_path, method: :delete) %></li>
           </ul>
         </li>

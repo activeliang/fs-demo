@@ -165,6 +165,15 @@ video {
     margin: 0 auto;
     padding: 0 20px;
 }
+.content a:hover {
+  background-color: transparent;
+}
+.content a {
+  // font-size: 1.7rem;
+  // font-size: 1.1rem;
+  font-size: 1.8rem;
+
+}
 
 
 // 以下是首页上的横条
@@ -192,6 +201,7 @@ video {
 }
 
 
+
 // 以下是按钮
 .btn-2 {
   width: 80%;
@@ -217,28 +227,39 @@ video {
     margin-top: 80px;
 }
 .panel-default .user-img {
-  background-color: #ff00ff;
+  background-color: #ffffff;
   position: absolute;
   top: -40px;
   left: 10px;
   width: 75px;
   border-radius: 7px;
+  box-shadow: 0 5px 8px 0 rgba(7,17,27,.2);
+  // padding: 1px;
 }
 .panel-default h2 {
   font-size: 2rem;
   color: #ffffff;
   float: left;
 }
-.panel-default .panel-body .label {
-  // display: block;
-  float: right;
+.panel-default .panel-body .label-item-1 {
+  float: left;
   background-color: #fff;
   border: 1px solid #07c257;
   margin-right: 4px;
   color: #07c257;
-  margin-top: 14px;
-  margin-bottom: -7px;
-  float: left;
+  // margin-top: 8px;
+  // margin-bottom: px;
+  // float: left;
+  overflow: hidden;
+  max-width: 232px;
+  margin-bottom: 4px;
+}
+.wel-label-item {
+  max-height: 60px;
+  overflow: hidden;
+  padding-left: 8px;
+  padding-bottom: 4px;
+  padding-top: 8px;
 }
 .panel-heading {
   position: relative;
@@ -249,7 +270,9 @@ video {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-
+.intro {
+  margin-top: 13px;
+}
 .panel .panel-bc-img img {
   position: absolute;
   top: 0;
@@ -263,6 +286,7 @@ video {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   background-size: contain;
+  border-width: 0;
 }
 .panel-bc {
   position: relative;
@@ -280,17 +304,19 @@ video {
   top: 0;
 }
 .panel-body {
-  padding: 20px 30px;
+  padding: 0;
 }
 .panel-body .intro {
-  max-height: 100px;
-  min-height: 100px;
+  max-height: 115px;
+  min-height: 115px;
   overflow: hidden;
+  padding: 10px;
 }
 .panel-body h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: rgba(20,20,20, 0.75);
-  line-height: 1.8rem;
+  line-height: 1.77rem;
+  letter-spacing: 1px;
 }
 
 .panel:hover {
