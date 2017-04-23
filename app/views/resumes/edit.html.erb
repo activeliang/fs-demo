@@ -34,6 +34,7 @@
     <% @tags.each do |tag| %>
     <tr>
       <td><%= tag.re_tag %></td>
+      <td><%= link_to("Delete", resume_tag_path(@resume,tag), class: "btn btn-primary", method: :delete, data:{confirm: "Are you sure?"})%></td>
     </tr>
     <% end %>
   </table>

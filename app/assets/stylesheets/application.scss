@@ -85,18 +85,11 @@
 
 
 
-
-
-
-
-
-
 // 以下是页脚
 .footer-content {
   background-color: #F0F0F0;
   padding: 20px 0 15px 0;
-  height: 61px;
-  margin-top: 20px
+  height: 60px;
 }
 .footer-link {
   float: left;
@@ -112,8 +105,18 @@
   color: #409c6a;
   font-size: 5rem;
 }
-.fixed-bottom {
-  position: fixed;
-  bottom: 0;
-  width:100%;
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.body-content {
+  min-height: 100%;
+  padding-bottom: 60px;
+}
+
+.footer {
+  height: 60px;
+  margin-top: -60px;
 }
