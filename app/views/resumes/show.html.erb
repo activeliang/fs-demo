@@ -55,6 +55,8 @@
 
               </div>
             </div>
+            <% end %>
+            <% if @resume.wms.url.present? %>
             <div class="app-item">
               <%= image_tag(@resume.wms.url, class: "thumbnail img-responsive") %>
               <div class="work-detail">
