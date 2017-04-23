@@ -1,21 +1,48 @@
 <div class="container">
-  <h1>Add a resume</h1>
-  <%= link_to("Add a resume", new_resume_path, class: "btn btn-primary pull-right") %>
+  <h1 class="text-center" style="font-size: 30px;">所有简历列表</h1>
+  <%= link_to("新增简历", new_resume_path, class: "btn btn-primary pull-right") %>
   <br>
   <hr>
   <table class="table table-boldered table-hover">
-    <% @resumes.each do |resume| %>
-    <tr>
-      <td><%= link_to resume.name, resume_path(resume) %></td>
-      <td>
-        <% if resume.photos.present? %>
-        <%= image_tag(resume.photos[0].avatar.thumb.url, class: "thumbnail") %>
-        <% end %>
-      </td>
-      <td><%= resume.logdown %></td>
-      <td></td>
-    </tr>
-    <% end  %>
+    <thead>
+      <tr>
+        <th>用户名</th>
+        <th>用户头像</th>
+        <th>作品图片</th>
+        <th>是否在首页展示</th>
+        <th>操作选项</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resumes.each do |resume| %>
+      <tr>
+        <td><%= link_to resume.name, resume_path(resume) %></td>
+        <td>
+          <% if resume.user.avatar.present? %>
+          <%= image_tag(resume.user.avatar.url(:thumb), class: "thumbnail img-responsive")%>
+          <% end %>
+        </td>
+        <td>
+          <% if resume.photos.present? %>
+          <%= image_tag(resume.photos[0].avatar.thumb.url, class: "thumbnail") %>
+          <% end %>
+        </td>
+        <td>
+          <% if resume.is_show %>
+          是
+        <% else %>
+          否
+          <% end %>
+        </td>
+        <td>
+          <% if resume.user == current_user %>
+          <%= link_to("编辑简历", edit_resume_path(resume), class: "btn btn-success")%>
+          <%= link_to("删除简历", resume_path(resume), class: "btn btn-primary")%>
+          <% end %>
+        </td>
+      </tr>
+      <% end  %>
+    </tbody>
   </table>
 
 </div>

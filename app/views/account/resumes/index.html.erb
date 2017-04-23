@@ -1,11 +1,14 @@
-<h1>haha</h1>
+<div class="container">
+  <h1class="text-center" style="font-size: 30px;">我的简历</h1>
 
-<table class="table table-boldered table-striped">
-  <% @resumes.each do |resume| %>
-  <tr>
-    <td><%= link_to resume.name, resume_path(resume) %></td>
-    <td><%= resume.description %></td>
-    <td><%= resume.logdown %></td>
-  </tr>
-  <% end %>
-</table>
+  <table class="table table-boldered table-striped">
+    <% @resumes.each do |resume| %>
+    <tr>
+      <td><%= link_to resume.name, resume_path(resume) %></td>
+      <td><%= resume.description %></td>
+      <td><%= resume.logdown %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</div>

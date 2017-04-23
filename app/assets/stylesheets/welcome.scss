@@ -430,7 +430,7 @@ video {
   color: #55b070;
 }
 .welcome-sign {
-  width: 460px;
+  width: 600px;
   margin: 0 auto;
 }
 .welcome-sign .content h2,h4{
@@ -439,7 +439,7 @@ video {
 }
 .jumbotron-3 h4 {
   font-size: 1.99rem;
-  padding:20px;
+  margin:20px;
 }
 .form-item input {
   height: 43px;
@@ -447,4 +447,8 @@ video {
 }
 .jumbotron-3 h2 {
   font-size: 3rem;
+}
+.jumbotron-4 .content h2 {
+  margin-top: 20px;
+  // font-size: 3rem !important;
 }

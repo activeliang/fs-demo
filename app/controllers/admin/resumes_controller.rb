@@ -1,7 +1,7 @@
 class Admin::ResumesController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_required
-  layout 'admin', only: [:edit]
+  before_action :admin_required, only:[:create, :update, :destroy]
+  layout 'admin'
 
 
   def index

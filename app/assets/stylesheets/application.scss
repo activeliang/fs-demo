@@ -59,6 +59,7 @@
   font-weight: 900;
   color: #07c257;
   letter-spacing: 2px;
+  line-height: 2.3rem;
   font-family: Hiragino Sans GB, STHeiti, Microsoft Yahei, sans-serif !important;
 }
 .navbar-default .navbar-brand {
@@ -81,21 +82,6 @@
     text-align: center;
     img { width: 100% }
 }
-.navbar-nav>li>a {
-  padding: 0;
-}
-.nav>li>a {
-  padding: 0;
-}
-.navbar-nav>li>a:active {
-  background-color: #fff;
-  color: #fff;
-}
-.navbar-nav>li>a:visited {
-  background-color: #fff;
-
-}
-
 
 
 

@@ -1,34 +1,37 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2 class="text-center" style="font-size: 30px;">注册新用户</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
 
-<div class="form-inputs">
-  <%= f.input :email, required: true, autofocus: true %>
-  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-  <%= f.input :password_confirmation, required: true %>
-</div>
-
-<%= f.input :name, autofocus: true %>
-<div><%= f.check_box :is_female, {}, true %>
-  <%= f.label :is_female, "Female" %>
-</div>
-<div><%= f.check_box :is_female, {}, false %>
-  <%= f.label :is_female, "Male" %>
-</div>
-<%= f.input :date_of_birth, :date_select => :date_of_birth%>
-
-<div class="form-group">
-  <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
-  <div class="col-sm-6">
-    <%= f.file_field :avatar %>
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, required: true %>
   </div>
-</div>
-<br>
 
-<div class="form-actions">
-  <%= f.button :submit, "Sign up" %>
-</div>
-<% end %>
+  <!-- <%= f.input :name, autofocus: true %>
+  <div><%= f.check_box :is_female, {}, true %>
+    <%= f.label :is_female, "Female" %>
+  </div>
+  <div><%= f.check_box :is_female, {}, false %>
+    <%= f.label :is_female, "Male" %>
+  </div> -->
+  <br>
+  <div class="form-group">
+    <%= f.label :avatar, class: 'col-sm-2 control-label', label: "上传头像" %>
+    <div class="col-sm-6">
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+  <br>
+  <br>
 
-<%= render "devise/shared/links" %>
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>

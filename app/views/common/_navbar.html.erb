@@ -23,16 +23,18 @@
         </li>
         <li><%= link_to("登入", new_user_session_path) %></li>
       <% else %>
+        <li><%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %></li>
         <li class="dropdown">
+
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %>
+
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
             <li><%= link_to("我的简历", account_resumes_path) %></li>
-            <li><%= link_to("我发布的招聘", account_jobs_path) %></li>
+            <li><%= link_to("我发布的简历", account_jobs_path) %></li>
             <li><%= link_to("我申请的职位", account_apply_jobs_path) %></li>
-            <li><%= link_to("我想挖走的人才", '#') %></li>
+            <li><%= link_to("我想挖走的人才", account_resumes_path) %></li>
             <li><%= link_to("管理员后台", admin_dashboard_index_path) %></li>
             <li><%= link_to '个人中心',edit_user_registration_path %></li>
             <li><%= link_to("登出", destroy_user_session_path, method: :delete) %></li>

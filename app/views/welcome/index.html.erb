@@ -44,10 +44,10 @@
         <br>
         <h3 class="sub-cop">工作无处不在。在这里，帮你连接整个职缺市场，放心学习，轻松找Rails全栈工作。</h3>
         <div class="col-xs-3 col-xs-offset-4">
-          <%= link_to("发简历找工作",'#',class: "btn btn-success") %>
+          <%= link_to("发简历找工作",resumes_path,class: "btn btn-success") %>
         </div>
         <div class="col-xs-3 col-xs-offset-1">
-          <%= link_to("发职位找人才", '#', class: "btn btn-success") %>
+          <%= link_to("发职位找人才", jobs_path, class: "btn btn-success") %>
         </div>
       </div>
       <% end %>
@@ -195,7 +195,7 @@
     </div>
     <div class="sign-in-form">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="form-item">
+      <div class="form-item" style="margin-top: 20px;">
         <%= f.input :email, class: "form-1",label: false, placeholder: '邮箱'%>
       </div>
       <div class="form-item">
@@ -206,6 +206,18 @@
         <%= f.button :submit, "免费注册", class: "btn-1"%>
       </div>
       <% end %>
+    </div>
+  </div>
+</div>
+
+<% else %>
+<div class="container">
+  <div class="jumbotron jumbotron-3 jumbotron-4">
+    <div class="welcome-sign">
+      <div class="content">
+        <h2 style="font-size: 4rem;">与全球的全栈营同学一起</h2>
+        <h4>开启你的全栈人生</h4>
+      </div>
     </div>
   </div>
 </div>

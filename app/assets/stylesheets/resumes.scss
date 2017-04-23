@@ -130,13 +130,21 @@ margin-bottom: 18px;
  text-decoration: none;
 }
 .work-link a:hover {
- text-decoration: none;
- // background-color: #10c14c;
- color: #ffffff;
+ // text-decoration: none;
+ background-color: #10c14c !important;
+ // color: #ffffff;
 
 }
 .work-link a:active {
  text-decoration: none;
+}
+.work-link-1:hover {
+  background-color: #10c14c;
+  color: #ffffff;
+}
+.work-link-2:hover {
+  background-color: #10c14c;
+  color: #ffffff;
 }
 
 // 以下是reitem-2
@@ -192,9 +200,8 @@ margin-bottom: 18px;
 .reitem-2-1 p {
   // margin-top: -30px;
   position: relative;
-  bottom: -20px;
+  bottom: -29px;
   color: rgba(20,20,20,0.65);
-
 }
 .reitem-2 h5 {
   font-weight: 500;
@@ -207,6 +214,8 @@ margin-bottom: 18px;
   font-size: 1.5rem;
   color: rgba(2,2,2,0.76);
   line-height: 2rem;
+  word-wrap: break-word;
+  word-break: normal;
 }
 .re-show-btn {
   float: right;

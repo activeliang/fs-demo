@@ -1,26 +1,50 @@
 <div class="container">
-  <h1>Add a resume</h1>
+  <h1 class="text-center" style="font-size: 30px;">
+    新增简历</h1>
 
   <%= simple_form_for @resume do |f| %>
   <%= f.input :name, label: "姓名" %>
-  <%= f.input :description, label: "自我陈述" %>
-  <%= f.input :logdown, label: "Logdown 地址"%>
+  <%= f.input :description, as: :text, label: "自我陈述" %>
+  <%= f.input :logdown, label: "Logdown 地址,请以"%>
   <%= f.input :fs_username, label: "全栈营ID"%>
   <%= f.input :semester, label: "第几期学员"%>
   <%= f.input :work_place,lable: "希望工作城市"%>
-  <%= f.input :contact_email, lable: "联系方式" %>
-  <%= f.input :fs_link, lael: "全栈营的个人主页" %>
-  <%= f.input :wechatimg, label: "微信二维码" %>
-  <%= f.input :introduction, label: "用几句话简介自己，将会用于标签使用" %>
+  <!-- <%= f.input :contact_email, lable: "联系方式" %> -->
+  <%= f.input :introduction, lable: "用于首页展示简介" %>
+  <%= f.input :fs_link, lael: "全栈营的个人主页链接" %>
+  <%= f.input :wechatimg, label: "微信二维码", as: :file%>
   <div class="group">
     <%#= f.input :image, as: :file %>
     <%= f.label :avatar %><br>
-    <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+    <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]", label: "多图上传,请使用按住command多选图片" %>
   </div>
   <%= f.input :is_show %>
   <%= f.input :wmf,label: "Job-listing大赛作品截图" %>
+  <%= f.input :wmf_link, label: "第一次大赛作品地址" %>
+  <%= f.input :wmf_git, label: "第一次大赛作品github地址" %>
   <%= f.input :wms, label: "商店大赛作品截图" %>
-  <%= f.submit "提交" %>
+  <%= f.input :wms_link, label: "第二次大赛作品地址" %>
+  <%= f.input :wms_git, label: "第二次大赛作品github地址" %>
+  <%= f.submit "提交", class: "btn btn-success"%>
   <% end %>
 
+  <hr>
+  <h1 class="text-center" style="font-size: 30px;">此简历的标签</h1>
+  <% if @tags.present? %>
+  <table class="table table-bordered table-hover">
+    <% @tags.each do |tag| %>
+    <tr>
+      <td><%= tag.re_tag %></td>
+    </tr>
+    <% end %>
+  </table>
+  <% end %>
+  <hr>
+  <div class="ro">
+    <h1 class="text-center" style="font-size: 30px;">为简历增加标签</h1>
+    <%= simple_form_for [@resume,@tag] do |f| %>
+    <%= f.input :re_tag %>
+    <%= f.button :submit, "增加", class: "btn btn-success"  %>
+    <% end %>
+  </div>
 </div>

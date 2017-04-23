@@ -1,5 +1,5 @@
 class Admin::JobsController < ApplicationController
-  before_action :admin_required
+  before_action :admin_required, only: [:create, :update, :destroy]
   layout 'admin'
   def index
     @jobs = Job.order("id DESC")
