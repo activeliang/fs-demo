@@ -39,8 +39,20 @@ class ResumesController < ApplicationController
   end
 
   def update
-    if @resume.update(resume_params)
-      redirect_to resumes_path, notice: "updated!"
+    @resume = Resume.find(params[:id])
+
+    if params[:photos] != nil
+      @resume.photos.destroy_all #need to destroy old pics first
+
+      params[:photos]['avatar'].each do |a|
+        @picture = @resume.photos.create(:avatar => a)
+      end
+
+      @resume.update(resume_params)
+      redirect_to resumes_path
+
+    elsif @resume.update(resume_params)
+      redirect_to resumes_path
     else
       render :edit
     end
