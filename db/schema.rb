@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423045855) do
+ActiveRecord::Schema.define(version: 20170423235058) do
 
   create_table "job_relationships", force: :cascade do |t|
     t.integer  "job_id"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20170423045855) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "aavatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

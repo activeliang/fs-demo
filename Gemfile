@@ -44,7 +44,7 @@ gem 'mini_magick'
 gem 'paperclip', '~> 4.1'
 gem 'carrierwave-qiniu'
 gem 'figaro'
-gem 'fog'
+gem "fog-aws"
 
 
 group :development, :test do

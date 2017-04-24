@@ -1,39 +1,53 @@
-<div class="container">
-  <h2 class="text-center" style="font-size: 30px;">Edit
+<div class="col-xs-4 col-xs-offset-4" id="registration-new">
+  <h2>编辑
     <%= resource_name.to_s.humanize %></h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: :true }) do |f| %>
+  <%= devise_error_messages! %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+  <div class="field">
+    <%= f.input :email, label: "邮箱" %>
+  </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <p>Currently waiting confirmation for:
-      <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :avatar, class: 'col-sm-2 control-label', label: "上传头像"  %>
-    <div class="col-sm-6">
-      <%= f.file_field :avatar %>
-    </div>
-  </div>
-  <br>
-  <div class="form-actions">
-    <%= f.button :submit, "更新" %>
-  </div>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <div>Currently waiting confirmation for:
+    <%= resource.unconfirmed_email %></div>
   <% end %>
 
+  <div class="field">
+    <%= f.input :password, autocomplete: "off", label: "密码(leave blank if you don't want to change it)"%>
+  </div>
+
+  <div class="field">
+    <%= f.input :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <% if current_user.aavatar.url.present? %>
+  <%= image_tag(current_user.aavatar.url) %>
+  <%= f.label :remove_aavatar do %>
+  <%= f.label :remove, "修改用户头像" %>
+  <%= f.check_box :remove_aavatar %>
+  <% end %>
+  <% end %>
+  <%= f.file_field :aavatar %>
+  <%= f.hidden_field :aavatar_cache %>
+
+  <div class="field">
+    <i>(we need your current password to confirm your changes)</i><br/>
+    <%= f.input :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <br>
+    <%= f.submit "确定提交", class: "btn btn-success" %>
+    <br>
+  </div>
+  <% end %>
+  <br>
   <h3>Cancel my account</h3>
 
   <p>Unhappy?
-    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <%= link_to("Cancel my account",registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary btn-xs") %></p>
 
   <%= link_to "Back", :back %>
-
 </div>

@@ -18,8 +18,8 @@
       <tr>
         <td><%= link_to resume.name, resume_path(resume) %></td>
         <td>
-          <% if resume.user.avatar.present? %>
-          <%= image_tag(resume.user.avatar.url(:thumb), class: "thumbnail img-responsive")%>
+          <% if resume.user.aavatar.present? %>
+          <%= image_tag(resume.user.aavatar.url(:thumb), class: "thumbnail img-responsive")%>
           <% end %>
         </td>
         <td>

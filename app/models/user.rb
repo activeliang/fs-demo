@@ -1,5 +1,13 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
+  mount_uploader :aavatar, AavatarUploader
+
+  # User Avatar Validation
+  validates_integrity_of  :aavatar
+  validates_processing_of :aavatar
+
+
+
+  # Include default devise modules. Others aavailable are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -39,6 +47,8 @@ class User < ApplicationRecord
   end
 
 
-  has_attached_file :avatar, :styles => { :medium => "500x500>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
-    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  private
+    def aavatar_size_validation
+      errors[:aavatar] << "should be less than 500KB" if aavatar.size > 2.megabytes
+    end
 end

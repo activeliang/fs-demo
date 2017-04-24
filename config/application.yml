@@ -28,3 +28,7 @@ development:
   AWS_REGION: "ap-northeast-1"  # 你的 S3 bucket 的 Region 位置
 
   AWS_BUCKET_NAME: "activeliang2ipic"  # 你设定的 bucket name
+
+
+aws_access_id: AKIAI2KZCFY3HG737EOQ
+aws_access_secret_key: 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
