@@ -11,9 +11,9 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 production:
-  AWS_ACCESS_KEY_ID: "AKIAI2KZCFY3HG737EOQ"  # 你的 Access key ID
+  AWS_ACCESS_KEY_ID: "AKIAJ36PRZ2Y434RWSNA"  # 你的 Access key ID
 
-  AWS_SECRET_ACCESS_KEY: "48+erZpQtuxfkKkLvFwAZjCWdv/AnlFUpNdU0BPL"  # 你的 Secret access key
+  AWS_SECRET_ACCESS_KEY: "q5B6cGPXNhjy8kWWjXyupIvM3H7qmxE1Ln7J7TRV"  # 你的 Secret access key
 
   AWS_REGION: "ap-northeast-1"  # 你的 S3 bucket 的 Region 位置
 
@@ -21,14 +21,13 @@ production:
 
 
 development:
-  AWS_ACCESS_KEY_ID: "AKIAI2KZCFY3HG737EOQ"  # 你的 Access key ID
+  AWS_ACCESS_KEY_ID: "AKIAJ36PRZ2Y434RWSNA"  # 你的 Access key ID
 
-  AWS_SECRET_ACCESS_KEY: "48+erZpQtuxfkKkLvFwAZjCWdv/AnlFUpNdU0BPL"  # 你的 Secret access key
+  AWS_SECRET_ACCESS_KEY: "q5B6cGPXNhjy8kWWjXyupIvM3H7qmxE1Ln7J7TRV"  # 你的 Secret access key
 
   AWS_REGION: "ap-northeast-1"  # 你的 S3 bucket 的 Region 位置
 
   AWS_BUCKET_NAME: "activeliang2ipic"  # 你设定的 bucket name
 
-
-aws_access_id: AKIAI2KZCFY3HG737EOQ
-aws_access_secret_key: 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
+aws_access_id: AKIAJ36PRZ2Y434RWSNA
+aws_access_secret_key: Enter access_key here
