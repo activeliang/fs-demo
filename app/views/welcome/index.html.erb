@@ -81,62 +81,66 @@
   <!-- 以下是简历区 -->
 
   <div class="container clearfix">
-    <div class="navi-bar">
-      <p>
-        <span class="ui-strip"></span>推荐小伙伴简历...</p>
-    </div>
-    <% @resumes.each do |resume| %>
-    <div class="test">
-      <div class="col-sm-3 col-xs-12">
-        <div class="panel panel-default text-center">
-          <div class="panel-heading">
-            <div class="panel-bc">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-xs-4">
-                    <%= image_tag(resume.user.aavatar.url, class: "img-responsive  user-img") %>
-                  </div>
-                  <div class="col-xs-7">
-                    <h2><%= resume.name %></h2>
-                    <span class="label label-success">
-                      <%= resume.semester %>
-                    </span>
+    <div class="row">
+      <div class="navi-bar">
+        <p>
+          <span class="ui-strip"></span>推荐小伙伴简历...</p>
+        <div class="navi-more"><%= link_to("更多>>", resumes_path) %></div>
+        <div class="navi-line"></div>
+      </div>
+      <% @resumes.each do |resume| %>
+      <div class="test">
+        <div class="col-sm-3 col-xs-12">
+          <div class="panel panel-default text-center">
+            <div class="panel-heading">
+              <div class="panel-bc">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-xs-4">
+                      <%= image_tag(resume.user.aavatar.url, class: "img-responsive  user-img") %>
+                    </div>
+                    <div class="col-xs-7">
+                      <h2><%= resume.name %></h2>
+                      <span class="label label-success">
+                        <%= resume.semester %>
+                      </span>
 
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="panel-bc-img">
-              <%= image_tag(resume.user.aavatar.url, class: "img-responsive thumbnail") %>
-              <!-- <%= image_tag("http://www.imooc.com/courseimg/s/cover017_s.jpg", class: "thumbnail") %> -->
-            </div>
-          </div>
-          <div class="panel-body">
-            <div class="intro">
-              <h3><%= resume.introduction %></h3>
-            </div>
-            <div class="wel-label-item">
-              <% if resume.tags.present? %>
-              <% resume.tags.each do |tag| %>
-              <div class="label label-success label-item-1">
-                <%= tag.re_tag %>
+              <div class="panel-bc-img">
+                <%= image_tag(resume.user.aavatar.url, class: "img-responsive thumbnail") %>
+                <!-- <%= image_tag("http://www.imooc.com/courseimg/s/cover017_s.jpg", class: "thumbnail") %> -->
               </div>
-              <% end %>
-            <% else %>
-              <div class="label label-success label-item-1">
-                教是最好的学
-              </div>
-              <% end %>
             </div>
-          </div>
-          <div class="panel-footer">
-            <%= link_to("接近TA", resume_path(resume), class: "btn btn-success") %>
+            <div class="panel-body">
+              <div class="intro">
+                <h3><%= resume.introduction %></h3>
+              </div>
+              <div class="wel-label-item">
+                <% if resume.tags.present? %>
+                <% resume.tags.each do |tag| %>
+                <div class="label label-success label-item-1">
+                  <%= tag.re_tag %>
+                </div>
+                <% end %>
+              <% else %>
+                <div class="label label-success label-item-1">
+                  教是最好的学
+                </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <%= link_to("接近TA", resume_path(resume), class: "btn btn-success") %>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
 

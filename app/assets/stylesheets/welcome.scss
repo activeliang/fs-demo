@@ -236,6 +236,16 @@ video {
   color: rgba(20,20,20,0.8);
   font-size: 2.5rem;
 }
+.navi-bar .navi-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(40, 40, 40, 0.2);
+  color: #009933;
+}
+.navi-bar .navi-more a {
+  float: right;
+  text-decoration: underline;
+}
 // 以下是panel
 @media only screen and (max-width: 1200px) {
   .wel-label-item {

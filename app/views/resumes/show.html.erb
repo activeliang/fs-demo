@@ -156,3 +156,33 @@
           <% end %>
         </div>
       </div>
+    </div>
+    <!-- 以下是contact-top条： -->
+    <div class="contact-topv" id="myBtn">
+      <div class=" container-fluid contact-top">
+        <div class="container">
+          <div class="col-xs-2 top-user-img">
+            <%=image_tag( @resume.user.aavatar.url, class: "img-responsive") %>
+          </div>
+          <div class="col-xs-7">
+            <h1 class="user-name"><%= @resume.name %></h1>
+            <p>期望工作地点：<%= @resume.work_place %></p>
+          </div>
+          <div class="col-xs-3">
+            <% if current_user %>
+            <% if current_user.is_employ_it?(@resume) %>
+            <button type="button" class="btn btn-success liang-btn disabled" name="button">已申请挖走TA</button>
+            <span class="cancel-link"><%= link_to("取消", cancel_employ_resume_path(@resume), method: :post) %></span>
+            <% elsif %>
+            <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
+            <% end %>
+          <% else %>
+            <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
