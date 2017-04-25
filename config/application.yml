@@ -30,4 +30,4 @@ development:
   AWS_BUCKET_NAME: "activeliang2ipic"  # 你设定的 bucket name
 
 aws_access_id: AKIAJ36PRZ2Y434RWSNA
-aws_access_secret_key: Enter access_key here
+aws_access_secret_key: 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
