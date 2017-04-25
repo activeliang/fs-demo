@@ -34,8 +34,8 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
     if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-        document.getElementById("liangll").style.display = "block";
+        document.getElementById("contacttop").style.display = "block";
     } else {
-        document.getElementById("liangll").style.display = "none";
+        document.getElementById("contacttop").style.display = "none";
     }
 }
