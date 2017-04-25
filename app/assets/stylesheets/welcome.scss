@@ -237,6 +237,11 @@ video {
   font-size: 2.5rem;
 }
 // 以下是panel
+@media only screen and (max-width: 1200px) {
+  .wel-label-item {
+    height: 60px;
+  }
+}
 .panel {
     box-shadow: 0 5px 8px 0 rgba(7,17,27,.1);
     transition: .3s all linear;
@@ -272,6 +277,7 @@ video {
   margin-bottom: 4px;
 }
 .wel-label-item {
+  min-height: 35.98px;
   max-height: 60px;
   overflow: hidden;
   padding-left: 8px;
@@ -286,6 +292,8 @@ video {
   border-top-right-radius: 7px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+  max-height: 55px;
+
 }
 .intro {
   margin-top: 13px;
