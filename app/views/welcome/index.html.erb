@@ -83,10 +83,14 @@
   <div class="container clearfix">
     <div class="row">
       <div class="navi-bar">
-        <p>
-          <span class="ui-strip"></span>推荐小伙伴简历...</p>
-        <div class="navi-more"><%= link_to("更多>>", resumes_path) %></div>
-        <div class="navi-line"></div>
+        <div class="row navi-bar-item">
+          <div class="col-sm-3 navi-bar-1">
+            <p>
+              <span class="ui-strip"></span>推荐小伙伴简历...</p>
+          </div>
+          <div class="col-sm-1 col-sm-offset-8 navi-more"><%= link_to("更多>>", resumes_path) %></div>
+          <div class="navi-line"></div>
+        </div>
       </div>
       <% @resumes.each do |resume| %>
       <div class="test">

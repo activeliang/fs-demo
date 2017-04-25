@@ -241,11 +241,29 @@ video {
   height: 1px;
   background: rgba(40, 40, 40, 0.2);
   color: #009933;
+  position: absolute;
+  bottom: 0px;
+  left: -3px;
 }
 .navi-bar .navi-more a {
-  float: right;
+  // float: right;
   text-decoration: underline;
+  position: relative;
+  top: 15px;
+  z-index: 88;
+  color: rgba(9,9,9,0.4);
 }
+.navi-bar-1 {
+  position: relative;
+  // top: -35px;
+}
+.navi-bar-item {
+  margin-bottom: 17px;
+}
+
+
+
+
 // 以下是panel
 @media only screen and (max-width: 1200px) {
   .wel-label-item {
