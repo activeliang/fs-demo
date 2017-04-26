@@ -102,10 +102,7 @@
                     <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
                     <% end %>
                   <% else %>
-                    <!-- <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %> -->
-                    <!-- Button to open the modal login form -->
-                    <!-- <button class="btn btn-success liang-btn" onclick="document.getElementById('id01').style.display='block'">申请挖走TA</button> -->
-                    <button class="btn btn-success liang-btn" onclick="myFunction()">请申请挖走TA</button>
+                    <button class="btn btn-success liang-btn" onclick="myFunction()">申请挖走TA</button>
                     <% end %>
                   </div>
                 </div>
@@ -176,12 +173,12 @@
             <% if current_user %>
             <% if current_user.is_employ_it?(@resume) %>
             <button type="button" class="btn btn-success liang-btn disabled" name="button">已申请挖走TA</button>
-            <span class="cancel-link"><%= link_to("取消", cancel_employ_resume_path(@resume), method: :post) %></span>
+            <%= link_to("取消", cancel_employ_resume_path(@resume), method: :post) %>
             <% elsif %>
             <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
             <% end %>
           <% else %>
-            <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
+            <button class="btn btn-success liang-btn" onclick="myFunction()">申请挖走TA</button>
             <% end %>
           </div>
         </div>
@@ -189,68 +186,65 @@
     </div>
   </div>
 </div>
-</div>
 
 <!-- 以下是登陆模块 -->
-<!-- The Modal -->
-<div id="id01" class="modal">
-<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-
 <!-- Modal Content -->
-<div class="login-model">
-  <div class="imgcontainer">
-    <img src="http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-22-115935.jpg" alt="Avatar" class="avatar">
-  </div>
-  <div class="container">
-    <h2>
-      登入</h2>
+<div id="id01" class="modal">
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email, required: false, autofocus: true %>
-      <%= f.input :password, required: false %>
+  <div class="modal-content animate">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="关闭弹窗">&times;</span>
+      <img src="http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-26-WechatIMG146.jpeg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container liang-modal">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, required: false, autofocus: true %>
+        <%= f.input :password, required: false %>
+
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: "btn btn-success modal-btn" %>
+      </div>
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <% end %>
+
+      <div class="container  liang-modal-2" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot
+          <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+        </span>
+      </div>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn btn-success" %>
-    </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot
-      <a href="#">password?</a>
-    </span>
   </div>
 </div>
-</div>
+
 <!-- the actual snackbar -->
 <div id="snackbar">请先登入！！!</div>
 <script>
-// Get the modal
-var modal = document.getElementById('id01');
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  // Get the modal
+  var modal = document.getElementById('id01');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   }
-}
 
-function myFunction() {
-  // Get the snackbar DIV
-  var x = document.getElementById("snackbar")
+  function myFunction() {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar")
 
-  // Add the "show" class to DIV
-  x.className = "show";
+    // Add the "show" class to DIV
+    x.className = "show";
 
-  // After 3 seconds, remove the show class from DIV
-  setTimeout(function () {
-    x.className = x.className.replace("show", "");
-  }, 4000);
-  document.getElementById('id01').style.display = 'block'
-}
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () {
+      x.className = x.className.replace("show", "");
+    }, 4000);
+    document.getElementById('id01').style.display = 'block'
+  }
 </script>

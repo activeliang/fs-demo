@@ -307,6 +307,7 @@ margin-bottom: 18px;
   width: 100%;
   height: 84px;
   z-index: 100;
+  transition: .5s ease;
 }
 .contact-top .top-user-img img {
   width: 63px;
@@ -351,6 +352,53 @@ margin-bottom: 18px;
 }
 
 // 以下是 re-show-login-model
+
+
+/* Set a style for all buttons */
+.modal button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    // width: 100%;
+}
+
+.modal button:hover {
+    opacity: 0.8;
+    background-color: transparent;
+    color: red;
+}
+
+/* Extra styles for the cancel button */
+liang-modal-2 .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    // padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -363,19 +411,19 @@ margin-bottom: 18px;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 160px;
+    padding-top: 60px;
 }
 
 /* Modal Content/Box */
-.login-model {
+.modal-content {
     background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin: 10% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
-.close {
+.modal-close-1 {
     position: absolute;
     right: 25px;
     top: 0;
@@ -384,27 +432,54 @@ margin-bottom: 18px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.modal-close-1:hover,
+.modal-close-1:focus {
     color: red;
     cursor: pointer;
+    background-color: transparent;
+
 }
 
+.liang-modal {
+  width: 98%;
+  padding: 16px;
+}
+.liang-modal .modal-btn {
+  width: 100%;
+  height: 45px;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  margin-top: 30px;
+}
+.liang-modal .modal-btn:hover {
+  background-color: #fff;
+  color: #10c14c;
+}
+
+.liang-modal-2 {
+  width: auto;
+  margin-right: -20px;
+  margin-left:  -20px;
+  padding: 16px;
+}
+.liang-modal-2 button{
+  background-color: #90eb14;
+}
 /* Add Zoom Animation */
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
-}
+// .animate {
+//     -webkit-animation: animatezoom 0.6s;
+//     animation: animatezoom 0.6s
+// }
+//
+// @-webkit-keyframes animatezoom {
+//     from {-webkit-transform: scale(0)}
+//     to {-webkit-transform: scale(1)}
+// }
+//
+// @keyframes animatezoom {
+//     from {transform: scale(0)}
+//     to {transform: scale(1)}
+// }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
@@ -416,8 +491,9 @@ margin-bottom: 18px;
        width: 100%;
     }
 }
-// the snackbar dddddddddddddd
-/* The snackbar - position it at the bottom and in the middle of the screen */
+
+ // 以下是提示条
+ /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
     visibility: hidden; /* Hidden by default. Visible on click */
     min-width: 250px; /* Set a default minimum width */
@@ -430,7 +506,7 @@ margin-bottom: 18px;
     position: fixed; /* Sit on top of the screen */
     z-index: 1; /* Add a z-index if needed */
     left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
+    top: 104px; /* 30px from the top */
 }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
@@ -445,21 +521,51 @@ However, delay the fade out process for 2.5 seconds */
 
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    from {top: 0; opacity: 0;}
+    to {top: 104px; opacity: 1;}
 }
 
 @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
+    from {top: 0; opacity: 0;}
+    to {top: 104px; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
+    from {top: 104px; opacity: 1;}
+    to {top: 0; opacity: 0;}
 }
 
 @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
+    from {top: 104px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+}
+// 以下是contact条
+#contacttop.show {
+    display: block; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein-1 0.5s, fadeout-1 0.5s 2.5s;
+    animation: fadein-1 0.5s, fadeout-1 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein-1 {
+    from {top: 0; opacity: 0;}
+    to {top: 104px; opacity: 1;}
+}
+
+@keyframes fadein-1 {
+    from {top: 0; opacity: 0;}
+    to {top: 104px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout-1 {
+    from {top: 104px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout-1 {
+    from {top: 104px; opacity: 1;}
+    to {top: 0; opacity: 0;}
 }

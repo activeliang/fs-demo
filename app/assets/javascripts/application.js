@@ -33,9 +33,12 @@ function off() {
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+  var x = document.getElementById("contacttop")
     if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-        document.getElementById("contacttop").style.display = "block";
+      x.className = "show";
+        // document.getElementById("contacttop").style.display = "block";
+        // document.getElementById("contacttop").style.transition = ".5s ease";
     } else {
-        document.getElementById("contacttop").style.display = "none";
+    x.className = x.className.replace("show", "");
     }
 }
