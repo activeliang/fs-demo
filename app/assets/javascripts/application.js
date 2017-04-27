@@ -22,11 +22,11 @@
 
 //以下是微信二维码
 function on() {
-    document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlay").style.height = "100%";
 }
 
 function off() {
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay").style.height = "0";
 }
 
 // 以下是contact-top
