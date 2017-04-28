@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>新增一个职位</h1>
+  <h1 style="font-size: 3rem; text-align: center;">新增一个职位</h1><hr>
   <%= simple_form_for @job do |f| %>
   <div class="row">
-    <h2>公司信息</h2>
+    <h2 style="font-size: 2.5rem;">公司信息</h2>
     <%= f.input :cp_image, as: :file, label: "公司标志图" %>
     <%= f.input :cp_name %>
     <%= f.input :cp_subtitle %>
@@ -15,8 +15,9 @@
     <%= f.text_field :cp_lat, :id => "maplat", :type => "hidden" %>
     <%= f.text_field :cp_lng, :id => "maplng", :type => "hidden" %>
   </div>
+  <hr>
   <div class="row">
-    <h2>职位信息</h2>
+    <h2 style="font-size: 2.5rem;">职位信息</h2>
     <%= f.input :title %>
     <%= f.input :department %>
     <%= f.input :wage_upper_bound %>
@@ -27,8 +28,13 @@
     <%= f.input :claim %>
     <%= f.input :is_show %>
     <%= f.input :quantity %>
+    <div class="group">
+      <%= f.label :公司内部工作环境图（多图上传） %><br>
+      <%= f.file_field :cp_in_image, :multiple => true, name: "cp_photos[cp_in_image][]" %>
+    </div><br><br>
     <%= render "common/baidumap" %>
-  </div>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div><br>
+  <%= f.submit "Submit", class: "btn btn-primary btn-lg"  %>
+  <span style="font-size: 2.5rem;">(保存后进入编辑页面可增加更多信息！)</span>
   <% end %>
 </div>

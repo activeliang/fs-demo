@@ -3,12 +3,18 @@ class JobsController < ApplicationController
   before_action :require_job_permission, only:[:edit, :update, :destroy]
   def new
     @job = Job.new
+    @cp_photo = @job.cp_photos.build #for multi-pics
   end
 
   def create
     @job = Job.new(job_params)
     @job.user = current_user
     if @job.save
+      if params[:cp_photos] != nil
+        params[:cp_photos]['cp_in_image'].each do |a|
+          @cp_photo = @job.cp_photos.create(:cp_in_image => a)
+        end
+      end
       redirect_to jobs_path, notice: "created!"
     else
       render :new
@@ -21,6 +27,7 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @cp_photos = @job.cp_photos.all
   end
 
   def edit
@@ -74,6 +81,6 @@ class JobsController < ApplicationController
     end
   end
   def job_params
-    params.require(:job).permit(:title,:department,:wage_upper_bound,:wage_lower_bound,:is_fulltime,  :temptation, :task, :claim,:is_show,:cp_image,:cp_name,:cp_subtitle,:quantity,:cp_type,:cp_stage,:cp_number,:cp_city, :cp_description,:cp_lng,:cp_lat,:cp_website)
+    params.require(:job).permit(:title,:department,:wage_upper_bound,:wage_lower_bound,:is_fulltime,  :temptation, :task, :claim,:is_show,:cp_image,:cp_name,:cp_subtitle,:quantity,:cp_type,:cp_stage,:cp_number,:cp_city, :cp_description,:cp_lng,:cp_lat,:cp_website,:cp_in_image)
   end
 end
