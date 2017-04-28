@@ -21,13 +21,20 @@ end
   end
 
 
+version :limit do
+  process resize_to_fill: [200,500]
+end
+
 version :thumb do
   process resize_to_fill: [200,200]
 end
 
 version :medium do
-  process resize_to_fill: [400,400]
+  process resize_to_fit: [700,3000]
 end
+
+
+
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

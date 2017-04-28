@@ -1,11 +1,11 @@
 <div class="container">
-  <h1>Add a Job</h1>
+  <h1>新增一个职位</h1>
 
   <%= simple_form_for @job do |f| %>
   <%= f.input :title %>
-  <%= f.input :task %>
-  <%= f.input :wage_upper_bound %>
-  <%= f.input :wage_lower_bound %>
+
+  <%= hidden_field_tag :wage_upper_bound, id="ii"%>
+  <%= f.input :test %>
   <%= f.input :detail %>
   <%= f.input :scale %>
   <%= f.input :website %>
@@ -13,9 +13,24 @@
   <%= f.input :five_gold %>
   <%= f.input :overtime_pay %>
   <%= f.input :address %>
-  <%= f.input :contact_wechat %>
+  <%= f.text_field :contact_wechat, :id => "maplat", :type => "hidden" %>
+  <%= f.text_field :work_time, :id => "maplng", :type => "hidden" %>
   <%= f.input :is_show %>
-  <%= f.submit "Submit" %>
+
+  <%= render "common/baidumap" %>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
 
-</div>
+  <%= form_for @job do |f| %>
+
+  标题
+  <%= f.text_field :testtree , :id => "latt"%>
+  <br>
+  叙述
+  <br>
+  <%= f.text_area :description %>
+  <br>
+
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+  <% end %>

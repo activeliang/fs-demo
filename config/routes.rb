@@ -27,6 +27,6 @@ Rails.application.routes.draw do
     resources :jobs
     resources :dashboard
   end
-
+  get "dash" => "welcome#dash"
 
 end

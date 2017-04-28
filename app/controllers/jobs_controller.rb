@@ -3,6 +3,7 @@ class JobsController < ApplicationController
   before_action :require_job_permission, only:[:edit, :update, :destroy]
   def new
     @job = Job.new
+    @map = {}
   end
 
   def create
@@ -71,6 +72,6 @@ class JobsController < ApplicationController
     end
   end
   def job_params
-    params.require(:job).permit(:title, :task, :wage_upper_bound, :wage_lower_bound, :description, :detail, :scale, :website, :work_time, :five_gold, :overtime_pay, :address, :contact_wechat, :is_show)
+    params.require(:job).permit(:test, :lat, :testtree, :title, :task, :wage_upper_bound, :wage_lower_bound, :description, :detail, :scale, :website, :work_time, :five_gold, :overtime_pay, :address, :contact_wechat, :is_show)
   end
 end

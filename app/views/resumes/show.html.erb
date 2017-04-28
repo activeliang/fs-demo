@@ -5,7 +5,7 @@
         <div class="row reitem-1">
           <div class="reitem-1">
             <div class="col-xs-2">
-              <%= image_tag(@resume.user.aavatar.url, class: "thumbnail img-responsive") %>
+              <%= image_tag(@resume.user.aavatar.small.url, class: "thumbnail img-responsive") %>
             </div>
             <div class="col-xs-10">
               <div class="reitem-1-right">
@@ -39,7 +39,7 @@
 
             <% if @resume.wmf.url.present? %>
             <div class="app-item">
-              <%= image_tag(@resume.wmf.url, class: "thumbnail img-responsive") %>
+              <%= image_tag(@resume.wmf.medium.url, class: "thumbnail img-responsive") %>
               <div class="work-detail">
                 <h1>Job-Listing 魔改大赛</h1>
                 <h4>全栈营个人大赛</h4>
@@ -58,7 +58,7 @@
             <% end %>
             <% if @resume.wms.url.present? %>
             <div class="app-item">
-              <%= image_tag(@resume.wms.url, class: "thumbnail img-responsive") %>
+              <%= image_tag(@resume.wms.medium.url, class: "thumbnail img-responsive") %>
               <div class="work-detail">
                 <h1>JD-Store 商店创意大赛</h1>
                 <h4>全栈营两人合作大赛</h4>
@@ -131,10 +131,10 @@
                 <% if @photos.present? %>
                 <% @photos.each_with_index do |p, index| %>
                 <% if index == 0 %>
-                <%= image_tag p.avatar.url, class: "thumbnail img-responsive" %>
+                <%= image_tag p.avatar.medium.url, class: "thumbnail img-responsive" %>
                 <div style="letter-spacing: -8px">
                 <% else %>
-                  <%= image_tag p.avatar.url, class: "thumbnail img-responsive" %>
+                  <%= image_tag p.avatar.medium.url, class: "thumbnail img-responsive" %>
                   <% end %>
                   <% end %>
                 </div>
@@ -151,7 +151,7 @@
       <div id="overlay" onclick="off()">
         <div id="text">微信二维码
           <% if @resume.wechatimg.present? %>
-          <%= image_tag(@resume.wechatimg.url, class: "thumbnail img-responsive") %>
+          <%= image_tag(@resume.wechatimg.medium.url, class: "thumbnail img-responsive") %>
         <% else %>
           <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
           <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423235058) do
+ActiveRecord::Schema.define(version: 20170427101322) do
 
   create_table "job_relationships", force: :cascade do |t|
     t.integer  "job_id"
@@ -30,13 +30,16 @@ ActiveRecord::Schema.define(version: 20170423235058) do
     t.string   "website"
     t.string   "work_time"
     t.string   "five_gold"
-    t.boolean  "overtime_pay",     default: true
+    t.boolean  "overtime_pay",               default: true
     t.string   "address"
     t.string   "contact_wechat"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "user_id"
-    t.boolean  "is_show",          default: false
+    t.boolean  "is_show",                    default: false
+    t.decimal  "test"
+    t.integer  "lat"
+    t.float    "testtree",         limit: 8
   end
 
   create_table "photos", force: :cascade do |t|

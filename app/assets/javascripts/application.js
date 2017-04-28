@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require html5_shiv
+//= require jquery.hoverdir
+//= require modernizr.custom.97074
 //= require_tree .
 
 

@@ -101,7 +101,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-xs-4">
-                      <%= image_tag(resume.user.aavatar.url, class: "img-responsive  user-img") %>
+                      <%= image_tag(resume.user.aavatar.thumb.url, class: "img-responsive  user-img") %>
                     </div>
                     <div class="col-xs-7">
                       <h2><%= resume.name %></h2>
@@ -114,7 +114,7 @@
                 </div>
               </div>
               <div class="panel-bc-img">
-                <%= image_tag(resume.user.aavatar.url, class: "img-responsive thumbnail") %>
+                <%= image_tag(resume.user.aavatar.small.url, class: "img-responsive thumbnail") %>
                 <!-- <%= image_tag("http://www.imooc.com/courseimg/s/cover017_s.jpg", class: "thumbnail") %> -->
               </div>
             </div>
