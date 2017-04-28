@@ -1,0 +1,2 @@
+class JbLabel < ApplicationRecord
+end

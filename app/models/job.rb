@@ -1,10 +1,5 @@
 class Job < ApplicationRecord
+  mount_uploader :cp_image, CpImageUploader
 
   belongs_to :user
-
-  has_many :job_relationships
-  has_many :applicant, through: :job_relationships, source: :user
-
-
-
 end

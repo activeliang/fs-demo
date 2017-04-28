@@ -1,21 +1,27 @@
-<div class="container">
-  <h1 class="text-center" style="font-size: 30px;">所有职位列表</h1>
-  <%= link_to("Add a job", new_job_path, class: "btn btn-primary pull-right") %>
-
-  <table class="table table-boldered">
-    <% @jobs.each do |job| %>
+<h1>职位列表，些页面待装修</h1>
+<% @jobs.each do |job| %>
+<table class="table table-hover table-striped">
+  <thead>
     <tr>
-      <td><%= link_to job.title,job_path(job) %></td>
-      <td><%= job.wage_upper_bound %>
-        -
-        <%= job.wage_lower_bound %>
-        元</td>
-      <td><%= job.website %></td>
-      <td><%= job.address %></td>
-      <td><%= job.contact_wechat %></td>
-      <!-- <td><%= link_to("修改招聘信息", edit_job_path(job), class: "btn btn-primary") %></td> -->
+      <th>企业</th>
+      <th>企业图</th>
+      <th>薪资</th>
+      <th>所在城市</th>
     </tr>
-    <% end %>
-  </table>
-
-</div>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link_to job.cp_name, job_path(job)  %></td>
+      <td>
+        <% if job.cp_image.present? %>
+        <%= image_tag(job.cp_image.thumb.url, class: "img-responsive") %>
+        <% end  %>
+      </td>
+      <td><%= job.wage_lower_bound %>
+        -
+        <%= job.wage_upper_bound %></td>
+      <td><%= job.cp_city %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>

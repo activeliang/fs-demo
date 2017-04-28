@@ -10,19 +10,19 @@
   <div>
     <p>搜索:
       <input id="keyword" type="text" size="50"/>
-      <input id="Search" type="button" value="搜索" style="cursor: pointer"/>
+      <input id="Search" type="button" value="搜索" style="cursor: pointer" class="btn btn-success btn-sm"/>
     </p>
 
     <p>
       <input name="lng" type="hidden" id="lng" style="width:200px;" value="120.570464"/>
-      <input name="lat" type="hidden" id="lat" style="width:200px;" value="31.300216"/>
-      标注点所在区域：<input name="address" type="text" id="address" style="width:200px;"/>
+      <input name="lat" type="hidden" id="lat" style="width:200px;" value="31.300216"/><br>
+      标注点所在区域：<input name="address" type="text" id="address" style="width:330px; background-color: #10c14c; color: #fff;"/>
     </p>
   </div>
-  <div style="width: 420px; height: 340px; border: 1px solid gray; float: left;" id="container"></div>
-  <div style="width: 350px; height: 340px;">
-    <input id="biao" type="button" value="标注" style="cursor: pointer"/>
+  <div>
+    <input id="biao" type="button" value="标注" style="cursor: pointer;" class="btn btn-success btn-sm"/>
   </div>
+  <div style="width: 420px; height: 340px; border: 1px solid gray; float: left;" id="container"></div>
   <script type="text/javascript">
     var map = new BMap.Map("container");
     //创建地址解析的实例

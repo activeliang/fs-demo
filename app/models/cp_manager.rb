@@ -1,0 +1,2 @@
+class CpManager < ApplicationRecord
+end

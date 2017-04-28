@@ -1,36 +1,34 @@
 <div class="container">
   <h1>新增一个职位</h1>
-
   <%= simple_form_for @job do |f| %>
-  <%= f.input :title %>
-
-  <%= hidden_field_tag :wage_upper_bound, id="ii"%>
-  <%= f.input :test %>
-  <%= f.input :detail %>
-  <%= f.input :scale %>
-  <%= f.input :website %>
-  <%= f.input :work_time %>
-  <%= f.input :five_gold %>
-  <%= f.input :overtime_pay %>
-  <%= f.input :address %>
-  <%= f.text_field :contact_wechat, :id => "maplat", :type => "hidden" %>
-  <%= f.text_field :work_time, :id => "maplng", :type => "hidden" %>
-  <%= f.input :is_show %>
-
-  <%= render "common/baidumap" %>
-
+  <div class="row">
+    <h2>公司信息</h2>
+    <%= f.input :cp_image, as: :file, label: "公司标志图" %>
+    <%= f.input :cp_name %>
+    <%= f.input :cp_subtitle %>
+    <%= f.input :cp_type %>
+    <%= f.input :cp_stage %>
+    <%= f.input :cp_number %>
+    <%= f.input :cp_city %>
+    <%= f.input :cp_description %>
+    <%= f.input :cp_website %>
+    <%= f.text_field :cp_lat, :id => "maplat", :type => "hidden" %>
+    <%= f.text_field :cp_lng, :id => "maplng", :type => "hidden" %>
+  </div>
+  <div class="row">
+    <h2>职位信息</h2>
+    <%= f.input :title %>
+    <%= f.input :department %>
+    <%= f.input :wage_upper_bound %>
+    <%= f.input :wage_lower_bound %>
+    <%= f.input :is_fulltime %>
+    <%= f.input :temptation %>
+    <%= f.input :task %>
+    <%= f.input :claim %>
+    <%= f.input :is_show %>
+    <%= f.input :quantity %>
+    <%= render "common/baidumap" %>
+  </div>
   <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>
-
-  <%= form_for @job do |f| %>
-
-  标题
-  <%= f.text_field :testtree , :id => "latt"%>
-  <br>
-  叙述
-  <br>
-  <%= f.text_area :description %>
-  <br>
-
-  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
-  <% end %>
+</div>

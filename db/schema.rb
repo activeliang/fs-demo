@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427101322) do
+ActiveRecord::Schema.define(version: 20170428023752) do
+
+  create_table "cp_managers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "manager_image"
+    t.string   "post"
+    t.text     "description"
+    t.string   "website"
+    t.integer  "job_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "cp_products", force: :cascade do |t|
+    t.string   "product_image"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "job_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "jb_labels", force: :cascade do |t|
+    t.integer  "job_id"
+    t.string   "label_item"
+    t.boolean  "is_of_product", default: false
+    t.boolean  "is_of_company", default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
 
   create_table "job_relationships", force: :cascade do |t|
     t.integer  "job_id"
@@ -21,25 +50,29 @@ ActiveRecord::Schema.define(version: 20170427101322) do
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
-    t.text     "task"
-    t.text     "description"
+    t.string   "department"
     t.integer  "wage_upper_bound"
     t.integer  "wage_lower_bound"
-    t.text     "detail"
-    t.integer  "scale"
-    t.string   "website"
-    t.string   "work_time"
-    t.string   "five_gold"
-    t.boolean  "overtime_pay",               default: true
-    t.string   "address"
-    t.string   "contact_wechat"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.boolean  "is_fulltime",      default: true
+    t.text     "temptation"
+    t.text     "task"
+    t.text     "claim"
+    t.boolean  "is_show",          default: false
+    t.string   "cp_image"
+    t.string   "cp_name"
+    t.string   "cp_subtitle"
+    t.integer  "quantity"
+    t.string   "cp_type"
+    t.string   "cp_stage"
+    t.integer  "cp_number"
+    t.string   "cp_city"
+    t.text     "cp_description"
+    t.string   "cp_lng"
+    t.string   "cp_lat"
+    t.string   "cp_website"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "user_id"
-    t.boolean  "is_show",                    default: false
-    t.decimal  "test"
-    t.integer  "lat"
-    t.float    "testtree",         limit: 8
   end
 
   create_table "photos", force: :cascade do |t|
@@ -101,33 +134,9 @@ ActiveRecord::Schema.define(version: 20170427101322) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
-    t.string   "name"
-    t.datetime "date_of_birth"
-    t.boolean  "is_female",              default: false
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "aavatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "views", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_views_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
   end
 
 end
