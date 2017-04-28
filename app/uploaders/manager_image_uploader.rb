@@ -1,4 +1,4 @@
-class CpImageUploader < CarrierWave::Uploader::Base
+class ManagerImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -8,36 +8,34 @@ class CpImageUploader < CarrierWave::Uploader::Base
   # storage :file
   # storage :fog
 
-  if Rails.env.production?
-  storage :fog
-elsif Rails.env.development?
-  storage :file
-end
 
-
-
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    if Rails.env.production?
+    storage :fog
+  elsif Rails.env.development?
+    storage :file
   end
 
-  process resize_to_fit: [800, 800]
+    # Override the directory where uploaded files will be stored.
+    # This is a sensible default for uploaders that are meant to be mounted:
+    def store_dir
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
 
-  version :thumb do
-    process resize_to_fill: [140,140]
-  end
+    process resize_to_fit: [800, 800]
 
-  version :medium do
-    process resize_to_fill: [200,200]
-  end
+    version :thumb do
+      process resize_to_fill: [140,140]
+    end
 
+    version :medium do
+      process resize_to_fill: [175,175]
+    end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
-  #   # For Rails 3.1  asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/"   [version_name, "default.png"].compact.join('_'))
+  #   # For Rails 3.1+ asset pipeline compatibility:
+  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
-  #   "/images/fallback/"   [version_name, "default.png"].compact.join('_')
+  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
   # Process files as they are uploaded:

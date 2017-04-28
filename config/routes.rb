@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     end
   end
   resources :jobs do
+    resources :cp_products
+    resources :cp_managers
+    resources :jb_labels
     member do
       post :apply_join
       post :cancel_join

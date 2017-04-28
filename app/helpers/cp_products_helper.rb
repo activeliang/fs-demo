@@ -1,0 +1,2 @@
+module CpProductsHelper
+end

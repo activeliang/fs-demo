@@ -24,6 +24,9 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @cp_product = CpProduct.new
+    @cp_manager = CpManager.new
+    @jb_label = JbLabel.new
   end
 
   def update
