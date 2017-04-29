@@ -14,16 +14,17 @@
 
   <body class="bc-color">
 
-    <div class="container-fluid">
-      <div class="row">
-        <%= render "common/navbar" %>
-      </div>
-      <%= render "common/flashes" %>
-      <%= yield %>
+    <div class="container-fluid body-content">
+      <div class="content-inside">
+        <div class="row">
+          <%= render "common/navbar" %>
+        </div>
+        <%= render "common/flashes" %>
+        <%= yield %>
 
+      </div>
     </div>
 
     <%= render "common/footer" %>
-
   </body>
 </html>

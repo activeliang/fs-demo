@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create, :edit, :update, :destroy]
   before_action :require_job_permission, only:[:edit, :update, :destroy]
+  layout 'bc', only: [:show]
   def new
     @job = Job.new
     @cp_photo = @job.cp_photos.build #for multi-pics
@@ -37,7 +38,15 @@ class JobsController < ApplicationController
   end
 
   def update
-    if @job.update(job_params)
+    if params[:cp_photos] != nil
+     @job.cp_photos.destroy_all #need to destroy old pics first
+
+     params[:cp_photos]['cp_in_image'].each do |a|
+       @picture = @job.cp_photos.create(:cp_in_image => a)
+     end
+     @job.update(job_params)
+     redirect_to jobs_path, notice: "updated!"
+    elsif @job.update(job_params)
       redirect_to jobs_path, notice: "updated!"
     else
       render :edit

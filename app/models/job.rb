@@ -6,4 +6,6 @@ class Job < ApplicationRecord
   has_many :cp_products
   has_many :cp_managers
   has_many :jb_labels
+  has_many :job_relationships
+  has_many :want_work,through: :job_relationships, source: :user
 end

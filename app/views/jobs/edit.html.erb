@@ -27,6 +27,18 @@
     <%= f.input :claim %>
     <%= f.input :is_show %>
     <%= f.input :quantity %>
+    <% if @job.cp_photos.present? %>
+    <span>目前已上传的工作环境展示图片</span>
+    <br>
+    <% @job.cp_photos.each do |p| %>
+    <%= image_tag p.cp_in_image.thumb.url %><br>
+    <% end %>
+    <% end %>
+
+    <div class="group">
+      <%= f.label :公司内部工作环境（支持多图上传） %><br>
+      <%= f.file_field :cp_in_image, :multiple => true, name: "cp_photos[cp_in_image][]" %>
+    </div>
     <br>
     <%= render "common/baidumap" %>
   </div><br>

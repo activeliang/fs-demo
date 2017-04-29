@@ -1,3 +1,178 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.job-bc-1 {
+  margin-top: 60px;
+}
+.job-bc-1-1 {
+  background-color: #fff;
+  margin-left:  -13px;
+}
+.job-bc-1-1 span i {
+  background-image: url("http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-28-111.png");
+  background-size: 16px 18px;
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  width: 16px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.job-bc-1-1 .fa-link {
+  font-size: 16px;
+  margin: 10px 0 0 5px;
+  cursor: pointer;
+  color: rgba(8,8,8,0.3);
+}
+.job-bc-1-1 .label {
+  background-color: #2dbe60;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  font-weight: 410;
+  position: relative;
+  top: -3px;
+  left: 5px;
+}
+.job-bc-1-1 h1 {
+  font-size: 2.3rem;
+  padding: 20px;
+  color: #555;
+}
+.job-bc-1-1 .col-sm-7 a {
+  color: #666;
+}
+.job-bc-1-1 .col-sm-7 a:hover {
+  text-decoration: none;
+  color: #2dbe60;
+}
+.job-bc-1-1 p {
+  margin: -5px 17px 10px;
+  font-size: 16px;
+  color: #333;
+}
+.job-bc-1 img {
+  padding: 0;
+  width: 100%;
+}
+.job-bc-1-img {
+  margin-right: 3px;
+  padding: 0;
+  margin: 0;
+}
+.job-btn {
+  margin-top: 20px;
+}
+.job-btn .btn {
+  margin-left: 9px;
+}
+.job-btn .job-btn-1 {
+  background-color: transparent;
+  color: #55b070;
+}
+.job-btn .job-btn-1:hover {
+  background-color: #2dbe60;
+  color: #fff;
+}
+.job-btn .job-btn-2:hover {
+  background-color: transparent;
+  color: #55b070;
+}
+.job-bc-1-2 {
+  background-color: #fafafa;
+  margin-left: -13px;
+}
+.job-bc-1-2 h1 {
+  font-size: 3rem;
+  margin-top: 8px;
+  color: #666;
+}
+.job-bc-1-2 p {
+  margin-top: 6px;
+  margin-left: 15px;
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 5px;
+}
+.job-bc-1-2 h3 {
+  padding: 7px;
+  font-size: 1.9rem;
+  color: #666;
+}
+.job-bc-1-2 h3 span {
+  color: #fd5f39;
+}
+.job-bc-1-2 .col-sm-4 .label {
+  color:rgba(8,8,8,0.3);
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 13px;
+  display: inline-block;
+  border-radius: 10px;
+  margin-left: 10px;
+  background-color: transparent;
+  border-width: 1px;
+  border: 1px solid rgba(8,8,8,0.3);
+}
+.job-label-item {
+  position: relative;
+  left: -20px;
+  padding: 10px 0px;
+}
+.job-updatetime {
+  float: right;
+  font-size: 14px;
+  color: rgba(8,8,8,0.3) !important;
+  display: inline;
+  position: relative;
+  bottom: -8px !important;
+  left: 30px;
+}
+.job-bc-bottom {
+  margin-top: 10px;
+}
+// 以下是公司介绍
+.job-bc-2 {
+  background-color: #fff;
+  margin-right: -11px;
+  padding: 20px 30px;
+}
+.job-bc-3 {
+  background-color: #fff;
+  margin-left: -11px;
+}
+.item-title {
+  position: absolute;
+top: -11px;
+left: 0;
+padding-right: 16px;
+background-color: #fff;
+color: #000;
+font-size: 18px;
+}
+.job-bc-2-1 {
+  border-top: 1px solid #e8e8e8;
+  margin-top: 30px;
+  padding: 10px;
+}
+.job-bc-2-1 .cp_description {
+  margin-top: 40px;
+}
+.job-bc-2-1 #div1 a {
+  display: inline-block;
+  padding-right: 15px;
+  background: url(//www.lgstatic.com/www/static/company-c/modules/intro/img/arrow_875332c.png) right bottom no-repeat;
+  color: #00b38a;
+  text-decoration: underline;
+  cursor: pointer;
+  background-position: right bottom;
+}
+.job-bc-2-1 .cp_description p {
+  font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  min-height: 20px;
+  margin-bottom: 30px;
+  overflow-y: hidden;
+  color: #555;
+}
