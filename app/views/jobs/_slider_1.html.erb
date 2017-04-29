@@ -1,0 +1,50 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% if @cp_photos.present? %>
+    <% @cp_photos.each_with_index do |p, index| %>
+    <% if index == 0 %>
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+  <% else %>
+    <% i = index %>
+    <li data-target="#myCarousel" data-slide-to="<%= i %>"></li>
+    <% end %>
+    <% end %>
+  <% else %>
+    <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+    <% end %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+
+    <% if @cp_photos.present? %>
+    <% @cp_photos.each_with_index do |p, index| %>
+    <% if index == 0 %>
+    <div class="item active ">
+      <%= image_tag p.cp_in_image.medium.url %>
+    </div>
+  <% else %>
+    <div class="item ">
+      <%= image_tag p.cp_in_image.medium.url %>
+    </div>
+    <% end %>
+    <% end %>
+
+  <% else %>
+    <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+    <% end %>
+  </div>
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="fa fa-angle-left" aria-hidden="true"></span>
+
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="fa fa-angle-right" aria-hidden="true"></span>
+
+  </a>
+</div>
+<script>
+  $('.carousel').carousel({interval: 3500})
+</script>

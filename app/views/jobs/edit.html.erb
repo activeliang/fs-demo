@@ -56,6 +56,7 @@
       <td><%= cp_product.title %></td>
       <td><%= image_tag(cp_product.product_image.thumb.url, class: "img-responsive") %></td>
       <td><%= cp_product.description %></td>
+      <td><%= cp_product.product_link %></td>
       <td><%= link_to("Delete", job_cp_product_path(@job,cp_product), data: {confirm: "Are you sure?"}, class: "btn btn-primary", method: :delete) %></td>
     </tr>
   </table>
@@ -64,6 +65,7 @@
   <%= simple_form_for [@job, @cp_product] do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.input :product_link %>
   <%= f.input :product_image %>
   <%= f.submit "提交", class: "btn btn-success" %>
   <% end %>

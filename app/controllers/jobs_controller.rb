@@ -29,6 +29,8 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @cp_photos = @job.cp_photos.all
+    @job_labels = @job.jb_labels.where(:is_of_company => true)
+    @product_labels = @job.jb_labels.where(:is_of_product => true)
   end
 
   def edit
@@ -90,6 +92,6 @@ class JobsController < ApplicationController
     end
   end
   def job_params
-    params.require(:job).permit(:title,:department,:wage_upper_bound,:wage_lower_bound,:is_fulltime,  :temptation, :task, :claim,:is_show,:cp_image,:cp_name,:cp_subtitle,:quantity,:cp_type,:cp_stage,:cp_number,:cp_city, :cp_description,:cp_lng,:cp_lat,:cp_website,:cp_in_image)
+    params.require(:job).permit(:title,:department,:wage_upper_bound,:wage_lower_bound,:is_fulltime,  :temptation, :task, :claim,:is_show,:cp_image,:cp_name,:cp_subtitle,:quantity,:cp_type,:cp_stage,:cp_number,:cp_city, :cp_description,:cp_lng,:cp_lat,:cp_website,:cp_in_image, :product_link)
   end
 end

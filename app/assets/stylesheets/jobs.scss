@@ -176,3 +176,121 @@ font-size: 18px;
   overflow-y: hidden;
   color: #555;
 }
+// slider
+.carousel-inner img {
+    height: 400px; /* Set width to 100% */
+    margin: auto;
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+.job-bc-2-1 .left span, {
+  position: relative;
+  top: 130px;
+  left: -80px;
+  color: #e8e8e8;
+  font-size: 7rem;
+}
+.job-bc-2-1 .right span, {
+  position: relative;
+  top: 130px;
+  right: -55px;
+  color: #e8e8e8;
+  font-size: 7rem;
+}
+.carousel-control {
+  text-shadow: 0 0 0 #999;
+  width: 0;
+  height: 0;
+}
+.carousel-control span:hover {
+  color: #2dbe60;
+}
+#myCarousel {
+  margin: 20px auto 20px auto;
+  width: 70%;
+  // overflow: hidden;
+}
+.carousel-inner img {
+  width: auto;
+  max-height: 300px;
+}
+.carousel-indicators li {
+  color: #2dbe60;
+  background-color: #e8e8e8;
+}
+.carousel-indicators .active {
+  background-color: #2dbe60;
+}
+.carousel-indicators {
+  bottom: -25px;
+}
+// 以下是job-bc-3
+.job-bc-3 {
+  padding: 20px 30px;
+}
+.job-bc-3-1 {
+  border-top: 1px solid #e8e8e8;
+  margin-top: 30px;
+  padding: 10px;
+}
+// 公司基本信息
+.job-bc-3-1 .ul .ol {
+  list-style: none;
+}
+.item-content {
+  margin-top: 30px;
+}
+.item-content ul {
+  margin-left: 29px;
+}
+.item-content li {
+  line-height: 15px;
+  height: 15px;
+  margin-top: 30px;
+}
+.job-bc-3-1 i {
+  display: inline-block;
+  line-height: 17px;
+  width: 17px;
+  height: 17px;
+  margin-right: 20px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+  padding-bottom: 5px;
+}
+.job-bc-3-1 .type {
+  background-repeat: no-repeat;
+  // background-position: 0;
+  width: 15px;
+  height: 15px;
+  background-image: url(//www.lgstatic.com/www/static/company-c/modules/basic-info/main_z_85b62b3.png);
+  }
+.job-bc-3-1 span {
+  color: #777;
+  height: 15px;
+  line-height: 15px;
+}
+.job-bc-3-1 .stage {
+  background-repeat: no-repeat;
+  background-image: url(//www.lgstatic.com/www/static/company-c/modules/basic-info/main_z_85b62b3.png);
+  background-position: 0px -18px;
+}
+.job-bc-3-1 .number {
+  background-repeat: no-repeat;
+  background-image: url(//www.lgstatic.com/www/static/company-c/modules/basic-info/main_z_85b62b3.png);
+  background-position: 0px -35px;
+}
+.job-bc-3-1 .city {
+  background-repeat: no-repeat;
+  background-image: url(//www.lgstatic.com/www/static/company-c/modules/basic-info/main_z_85b62b3.png);
+  background-position: -1px -53px;
+}

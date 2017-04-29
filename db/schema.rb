@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428053636) do
+ActiveRecord::Schema.define(version: 20170429124725) do
 
   create_table "cp_managers", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170428053636) do
     t.integer  "job_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "product_link"
   end
 
   create_table "jb_labels", force: :cascade do |t|
