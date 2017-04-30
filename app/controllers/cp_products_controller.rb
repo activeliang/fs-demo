@@ -5,6 +5,11 @@ class CpProductsController < ApplicationController
     @cp_product = CpProduct.new
   end
 
+  def show
+    @job = Job.find(params[:job_id])
+    @cp_product = CpProduct.find(params[:id])
+    @product_label = ProductLabel.new
+  end
   def create
     @job = Job.find(params[:job_id])
     @cp_product = CpProduct.new(cp_product_params)
@@ -12,7 +17,7 @@ class CpProductsController < ApplicationController
     if @cp_product.save
       redirect_to :back, notice: "created!"
     else
-      render :back, alert:"增加失败！"
+      redirect_to :back, alert:"字数太多，增加失败！"
     end
   end
 

@@ -30,7 +30,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @cp_photos = @job.cp_photos.all
     @job_labels = @job.jb_labels.where(:is_of_company => true)
-    @product_labels = @job.jb_labels.where(:is_of_product => true)
+    @cp_managers = @job.cp_managers
   end
 
   def edit

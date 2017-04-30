@@ -53,7 +53,7 @@
   <% @job.cp_products.each do |cp_product| %>
   <table class="table table-striped">
     <tr>
-      <td><%= cp_product.title %></td>
+      <td><%= link_to cp_product.title, job_cp_product_path(@job,cp_product)%></td>
       <td><%= image_tag(cp_product.product_image.thumb.url, class: "img-responsive") %></td>
       <td><%= cp_product.description %></td>
       <td><%= cp_product.product_link %></td>

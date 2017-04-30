@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     end
   end
   resources :jobs do
-    resources :cp_products
+    resources :cp_products do
+      resources :product_labels
+    end
     resources :cp_managers
     resources :jb_labels
     member do

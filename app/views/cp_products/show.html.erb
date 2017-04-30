@@ -1,0 +1,20 @@
+<div class="container">
+  <h1><%= @job.title %>的产品 =>
+    <%= @cp_product.title %>
+    详情</h1>
+  <table class="table table-bordered">
+    <% @cp_product.product_labels.each do |product_label| %>
+    <tr>
+      <td><%= product_label.label_item %></td>
+      <td><%= link_to("Delete", job_cp_product_product_label_path(@job, @cp_product, product_label), method: :delete, class: "btn btn-primary", data: {confirm: "Are you sure?"}) %></td>
+    </tr>
+    <% end  %>
+  </table>
+
+  <h1>新增</h1>
+  <%= simple_form_for [@job,@cp_product,@product_label] do |f| %>
+  <%= f.input :label_item %>
+  <%= f.submit "提交", class: "btn btn-success" %>
+  <% end %>
+
+</div>

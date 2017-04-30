@@ -131,6 +131,64 @@
 .job-bc-bottom {
   margin-top: 10px;
 }
+// 以下是公司产品
+.job-bc-2-2 {
+  border-top: 1px solid #e8e8e8;
+  margin-top: 30px;
+  padding-top: 10px;
+  // padding-top: 10px;
+  padding-left: 0;
+  margin-bottom: -20px;
+}
+.job-bc-2-2 .col-sm-7 {
+  // margin: 0 -15px;
+  padding: 0;
+}
+.job-bc-2-2 .product-item-1 {
+  // padding: 0 15px;
+  padding: 30px 15px;
+}
+.job-bc-2-2 .col-sm-7 h3 {
+  font-size: 1.9rem;
+  display: inline-block;
+  margin-top: 4px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.job-bc-2-2 .col-sm-7 i {
+  font-size: 14px;
+  color: #999;
+}
+.job-bc-2-2 .col-sm-7 i:hover {
+  color: #2dbe60;
+}
+.job-bc-2-2 h3:hover {
+  text-decoration: none;
+  color: #2dbe60;
+}
+.job-bc-2-2 a:hover {
+  text-decoration: none;
+  color: #2dbe60;
+}
+.job-bc-2-2 .col-sm-7 .product-label-item {
+  color: #999;
+  background-color: #fff;
+  border: 1px solid #00b38a;
+  border-radius: 13px;
+  padding: 2px 10px;
+}
+.job-bc-2-2 .col-sm-7 .product-label {
+  margin-bottom: 10px;
+}
+.job-bc-2-2 .col-sm-7 .product-description {
+  font-size: 14px;
+  color: #777;
+  line-height: 22px;
+}
+.job-bc-2-2 .product-second-row {
+  // background-color: #333;
+  border-top: 1px dashed #e5e5e5;
+}
 // 以下是公司介绍
 .job-bc-2 {
   background-color: #fff;
@@ -176,22 +234,22 @@ font-size: 18px;
   overflow-y: hidden;
   color: #555;
 }
-// slider
-.carousel-inner img {
+// slider_1
+.job-bc-2-1 .carousel-inner img {
     height: 400px; /* Set width to 100% */
     margin: auto;
 }
 
-.carousel-caption h3 {
+.job-bc-2-1 .carousel-caption h3 {
     color: #fff !important;
 }
 
 @media (max-width: 600px) {
-    .carousel-caption {
+    .job-bc-2-1 .carousel-caption {
         display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
     }
 }
-.job-bc-2-1 .left span, {
+.job-bc-2-1  .left span, {
   position: relative;
   top: 130px;
   left: -80px;
@@ -205,31 +263,31 @@ font-size: 18px;
   color: #e8e8e8;
   font-size: 7rem;
 }
-.carousel-control {
+.job-bc-2-1 .carousel-control {
   text-shadow: 0 0 0 #999;
   width: 0;
   height: 0;
 }
-.carousel-control span:hover {
+.job-bc-2-1 .carousel-control span:hover {
   color: #2dbe60;
 }
-#myCarousel {
+.job-bc-2-1 #myCarousel {
   margin: 20px auto 20px auto;
   width: 70%;
   // overflow: hidden;
 }
-.carousel-inner img {
+.job-bc-2-1 .carousel-inner img {
   width: auto;
   max-height: 300px;
 }
-.carousel-indicators li {
+.job-bc-2-1 .carousel-indicators li {
   color: #2dbe60;
   background-color: #e8e8e8;
 }
-.carousel-indicators .active {
+.job-bc-2-1 .carousel-indicators .active {
   background-color: #2dbe60;
 }
-.carousel-indicators {
+.job-bc-2-1 .carousel-indicators {
   bottom: -25px;
 }
 // 以下是job-bc-3
@@ -294,3 +352,113 @@ font-size: 18px;
   background-image: url(//www.lgstatic.com/www/static/company-c/modules/basic-info/main_z_85b62b3.png);
   background-position: -1px -53px;
 }
+.job-bc-3-2 {
+  margin-top: 30px;
+  border-top: 1px solid #e8e8e8;
+  padding-bottom: 50px;
+}
+// 以下是slider_2
+.slider-2 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e8e8e8;
+  z-index: -99;
+}
+.job-bc-3-2 #myCarousel1 {
+  height: 400px;
+  padding-top: 40px;
+}
+.carousel-control.right {
+  width: 0;
+}
+.carousel-control.left {
+  width: 0;
+}
+.manager-item-content {
+  height: 200px;
+}
+.slider-2 img {
+  margin: 0 auto;
+  width: 35%;
+  margin-bottom: 20px;
+}
+.slider-2 .manager-item-content h2 {
+  font-size: 1.9rem;
+  text-align: center;
+  color: #777;
+  margin-bottom: 15px;
+}
+.slider-2 .manager-item-content h3 {
+  font-size: 1.4rem;
+  color: #999;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.slider-2 .manager-item-content .description p {
+  font-size: 13px;
+  color: #666;
+  line-height: 20px;
+  padding: 0 30px;
+}
+.slider-2 .item .manager_website .fa-link{
+  // display: inline-block;
+  display: inline-block;
+  font-size: 8px;
+  z-index: 999;
+  // padding-bottom: 40px;
+}
+.slider-2 .manager_website i {
+  // font-size: 8px;
+  display: inline-block;
+}
+.slider-2 .item a:hover {
+  text-decoration: underline;
+}
+.carousel-indicators {
+  // background: #555;
+  color: #e8e8e8;
+  z-index: 0;
+  position: absolute;
+  bottom: -20px;
+  background-color: #fff;
+}
+.carousel-indicators li {
+  background-color: #e8e8e8;
+  color: #444;
+}
+.carousel-indicators .active {
+  background-color: #2dbe60;
+}
+.slider-2 .item h5  {
+  text-decoration: underline;
+  color: #00b38a;
+}
+.slider-2 .button-group span {
+  border-radius: 0 0 0 #e8e8e8;
+  text-shadow: 0 0 0 #999;
+  color: #e8e8e8;
+  font-size: 2.4rem;
+  position: absolute;
+  bottom: -24px;
+  background-color: #fff;
+}
+.slider-2 .button-group span:hover {
+  color: #2dbe60;
+}
+.slider-2 .button-group .left span {
+  left: 75px;
+  border: 3px solid #e8e8e8;
+  padding: 0 10px;
+}
+.slider-2 .button-group .right span {
+  right: 75px;
+  border: 3px solid #e8e8e8;
+  padding: 0 10px;
+}
+// 以下是公司位置信息
+.job-bc-3-3 {
+  margin-top: 30px;
+  border-top: 1px solid #e8e8e8;
+  padding-bottom: 50px;
+  padding: 30px 0;
+}
+//以下是职位信息

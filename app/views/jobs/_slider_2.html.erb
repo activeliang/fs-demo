@@ -1,0 +1,104 @@
+<div id="myCarousel1" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% if @cp_managers.present? %>
+    <% @cp_managers.each_with_index do |cp_manager, index| %>
+    <% if index == 0 %>
+    <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+  <% else %>
+    <% i = index %>
+    <li data-target="#myCarousel1" data-slide-to="<%= i %>"></li>
+    <% end %>
+    <% end %>
+    <% end %>
+
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <% if @cp_managers.present? %>
+    <% @cp_managers.each_with_index do |cp_manager, index| %>
+    <% if cp_manager.manager_image.present? %>
+    <% if index == 0 %>
+    <div class="item active">
+      <%= image_tag(cp_manager.manager_image.medium.url, class: "img-circle") %>
+
+      <div class="manager-item-content">
+        <h2><%= cp_manager.name %></h2>
+        <h3><%= cp_manager.post %></h3>
+        <div class="description">
+          <p><%= simple_format(cp_manager.description.strip[0..100] ) %></p>
+        </div>
+      </div>
+      <% if cp_manager.website.present? %>
+      <%= link_to cp_manager.website do %>
+      <div class="manager_website">
+        <h5>人物百科
+          <i class="fa fa-link"></i>
+        </h5>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="item">
+      <%= image_tag(cp_manager.manager_image.medium.url, class: "img-circle") %>
+
+      <div class="manager-item-content">
+        <h2><%= cp_manager.name %></h2>
+        <h3><%= cp_manager.post %></h3>
+        <div class="description">
+          <p><%= simple_format(cp_manager.description.strip[0..100] ) %></p>
+        </div>
+      </div>
+      <% if cp_manager.website.present? %>
+      <%= link_to cp_manager.website do %>
+      <div class="manager_website">
+        <h5>人物百科
+          <i class="fa fa-link"></i>
+        </h5>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <% end  %>
+  <% else %>
+    <div class="item">
+      <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+
+      <div class="manager-item-content">
+        <h2><%= cp_manager.name %></h2>
+        <h3><%= cp_manager.post %></h3>
+        <div class="description">
+          <p><%= simple_format(cp_manager.description.strip[0..100] ) %></p>
+        </div>
+      </div>
+      <% if cp_manager.website.present? %>
+      <%= link_to cp_manager.website do %>
+      <div class="manager_website">
+        <h5>人物百科
+          <i class="fa fa-link"></i>
+        </h5>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+  </div>
+  <!-- Left and right controls -->
+  <div class="button-group">
+    <a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev">
+      <span class="fa fa-angle-left" aria-hidden="true"></span>
+
+    </a>
+    <a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next">
+      <span class="fa fa-angle-right" aria-hidden="true"></span>
+
+    </a>
+  </div>
+</div>
+<script>
+  $('#myCarousel1').carousel({interval: 3500})
+</script>
