@@ -136,20 +136,20 @@
         </div>
         <%= render "slider_1" %>
       </div>
-      <div class="col-sm-12 job-bc-2-2">
+      <div class="col-sm-12 job-bc-2-3">
         <div class="item-title">
           职位信息
         </div>
         <div class="job-content">
           <div class="col-sm-12 job-content-1">
-            <h4>职位诱惑</h4>
+            <h6>职位诱惑</h6>
             <p><%= simple_format(@job.temptation) %></p>
           </div>
           <div class="col-sm-12 job-content-2">
-            <h4>职位描述</h4>
-            <p>岗位职责</p>
+            <h6>职位描述</h6>
+            <h5>岗位职责</h5>
             <p><%= simple_format(@job.task) %></p>
-            <p>任职条件</p>
+            <h5>任职条件</h5>
             <p><%= simple_format(@job.claim) %></p>
           </div>
           <div class="col-sm-12 job-content-3"></div>
