@@ -151,7 +151,7 @@
       <% @job.cp_managers.each do |cp_manager|  %>
       <tr>
         <td>
-          <% if cp_manager.manager_image.persent? %>
+          <% if cp_manager.manager_image.present? %>
           <%= image_tag(cp_manager.manager_image.medium.url, class: "img-responsive") %>
         <% else %>
           <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-responsive") %>
