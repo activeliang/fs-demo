@@ -79,7 +79,7 @@
       map.addOverlay(marker);
       marker.enableDragging(); //可以拖动
       //创建信息窗口
-      var infoWindow = new BMap.InfoWindow("<%= @job.cp_name %>的位置。<br/>可以拖动放大查看周边信息！");
+      var infoWindow = new BMap.InfoWindow("'<%= @job.cp_name %>'的位置。<br/>可以放大拖动,查看周边信息！");
       //显示窗口
       marker.openInfoWindow(infoWindow);
       //点击监听

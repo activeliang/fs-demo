@@ -4,7 +4,7 @@
   <% @resumes.each do |resume| %>
   <tr>
     <td><%= link_to resume.name, resume_path(resume) %></td>
-    <td><%= resume.logdown %></td>
+    <td><%= resume.description %></td>
     <td><%= link_to("Delete", resume_path(resume), method: :delete, class: "btn btn-primary") %></td>
     <td><%= link_to("Edit", edit_admin_resume_path(resume), class: "btn btn-primary") %></td>
   </tr>

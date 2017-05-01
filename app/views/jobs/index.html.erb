@@ -1,19 +1,20 @@
 <div class="container">
-  <div class="pull-right">
+  <div class="pull-right clearfix">
     <%= link_to("发职位找人才", new_job_path, class: "btn btn-primary") %>
   </div>
-  <h1>职位列表，些页面待装修</h1>
-  <% @jobs.each do |job| %>
+  <h1 style="font-size: 4rem;" class="text-center;">职位列表</h1>
+
   <table class="table table-hover table-striped">
     <thead>
       <tr>
         <th>企业</th>
-        <th>企业图</th>
+        <th>企业LOGO</th>
         <th>薪资</th>
         <th>所在城市</th>
       </tr>
     </thead>
     <tbody>
+      <% @jobs.each do |job| %>
       <tr>
         <td><%= link_to job.cp_name, job_path(job)  %></td>
         <td>
@@ -26,8 +27,8 @@
           <%= job.wage_upper_bound %></td>
         <td><%= job.cp_city %></td>
       </tr>
+      <% end %>
     </tbody>
   </table>
-  <% end %>
 
 </div>

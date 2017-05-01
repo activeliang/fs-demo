@@ -1,11 +1,13 @@
 <div class="container">
-  <h1>我发布的招聘</h1>
+  <h1 style="font-size: 4rem;" class="text-center">我发布的职位</h1>
 
   <table class="table table-boldered">
     <% @jobs.each do |job| %>
     <tr>
-      <td><%= link_to job.title, job_path(job) %></td>
-      <td><%= job.task %></td>
+      <td><%= link_to job.cp_name, job_path(job) %></td>
+      <td><%= job.title %></td>
+      <td><%= link_to("Edit", edit_job_path(job), class: "btn btn-primary") %></td>
+      <td><%= link_to("Delete", job_path(job), class: "btn btn-primary", method: :delete, data: {comfirm: "Are you sure?"}) %></td>
     </tr>
     <% end %>
   </table>

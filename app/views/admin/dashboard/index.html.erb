@@ -4,7 +4,7 @@
   <% @resumes.each do |resume| %>
   <tr>
     <td><%= link_to resume.name, resume_path(resume) %></td>
-    <td><%= resume.logdown %></td>
+    <td><%= resume.description %></td>
     <td><%= link_to("Edit", edit_admin_resume_path(resume), class: "btn btn-primary") %></td>
     <td><%= link_to("Delete", admin_resume_path(resume), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary") %></td>
   </tr>
@@ -15,8 +15,8 @@
 <table class="table table-hover table-striped">
   <% @jobs.each do |job| %>
   <tr>
-    <td><%= link_to job.title, job_path(job) %></td>
-    <td><%= job.task %></td>
+    <td><%= link_to job.cp_name, job_path(job) %></td>
+    <td><%= job.title %></td>
     <td><%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-primary") %></td>
     <td><%= link_to("Delete", admin_job_path(job), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary") %></td>
   </tr>

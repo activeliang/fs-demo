@@ -3,8 +3,10 @@
 <table class="table">
   <% @jobs.each do |job| %>
   <tr>
-    <td><%= link_to job.title, job_path(job) %></td>
-    <td><%= job.task %></td>
+    <td><%= link_to job.cp_name, job_path(job) %></td>
+    <td><%= job.title %></td>
+    <td><%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-primary") %></td>
+    <td><%= link_to("Delete", admin_job_path(job), method: :delete, class: "btn btn-primary", data: {comfirm: "Are you sure?"}) %></td>
   </tr>
   <% end  %>
 </table>
