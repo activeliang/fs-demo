@@ -108,7 +108,13 @@
     <% @job.cp_products.each do |cp_product| %>
     <tr>
       <td><%= link_to cp_product.title, job_cp_product_path(@job,cp_product)%></td>
-      <td width="200"><%= image_tag(cp_product.product_image.thumb.url, class: "img-responsive") %></td>
+      <td width="200">
+        <% if cp_product.product_image.present? %>
+        <%= image_tag(cp_product.product_image.thumb.url, class: "img-responsive") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-responsive") %>
+        <% end %>
+      </td>
       <td><%= cp_product.description %></td>
       <td><%= cp_product.product_link %></td>
       <td><%= link_to("Delete", job_cp_product_path(@job,cp_product), data: {confirm: "Are you sure?"}, class: "btn btn-primary", method: :delete) %></td>
@@ -144,7 +150,13 @@
     <tbody>
       <% @job.cp_managers.each do |cp_manager|  %>
       <tr>
-        <td><%= image_tag(cp_manager.manager_image.medium.url, class: "img-responsive") %></td>
+        <td>
+          <% if cp_manager.manager_image.persent? %>
+          <%= image_tag(cp_manager.manager_image.medium.url, class: "img-responsive") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-responsive") %>
+          <% end %>
+        </td>
         <td><%= cp_manager.name %></td>
         <td><%= cp_manager.post %></td>
         <td><%= cp_manager.description %></td>
@@ -173,8 +185,6 @@
     <thead>
       <tr>
         <th>标签内容</th>
-        <th>是否产品标签</th>
-        <th>是否公司标签</th>
         <th>操作选项</th>
       </tr>
     </thead>
@@ -195,8 +205,6 @@
   <%= simple_form_for [@job, @jb_label] do |f| %>
   <%= f.input :label_item %>
   <br>
-  <!-- <%= f.input :is_of_product %>
-  <%= f.input :is_of_company %> -->
   <%= f.submit "提交", class: "btn btn-lg btn-success col-sm-12" %>
   <br><hr>
   <% end %>
