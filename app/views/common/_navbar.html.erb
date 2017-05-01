@@ -24,11 +24,7 @@
         <li><%= link_to("登入", new_user_session_path) %></li>
       <% else %>
         <li>
-          <% if current_user.aavatar.present? %>
-          <%= image_tag(current_user.aavatar.small.url, class: "round-image-50") %>
-        <% else %>
-          <%= image_tag("/images/coldplay.jpg", class: "round-image-50") %>
-          <% end %>
+          <%= image_tag(current_user.aavatar.url, class: "round-image-50") %>
         </li>
         <li class="dropdown">
 

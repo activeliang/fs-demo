@@ -111,7 +111,7 @@ class JobsController < ApplicationController
 
   def require_job_permission
     @job = Job.find(params[:id])
-    if @job.user != current_user
+    if @job.user != current_user and !current_user.is_admin
       redirect_to jobs_path, alert: "你不能修改他人发布的信息哦~"
     end
   end

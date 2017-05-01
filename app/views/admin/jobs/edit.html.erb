@@ -1,21 +1,198 @@
 <div class="container">
-  <h1>Edit a Job</h1>
-
+  <h1 style="text-align:center; font-size: 3rem;">编辑<%= @job.title %>职位</h1>
   <%= simple_form_for @job do |f| %>
+  <div class="row">
+    <h2 style=" font-size: 2.6rem;">公司信息</h2><hr>
+    <div class="col-sm-4">
+      <%= f.input :cp_image, as: :file, label: "公司标志图" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :cp_name, label: "公司名称" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :cp_subtitle, label: "小标题" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :cp_type, label: "公司类型" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :cp_stage, label: "公司成长阶段" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :cp_number, label: "公司人数" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :cp_city, label: "所在城市" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :cp_description, label: "公司介绍" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :cp_website, label: "公司官网" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.text_field :cp_lat, :id => "maplat", :type => "hidden" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.text_field :cp_lng, :id => "maplng", :type => "hidden" %>
+    </div>
+  </div>
+  <div class="row">
+    <br><br><hr>
+    <h2 style=" font-size: 2.6rem;">职位信息</h2>
+    <div class="col-sm-4">
+      <%= f.input :title, label: "职位名称" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :department, label: "职位所属部门" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :wage_upper_bound, label: "薪资上限" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :wage_lower_bound, label: "薪资下限" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :is_fulltime, label: "是否全职" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :temptation, label: "职位诱惑" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :task, label: "岗位职责" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :claim, label: "岗位要求" %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.input :is_show, label: "是否在首页展示" %>
+    </div>
+    <div class="col-sm-4 clearfix">
+      <%= f.input :quantity, label: "招聘人数" %>
+    </div>
+  </div>
+
+  <% if @job.cp_photos.present? %>
+  <div class="row">
+    <span style="font-size:20px;">目前已上传的工作环境展示图片</span>
+    <br>
+    <% @job.cp_photos.each do |p| %>
+    <div class="pull-left">
+      <%= image_tag p.cp_in_image.thumb.url %><br>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+  <br>
+
+  <div class="group">
+    <%= f.label :公司内部工作环境（支持多图上传） %><br>
+    <%= f.file_field :cp_in_image, :multiple => true, name: "cp_photos[cp_in_image][]" %>
+  </div>
+  <br>
+  <div class="row">
+    <%= render "common/baidumap" %>
+  </div>
+  <br>
+  <div class="row">
+    <%= f.submit "Submit", class: "btn btn-primary btn-lg col-sm-12" %>
+  </div>
+  <% end %>
+</div>
+<br>
+<div class="container">
+  <hr>
+  <!-- 以下是公司产品介绍 -->
+  <h2 style="text-align:center; font-size: 3rem;">公司产品介绍列表</h2>
+  <table class="table table-striped table-bordered">
+    <% @job.cp_products.each do |cp_product| %>
+    <tr>
+      <td><%= link_to cp_product.title, job_cp_product_path(@job,cp_product)%></td>
+      <td width="200"><%= image_tag(cp_product.product_image.thumb.url, class: "img-responsive") %></td>
+      <td><%= cp_product.description %></td>
+      <td><%= cp_product.product_link %></td>
+      <td><%= link_to("Delete", job_cp_product_path(@job,cp_product), data: {confirm: "Are you sure?"}, class: "btn btn-primary", method: :delete) %></td>
+    </tr>
+    <% end  %>
+  </table>
+  <h2 style=" font-size: 2.6rem;">新增</h2>
+  <%= simple_form_for [@job, @cp_product] do |f| %>
   <%= f.input :title %>
-  <%= f.input :task %>
-  <%= f.input :wage_upper_bound %>
-  <%= f.input :wage_lower_bound %>
-  <%= f.input :detail %>
-  <%= f.input :scale %>
+  <%= f.input :description %>
+  <%= f.input :product_link %>
+  <%= f.input :product_image %>
+  <%= f.submit "提交", class: "btn btn-success" %>
+  <% end %>
+  <hr>
+  <!-- 以下是公司管理团队介绍 -->
+  <h2 style="text-align:center; font-size: 3rem;">公司管理者介绍</h2>
+
+  <table class="table table-striep table-bordered">
+    <thead>
+      <tr>
+        <th>照片</th>
+        <th>姓名</th>
+        <th>身份</th>
+        <th>简介</th>
+        <th>有关链接</th>
+        <th>操作选项</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @job.cp_managers.each do |cp_manager|  %>
+      <tr>
+        <td><%= image_tag(cp_manager.manager_image.medium.url, class: "img-responsive") %></td>
+        <td><%= cp_manager.name %></td>
+        <td><%= cp_manager.post %></td>
+        <td><%= cp_manager.description %></td>
+        <td><%= link_to("相关链接", cp_manager.website, :target => "_blank", class: "btn btn-success") %></td>
+        <td><%= link_to("Delete", job_cp_manager_path(@job,cp_manager), data: {confirm: "Are you sure?"}, class: "btn btn-primary", method: :delete) %></td>
+      </tr>
+      <% end  %>
+    </tbody>
+  </table>
+
+  <h2 style=" font-size: 2.6rem;">新增</h2>
+  <%= simple_form_for [@job, @cp_manager] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :manager_image %>
+  <%= f.input :post %>
+  <%= f.input :description %>
   <%= f.input :website %>
-  <%= f.input :work_time %>
-  <%= f.input :five_gold %>
-  <%= f.input :overtime_pay %>
-  <%= f.input :address %>
-  <%= f.input :contact_wechat %>
-  <%= f.input :is_show %>
-  <%= f.submit "Submit" %>
+  <%= f.submit "提交", class: "btn btn-success" %>
+  <% end  %>
+  <hr>
+  <!-- 以下是job有关的标签管理 -->
+  <h2 style="text-align:center; font-size: 3rem;">为这个职位增加一些标签</h2>
+
+  <table class="table table-striep table-bordered">
+    <thead>
+      <tr>
+        <th>标签内容</th>
+        <th>是否产品标签</th>
+        <th>是否公司标签</th>
+        <th>操作选项</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @job.jb_labels.each do |jb_label| %>
+      <tr>
+        <td><%= jb_label.label_item %></td>
+        <td><%= jb_label.is_of_product %></td>
+        <td><%= jb_label.is_of_company %></td>
+        <td><%= link_to("Delete", job_jb_label_path(@job,jb_label), data: {confirm: "Are you sure?"}, class: "btn btn-primary", method: :delete) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2 style=" font-size: 2.6rem;">新增</h2>
+  <%= simple_form_for [@job, @jb_label] do |f| %>
+  <%= f.input :label_item %>
+  <!-- <%= f.input :is_of_product %>
+  <%= f.input :is_of_company %> -->
+  <%= f.submit "提交", class: "btn btn-success" %>
   <% end %>
 
 </div>

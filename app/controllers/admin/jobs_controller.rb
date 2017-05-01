@@ -7,6 +7,9 @@ class Admin::JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
+    @cp_product = CpProduct.new
+    @cp_manager = CpManager.new
+    @jb_label = JbLabel.new
   end
 
   def update
