@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430125428) do
+ActiveRecord::Schema.define(version: 20170501065618) do
 
   create_table "cp_managers", force: :cascade do |t|
     t.string   "name"
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20170430125428) do
   create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.string   "department"
-    t.integer  "wage_upper_bound"
-    t.integer  "wage_lower_bound"
+    t.string   "wage_upper_bound"
+    t.string   "wage_lower_bound"
     t.boolean  "is_fulltime",      default: true
     t.text     "temptation"
     t.text     "task"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20170430125428) do
     t.integer  "quantity"
     t.string   "cp_type"
     t.string   "cp_stage"
-    t.integer  "cp_number"
+    t.string   "cp_number"
     t.string   "cp_city"
     t.text     "cp_description"
     t.string   "cp_lng"

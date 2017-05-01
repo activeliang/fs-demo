@@ -4,7 +4,7 @@
   <div class="row">
     <h2 style=" font-size: 2.6rem;">公司信息</h2><hr>
     <div class="col-sm-4">
-      <%= f.input :cp_image, as: :file, label: "公司标志图" %>
+      <%= f.input :cp_image, as: :file, label: "公司LOGO" %>
     </div>
     <div class="col-sm-4">
       <%= f.input :cp_name, label: "公司名称" %>
@@ -121,8 +121,11 @@
   <%= f.input :description %>
   <%= f.input :product_link %>
   <%= f.input :product_image %>
-  <%= f.submit "提交", class: "btn btn-success" %>
+  <br>
+  <%= f.submit "提交", class: "btn btn-success btn-lg col-sm-12" %>
   <% end %>
+  <br>
+  <hr>
   <hr>
   <!-- 以下是公司管理团队介绍 -->
   <h2 style="text-align:center; font-size: 3rem;">公司管理者介绍</h2>
@@ -158,10 +161,11 @@
   <%= f.input :manager_image %>
   <%= f.input :post %>
   <%= f.input :description %>
-  <%= f.input :website %>
-  <%= f.submit "提交", class: "btn btn-success" %>
+  <%= f.input :website  %><br>
+  <%= f.submit "提交", class: "btn btn-success btn-lg col-sm-12" %>
   <% end  %>
-  <hr>
+  <br>
+  <hr><hr>
   <!-- 以下是job有关的标签管理 -->
   <h2 style="text-align:center; font-size: 3rem;">为这个职位增加一些标签</h2>
 
@@ -190,9 +194,11 @@
   <h2 style=" font-size: 2.6rem;">新增</h2>
   <%= simple_form_for [@job, @jb_label] do |f| %>
   <%= f.input :label_item %>
+  <br>
   <!-- <%= f.input :is_of_product %>
   <%= f.input :is_of_company %> -->
-  <%= f.submit "提交", class: "btn btn-success" %>
+  <%= f.submit "提交", class: "btn btn-lg btn-success col-sm-12" %>
+  <br><hr>
   <% end %>
 
 </div>

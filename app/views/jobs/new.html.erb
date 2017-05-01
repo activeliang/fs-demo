@@ -1,40 +1,40 @@
 <div class="container">
-  <h1 style="font-size: 3rem; text-align: center;">新增一个职位</h1><hr>
+  <h1 style="font-size: 3rem; text-align: center;">新增一个职位</h1>
   <%= simple_form_for @job do |f| %>
   <div class="row">
     <h2 style="font-size: 2.5rem;">公司信息</h2>
-    <%= f.input :cp_image, as: :file, label: "公司标志图" %>
-    <%= f.input :cp_name %>
-    <%= f.input :cp_subtitle %>
-    <%= f.input :cp_type %>
-    <%= f.input :cp_stage %>
-    <%= f.input :cp_number %>
-    <%= f.input :cp_city %>
-    <%= f.input :cp_description %>
-    <%= f.input :cp_website %>
+    <%= f.input :cp_image, as: :file, label: "公司LOGO" %>
+    <%= f.input :cp_name, label: "公司名称" %>
+    <%= f.input :cp_subtitle, label: "小副标题" %>
+    <%= f.input :cp_type, label: "公司类型" %>
+    <%= f.input :cp_stage, label: "成长阶段" %>
+    <%= f.input :cp_number, label: "员工人数" %>
+    <%= f.input :cp_city, label: "所在城市" %>
+    <%= f.input :cp_description, label: "公司介绍" %>
+    <%= f.input :cp_website, label: "公司官网" %>
     <%= f.text_field :cp_lat, :id => "maplat", :type => "hidden" %>
     <%= f.text_field :cp_lng, :id => "maplng", :type => "hidden" %>
   </div>
   <hr>
   <div class="row">
     <h2 style="font-size: 2.5rem;">职位信息</h2>
-    <%= f.input :title %>
-    <%= f.input :department %>
-    <%= f.input :wage_upper_bound %>
-    <%= f.input :wage_lower_bound %>
-    <%= f.input :is_fulltime %>
-    <%= f.input :temptation %>
-    <%= f.input :task %>
-    <%= f.input :claim %>
-    <%= f.input :is_show %>
-    <%= f.input :quantity %>
+    <%= f.input :title, label: "职位名称" %>
+    <%= f.input :department, label: "所属部门" %>
+    <%= f.input :wage_upper_bound, label: "薪资上限" %>
+    <%= f.input :wage_lower_bound, label: "薪资下限" %>
+    <%= f.input :is_fulltime, label: "是否全职" %>
+    <%= f.input :temptation , label: "职位诱惑"%>
+    <%= f.input :task, label: "岗位职责" %>
+    <%= f.input :claim, label: "岗位要求" %>
+    <%= f.input :is_show, label: "是否在首页展示" %>
+    <%= f.input :quantity, label: "招聘人数" %>
     <div class="group">
-      <%= f.label :公司内部工作环境图（多图上传） %><br>
+      <%= f.label :工作环境图（支持多图上传） %><br>
       <%= f.file_field :cp_in_image, :multiple => true, name: "cp_photos[cp_in_image][]" %>
     </div><br><br>
     <%= render "common/baidumap" %>
   </div><br>
-  <%= f.submit "Submit", class: "btn btn-primary btn-lg"  %>
-  <span style="font-size: 2.5rem;">(保存后进入编辑页面可增加更多信息！)</span>
+  <%= f.submit "Submit", class: "btn btn-primary btn-lg col-sm-12"  %>
   <% end %>
+  <p style="font-size: 2.5rem; margin-top: 80px;" class="text-center">(保存后进入编辑页面可增加更多信息！)</p><hr>
 </div>
