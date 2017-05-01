@@ -2,12 +2,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=fitXUIqC5oHoWvnUhd4PwtHlbMb22AvH&s=1"></script>
 </head>
-
-<input name="lng" type="hidden" id="lng" style="width:200px;" value="<%= @job.cp_lng %>"/>
-<input name="lat" type="hidden" id="lat" style="width:200px;" value="<%= @job.cp_lat %>"/><br>
-<div style="width: 326px; height: 320px;" id="container1"></div>
+<p>
+  <input name="lng" type="hidden" id="lng" style="width:200px;" value="120.570464"/>
+  <input name="lat" type="hidden" id="lat" style="width:200px;" value="31.300216"/><br>
+  标注点所在区域：<input name="address" type="text" id="address" style="width:330px; background-color: #10c14c; color: #fff;"/>
+</p>
+<div style="width: 326px; height: 320px; border: 1px solid gray; float: left;" id="container1"></div>
 <script type="text/javascript">
-  var map = new BMap.Map("container1");
+  var map = new BMap.Map("container");
   //创建地址解析的实例
   var myGeo = new BMap.Geocoder();
   var lng = $('#lng').val(),
@@ -22,7 +24,9 @@
     LocalCity = false;
   }
   //设置地图中心坐标
-  map.centerAndZoom(new BMap.Point(lng, lat), 16);
+  map.centerAndZoom(new BMap.Point(lng, lat), 12);
+  //添加默认缩放平移控件
+  map.addControl(new BMap.NavigationControl());
   //开启缩小放大
   map.enableScrollWheelZoom();
   //当前城市
@@ -71,12 +75,12 @@
       $('#lat').val(point.lat);
       Geocoder(point);
 
-      map.centerAndZoom(point, 16);
+      map.centerAndZoom(point, 12);
       var marker = new BMap.Marker(point);
       map.addOverlay(marker);
       marker.enableDragging(); //可以拖动
       //创建信息窗口
-      var infoWindow = new BMap.InfoWindow("'<%= @job.cp_name %>'的位置信息.</br>可以拖动放大地图！");
+      var infoWindow = new BMap.InfoWindow("这是您公司的位置。<br/>如果不正确，请拖动红色图标");
       //显示窗口
       marker.openInfoWindow(infoWindow);
       //点击监听
