@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>我申请挖走的人才</h2>
+
+  <table class="table table-hover">
+    <% @resumes.each do |resume| %>
+    <tr>
+      <td><%= link_to resume.name, resume_path(resume) %></td>
+      <td><%= resume.description %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</div>

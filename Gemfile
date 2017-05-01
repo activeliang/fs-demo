@@ -45,6 +45,7 @@ gem 'paperclip', '~> 4.1'
 gem 'carrierwave-qiniu'
 gem 'figaro'
 gem "fog-aws"
+gem 'rqrcode'
 
 
 group :development, :test do

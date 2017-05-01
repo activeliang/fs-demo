@@ -19,12 +19,16 @@ Rails.application.routes.draw do
     member do
       post :apply_join
       post :cancel_join
+      post :collect_job
+      post :cancel_collect_job
     end
   end
   namespace :account do
     resources :resumes
     resources :jobs
     resources :apply_jobs
+    resources :employ_resumes
+    resources :mycollects
   end
 
   namespace :admin do

@@ -1,10 +1,10 @@
 <div class="container">
   <h1>已申请的职位</h1>
-  <table class="table table-boldered">
+  <table class="table table-bordered">
     <% @apply_jobs.each do |apply_job| %>
     <tr>
       <td><%= link_to apply_job.title, job_path(apply_job) %></td>
-      <td><%= apply_job.description %></td>
+      <td><%= apply_job.cp_name %></td>
     </tr>
     <% end  %>
   </table>

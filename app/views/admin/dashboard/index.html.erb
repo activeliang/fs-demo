@@ -1,6 +1,6 @@
-<h1>所有数据</h1>
-<h3>所有的简历</h3>
-<table class="table">
+<h1 style="font-size: 4rem; text-align: center;">所有数据</h1>
+<h3 style="font-size: 2.8rem;">所有的简历</h3>
+<table class="table table-hover table-striped">
   <% @resumes.each do |resume| %>
   <tr>
     <td><%= link_to resume.name, resume_path(resume) %></td>
@@ -11,8 +11,8 @@
   <% end  %>
 </table>
 
-<h3>所有的职位</h3>
-<table class="table">
+<h3 style="font-size: 2.8rem;">所有的职位</h3>
+<table class="table table-hover table-striped">
   <% @jobs.each do |job| %>
   <tr>
     <td><%= link_to job.title, job_path(job) %></td>

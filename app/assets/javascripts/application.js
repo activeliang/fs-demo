@@ -43,3 +43,16 @@ function scrollFunction() {
     x.className = x.className.replace("show", "");
     }
 }
+// 以下是职位详情页的contact-top
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  var x = document.getElementById("contacttop1")
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      x.className = "show";
+        // document.getElementById("contacttop").style.display = "block";
+        // document.getElementById("contacttop").style.transition = ".5s ease";
+    } else {
+    x.className = x.className.replace("show", "");
+    }
+}

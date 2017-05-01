@@ -1,0 +1,25 @@
+<div id="da-thumbs" class="da-thumbs">
+  <% @jobs.limit(12).each do |job| %>
+  <div id="hahali" class="col-xs-2">
+    <%= link_to job_path(job) do %>
+    <% if job.cp_image.present? %>
+    <%= image_tag(job.cp_image.medium.url, class: "img-responsive") %>
+  <% else %>
+    <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+    <% end %>
+    <div id="hahadiv">
+      <h4><%= job.cp_name %></h4>
+      <span><%= job.cp_subtitle %></span>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+<!-- the flash effect js-->
+<script>
+  $(function () {
+    $(' #hahali ').each(function () {
+      $(this).hoverdir();
+    });
+  });
+</script>

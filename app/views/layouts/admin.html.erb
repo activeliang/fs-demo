@@ -11,26 +11,30 @@
 
   <body>
 
-    <div class="container-fluid">
-      <%= render "common/navbar" %>
-      <%= render "common/flashes" %>
-      <div class="row">
-        <div class="col-md-2">
-          <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
-            <li><%= link_to("All", admin_dashboard_index_path, class: "btn btn-success") %></li>
-            <li><%= link_to("Jobs", admin_jobs_path, class: "btn btn-primary" ) %>
-            </li>
-            <li><%= link_to("Resumes", admin_resumes_path, class: "btn btn-success") %></li>
-          </ul>
+    <div class="container-fluid body-content">
+      <div class="content-inside">
+        <div class="row">
+          <%= render "common/navbar" %>
+        </div>
+        <%= render "common/flashes" %>
+        <div class="row">
+          <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked" style="max-width: 300px; padding-top:20px;">
+              <li><%= link_to("All", admin_dashboard_index_path, class: "btn btn-success") %></li>
+              <li><%= link_to("Jobs", admin_jobs_path, class: "btn btn-primary" ) %>
+              </li>
+              <li><%= link_to("Resumes", admin_resumes_path, class: "btn btn-success") %></li>
+            </ul>
+          </div>
+
+          <div class="col-md-10">
+            <%= yield %>
+          </div>
         </div>
 
-        <div class="col-md-10">
-          <%= yield %>
-        </div>
       </div>
     </div>
 
     <%= render "common/footer" %>
-
   </body>
 </html>

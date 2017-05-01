@@ -23,9 +23,11 @@
   </div>
 
   <% if current_user.aavatar.url.present? %>
-  <%= image_tag(current_user.aavatar.url) %>
+  <div class="user-edit-img clearfix">
+    <%= image_tag(current_user.aavatar.url) %>
+  </div>
   <%= f.label :remove_aavatar do %>
-  <%= f.label :remove, "修改用户头像" %>
+  <%= f.label :remove, "使用默认头像" %>
   <%= f.check_box :remove_aavatar %>
   <% end %>
   <% end %>

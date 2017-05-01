@@ -1,212 +1,408 @@
 <div class="container">
-  <div class="row job-bc-1">
-    <div class="col-sm-2 job-bc-1-img">
-      <% if @job.cp_image.present? %>
-      <%= image_tag(@job.cp_image.medium.url, class: "img-responsive") %>
-    <% else %>
-      <%= image_tag("http://holdplace.it/200x200&text=No Pic", class: "img-responsive") %>
+  <p class="top-nav">
+    <%= link_to("首页 ", "/") %>
+    >
+    <%= link_to("简历", resumes_path) %>/<%= link_to("职位 ", jobs_path) %>
+    >
+    <%= link_to @job.cp_name, job_path(@job) %>
+  </p>
+  <p class="pull-right share-wechat">
+    <span>分享</span>
+    <button onclick="on()">
+      <i class=" fa fa-weixin" aria-hidden=" true"></i>
+    </button>
+  </a>
+</p>
+<div class="row job-bc-1">
+  <div class="col-sm-2 job-bc-1-img">
+    <% if @job.cp_image.present? %>
+    <%= image_tag(@job.cp_image.medium.url, class: "img-responsive") %>
+  <% else %>
+    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-responsive") %>
+    <% end %>
+  </div>
+  <div class="col-sm-10">
+    <div class="row job-bc-1-1">
+      <div class="col-sm-7">
+        <%= link_to @job.cp_website, :target => "_blank" do %>
+        <h1><%= @job.cp_name %>
+          <i class="fa fa-link" aria-hidden="true"></i>
+          <% end %>
+          <span class="label label-success">
+            <i></i>小伙伴认证</span>
+        </h1>
+        <p><%= @job.cp_subtitle %></p>
+      </div>
+      <div class="col-sm-5 text-center">
+        <div class="job-btn">
+          <% if current_user %>
+          <% if !current_user.is_collected_job?(@job) %>
+          <%= link_to collect_job_job_path(@job), method: :post, class: "btn btn-success btn-lg job-btn-1" do %>
+          <span class='fa fa-star-o'></span>
+          收藏
+          <% end %>
+        <% else %>
+          <%= link_to("取消", cancel_collect_job_job_path(@job), method: :post, class: "cancel-btn cancel-btn-1") %>
+          <button type="button" class="btn btn-success job-btn-1 btn-lg disabled" name="button">
+            <span class="fa fa-star"></span>已收藏</button>
+          <% end %>
+        <% else %>
+          <button class="btn btn-success btn-lg job-btn-1" onclick="myFunction()">
+            <span class='fa fa-star-o'></span>
+            收藏</button>
+          <% end %>
+
+          <% if current_user %>
+          <% if current_user.is_apply_job?(@job) %>
+          <button type="button" class="btn btn-success btn-lg disabled" name="button">已投过简历</button>
+          <%= link_to("取消", cancel_join_job_path(@job), method: :post, class: "cancel-btn") %>
+          <% elsif %>
+          <%= link_to("投个简历", apply_join_job_path(@job), method: :post, class: "btn btn-success btn-lg job-btn-2") %>
+          <% end %>
+        <% else %>
+          <button class="btn btn-success job-btn-2 btn-lg" onclick="myFunction()">投个简历</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row job-bc-1-2">
+      <div class="col-sm-7">
+        <p><%= @job.department %></p>
+        <h1><%= @job.title %>
+          -
+          <%= @job.cp_city %></h1>
+        <h3>
+          <span><%= @job.wage_lower_bound %>-<%= @job.wage_upper_bound %></span>/<%= @job.cp_city %>/
+          <% if @job.is_fulltime %>
+          全职
+        <% else %>
+          非全职
+          <% end %>
+        </span>
+        <i class="job-updatetime">更新于
+          <%= @job.updated_at.strftime("%Y-%m-%d") %></i>
+      </h3>
+    </div>
+    <div class="col-sm-4 col-sm-offset-1 job-label-item">
+      <% @job.jb_labels.limit(6).each do |jb_label| %>
+      <div class="job-label-item-1 label label-success"><%= jb_label.label_item %></div>
       <% end %>
     </div>
-    <div class="col-sm-10">
-      <div class="row job-bc-1-1">
-        <div class="col-sm-7">
-          <%= link_to @job.cp_website, :target => "_blank" do %>
-          <h1><%= @job.cp_name %>
-            <i class="fa fa-link" aria-hidden="true"></i>
-            <% end %>
-            <span class="label label-success">
-              <i></i>小伙伴认证</span>
-          </h1>
-          <p><%= @job.cp_subtitle %></p>
-        </div>
-        <div class="col-sm-5 text-center">
-          <div class="job-btn">
-            <%= link_to '#', class: "btn btn-success btn-lg job-btn-1" do %>
-            <span class='fa fa-star-o'></span>
+  </div>
+</div>
+</div>
+<div class="row job-bc-bottom">
+<div class="col-sm-8">
 
-            收藏
-            <% end %>
-            <%= link_to("投个简历", apply_join_job_path(@job), class: "btn btn-success btn-lg job-btn-2") %>
+  <div class="row job-bc-2">
+    <% if @job.cp_products.present? %>
+    <div class="col-sm-12 job-bc-2-2">
+      <div class="item-title">
+        公司产品
+      </div>
+      <div class="product-item">
+        <% @job.cp_products.limit(3).each_with_index do |cp_product, index| %>
+        <% if index == 0 %>
+        <div class="row product-item-1">
+          <div class="col-sm-5 col-xs-12">
+            <%= image_tag(cp_product.product_image.medium.url, class: "img-responsive") %>
+          </div>
+          <div class="col-sm-7 col-xs-12">
+            <div class="product-title">
+              <%= link_to cp_product.product_link, :target => "_blank" do  %>
+              <h3><%= cp_product.title %>
+                <i class="fa fa-link" aria-hidden="true"></i>
+              </h3>
+              <% end %>
+            </div>
+            <div class="product-label">
+              <% cp_product.product_labels.each do |product_label| %>
+              <div class="product-label-item label label-success">
+                <%= product_label.label_item %>
+              </div>
+              <% end %>
+            </div>
+            <div class="product-description">
+              <%= simple_format(cp_product.description.strip[0..110] ) %>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row job-bc-1-2">
-        <div class="col-sm-7">
-          <p><%= @job.department %></p>
-          <h1><%= @job.title %>
-            -
-            <%= @job.cp_city %></h1>
-          <h3>
-            <span><%= @job.wage_lower_bound %>-<%= @job.wage_upper_bound %></span>/<%= @job.cp_city %>/
-            <% if @job.is_fulltime %>
-            全职
-          <% else %>
-            非全职
-            <% end %>
-          </span>
-          <i class="job-updatetime">发布于
-            <%= @job.updated_at.strftime("%Y-%m-%d") %></i>
-        </h3>
-      </div>
-      <div class="col-sm-4 col-sm-offset-1 job-label-item">
-        <% @job.jb_labels.limit(6).each do |jb_label| %>
-        <div class="job-label-item-1 label label-success"><%= jb_label.label_item %></div>
+      <% else %>
+        <div class="row product-item-1 product-second-row">
+          <div class="col-sm-5 col-xs-12">
+            <%= image_tag(cp_product.product_image.medium.url, class: "img-responsive") %>
+          </div>
+          <div class="col-sm-7 col-xs-12">
+            <div class="product-title">
+              <%= link_to cp_product.product_link do  %>
+              <h3><%= cp_product.title %>
+                <i class="fa fa-link" aria-hidden="true"></i>
+              </h3>
+              <% end %>
+            </div>
+            <div class="product-label">
+              <% cp_product.product_labels.each do |product_label| %>
+              <div class="product-label-item label label-success">
+                <%= product_label.label_item %>
+              </div>
+              <% end %>
+            </div>
+            <div class="product-description">
+              <%= simple_format(cp_product.description.strip[0..110] ) %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
         <% end %>
       </div>
     </div>
+    <% end %>
+    <div class="col-sm-12 job-bc-2-1">
+      <div class="item-title">
+        公司介绍
+      </div>
+      <div class="cp_description">
+        <div id="div1">
+          <%= simple_format(@job.cp_description) %>
+          <br>
+          <a href="javascript:;">收起</a>
+        </div>
+      </div>
+      <%= render "slider_1" %>
+    </div>
+    <div class="col-sm-12 job-bc-2-3">
+      <div class="item-title">
+        职位信息
+      </div>
+      <div class="job-content">
+        <div class="col-sm-12 job-content-1">
+          <h6>职位诱惑</h6>
+          <p><%= simple_format(@job.temptation) %></p>
+        </div>
+        <div class="col-sm-12 job-content-2">
+          <h6>职位描述</h6>
+          <h5>岗位职责</h5>
+          <p><%= simple_format(@job.task) %></p>
+          <h5>任职条件</h5>
+          <p><%= simple_format(@job.claim) %></p>
+        </div>
+        <div class="col-sm-12 job-content-3"></div>
+      </div>
+    </div>
+
   </div>
+
 </div>
-<div class="row job-bc-bottom">
-  <div class="col-sm-8">
 
-    <div class="row job-bc-2">
-      <% if @job.cp_products.present? %>
-      <div class="col-sm-12 job-bc-2-2">
-        <div class="item-title">
-          公司产品
+<div class="col-sm-4">
+  <div class="row job-bc-3">
+    <div class="col-sm-12 job-bc-3-1">
+      <div class="item-title">
+        公司基本信息
+      </div>
+      <div class="item-content">
+        <ul>
+          <li>
+            <i class="type"></i>
+            <span><%= @job.cp_type %></span>
+          </li>
+          <li>
+            <i class="stage"></i>
+            <span><%= @job.cp_stage %></span>
+          </li>
+          <li>
+            <i class="number"></i>
+            <span><%= @job.cp_number %></span>
+          </li>
+          <li>
+            <i class="city"></i>
+            <span><%= @job.cp_city %></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-12 job-bc-3-2">
+      <div class="item-title">
+        管理团队
+      </div>
+      <% if @job.cp_managers.present? %>
+      <% if @job.cp_managers.count == 1 %>
+      <div class="slider-2-no text-cente">
+        <% @job.cp_managers.each do |cp_manager| %>
+        <% if cp_manager.manager_image.present? %>
+        <%= image_tag(cp_manager.manager_image.medium.url, class: "img-circle") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-circle") %>
+        <% end  %>
+        <div class="manager-content">
+          <h2><%= cp_manager.name %></h2>
+          <h4><%= cp_manager.post %></h4>
+          <p><%= cp_manager.description %></p>
         </div>
-        <div class="product-item">
-          <% @job.cp_products.limit(3).each_with_index do |cp_product, index| %>
-          <% if index == 0 %>
-          <div class="row product-item-1">
-            <div class="col-sm-5 col-xs-12">
-              <%= image_tag(cp_product.product_image.medium.url, class: "img-responsive") %>
-            </div>
-            <div class="col-sm-7 col-xs-12">
-              <div class="product-title">
-                <%= link_to cp_product.product_link do  %>
-                <h3><%= cp_product.title %>
-                  <i class="fa fa-link" aria-hidden="true"></i>
-                </h3>
-                <% end %>
-              </div>
-              <div class="product-label">
-                <% cp_product.product_labels.each do |product_label| %>
-                <div class="product-label-item label label-success">
-                  <%= product_label.label_item %>
-                </div>
-                <% end %>
-              </div>
-              <div class="product-description">
-                <%= simple_format(cp_product.description.strip[0..110] ) %>
-              </div>
-            </div>
-          </div>
-        <% else %>
-          <div class="row product-item-1 product-second-row">
-            <div class="col-sm-5 col-xs-12">
-              <%= image_tag(cp_product.product_image.medium.url, class: "img-responsive") %>
-            </div>
-            <div class="col-sm-7 col-xs-12">
-              <div class="product-title">
-                <%= link_to cp_product.product_link do  %>
-                <h3><%= cp_product.title %>
-                  <i class="fa fa-link" aria-hidden="true"></i>
-                </h3>
-                <% end %>
-              </div>
-              <div class="product-label">
-                <% cp_product.product_labels.each do |product_label| %>
-                <div class="product-label-item label label-success">
-                  <%= product_label.label_item %>
-                </div>
-                <% end %>
-              </div>
-              <div class="product-description">
-                <%= simple_format(cp_product.description.strip[0..110] ) %>
-              </div>
-            </div>
-          </div>
-          <% end %>
-
+        <% if cp_manager.website.present? %>
+        <div class="manager-website">
+          <%= link_to cp_manager.website, :target => "_blank" do %>
+          人物百科
+          <i class="fa fa-link"></i>
           <% end %>
         </div>
+        <% end %>
+        <% end  %>
+      </div>
+    <% else %>
+      <div class="slider-2">
+        <%= render "slider_2" %>
       </div>
       <% end %>
-      <div class="col-sm-12 job-bc-2-1">
-        <div class="item-title">
-          公司介绍
-        </div>
-        <div class="cp_description">
-          <div id="div1">
-            <%= simple_format(@job.cp_description) %>
-            <br>
-            <a href="javascript:;">收起</a>
-          </div>
-        </div>
-        <%= render "slider_1" %>
-      </div>
-      <div class="col-sm-12 job-bc-2-3">
-        <div class="item-title">
-          职位信息
-        </div>
-        <div class="job-content">
-          <div class="col-sm-12 job-content-1">
-            <h6>职位诱惑</h6>
-            <p><%= simple_format(@job.temptation) %></p>
-          </div>
-          <div class="col-sm-12 job-content-2">
-            <h6>职位描述</h6>
-            <h5>岗位职责</h5>
-            <p><%= simple_format(@job.task) %></p>
-            <h5>任职条件</h5>
-            <p><%= simple_format(@job.claim) %></p>
-          </div>
-          <div class="col-sm-12 job-content-3"></div>
-        </div>
-      </div>
-
+      <% end %>
     </div>
-
-  </div>
-
-  <div class="col-sm-4">
-    <div class="row job-bc-3">
-      <div class="col-sm-12 job-bc-3-1">
-        <div class="item-title">
-          公司基本信息
-        </div>
-        <div class="item-content">
-          <ul>
-            <li>
-              <i class="type"></i>
-              <span><%= @job.cp_type %></span>
-            </li>
-            <li>
-              <i class="stage"></i>
-              <span><%= @job.cp_stage %></span>
-            </li>
-            <li>
-              <i class="number"></i>
-              <span><%= @job.cp_number %></span>
-            </li>
-            <li>
-              <i class="city"></i>
-              <span><%= @job.cp_city %></span>
-            </li>
-          </ul>
-        </div>
+    <div class="col-sm-12 job-bc-3-3">
+      <div class="item-title">
+        公司位置
       </div>
-      <div class="col-sm-12 job-bc-3-2">
-        <div class="item-title">
-          管理团队
-        </div>
-        <div class="slider-2">
-          <%= render "slider_2" %>
-        </div>
-      </div>
-      <div class="col-sm-12 job-bc-3-3">
-        <div class="item-title">
-          公司位置
-        </div>
-        <div class="map">
-          <%= render "common/bmap" %>
-        </div>
+      <div class="map">
+        <%= render "common/bmap" %>
       </div>
     </div>
   </div>
 </div>
 </div>
+</div>
+<!-- 以下是登陆模块 -->
+<!-- Modal Content -->
+<div id="id01" class="modal">
+
+<div class="modal-content animate">
+<div class="imgcontainer">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="关闭弹窗">&times;</span>
+  <img src="http://olmrxx9ks.bkt.clouddn.com/blog/2017-04-26-WechatIMG146.jpeg" alt="Avatar" class="avatar">
+</div>
+
+<div class="container liang-modal">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, required: false, autofocus: true %>
+    <%= f.input :password, required: false %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Log in", class: "btn btn-success modal-btn" %>
+  </div>
+  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <% end %>
+  <%= link_to("sign up", new_user_registration_path, style:"font-size: 30px; text-decoration: underline;") %>
+  <div class="container  liang-modal-2" style="background-color:#f1f1f1">
+    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    <span class="psw">
+      <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+    </span>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- 以下是contact-top条： -->
+<div class="contact-topv1" id="contacttop1">
+<div class=" container-fluid contact-top">
+<div class="container">
+  <div class="col-xs-2 top-user-img">
+    <% if @job.cp_image.present? %>
+    <%=image_tag( @job.cp_image.thumb.url, class: "img-responsive") %>
+  <% else %>
+    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-responsive") %>
+    <% end %>
+  </div>
+  <div class="col-xs-6 contact-top-content">
+    <h1 class="user-name"><%= @job.title %></h1>
+
+    <p>
+      <span class="contact-top-wage"><%= @job.wage_lower_bound %>
+        -
+        <%= @job.wage_upper_bound %></span>
+      /
+      <% if @job.is_fulltime %>
+      全职
+    <% else %>
+      非全职
+      <% end %>
+      /
+      <%= @job.cp_city %>
+
+    </p>
+  </div>
+  <div class="col-xs-4 contact-top-btn">
+    <% if current_user %>
+    <% if !current_user.is_collected_job?(@job) %>
+    <%= link_to collect_job_job_path(@job), method: :post, class: "btn btn-success btn-lg contact-top-btn-1" do %>
+    <span class='fa fa-star-o'></span>
+    收藏
+    <% end %>
+  <% else %>
+    <%= link_to("取消", cancel_collect_job_job_path(@job), method: :post, class: "cancel-btn cancel-btn-2") %>
+    <button type="button" class="btn btn-success contact-top-btn-2 btn-lg disabled" name="button">
+      <span class="fa fa-star"></span>已收藏</button>
+    <% end %>
+  <% else %>
+    <button class="btn btn-success btn-lg contact-top-btn-1" onclick="myFunction()">
+      <span class="fa fa-star"></span>已收藏</button>
+    <% end %>
+
+    <% if current_user %>
+    <% if current_user.is_apply_job?(@job) %>
+    <button type="button" class="btn btn-success contact-top-btn-2 btn-lg disabled" name="button">已投过简历</button>
+    <%= link_to("取消", cancel_join_job_path(@job), method: :post, class: "cancel-btn cancel-btn-2") %>
+    <% elsif %>
+    <%= link_to("投个简历", apply_join_job_path(@job), method: :post, class: "btn btn-success btn-lg contact-top-btn-1") %>
+    <% end %>
+  <% else %>
+    <button class="btn btn-success btn-lg contact-top-btn-1" onclick="myFunction()">投个简历</button>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 以下是微信二维码 -->
+<div id="overlay" onclick="off()">
+<div id="text">扫一扫，分享给好友~
+<br>
+<%= raw @qr.as_html %>
+
+</div>
+</div>
+</div>
+<!-- the actual snackbar -->
+<div id="snackbar">请先登入！！!</div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function myFunction() {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar")
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 4000);
+  document.getElementById('id01').style.display = 'block'
+}
+</script>
+
 <!-- 以下是展开收起 -->
 <script type="text/javascript">
 var oDiv = document.getElementById('div1');

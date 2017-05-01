@@ -31,6 +31,6 @@ class CpProductsController < ApplicationController
 
   private
   def cp_product_params
-    params.require(:cp_product).permit(:product_image, :title, :description)
+    params.require(:cp_product).permit(:product_image, :title, :description, :product_link)
   end
 end

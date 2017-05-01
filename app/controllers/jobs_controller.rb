@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create, :edit, :update, :destroy]
   before_action :require_job_permission, only:[:edit, :update, :destroy]
   layout 'bc', only: [:show]
+
   def new
     @job = Job.new
     @cp_photo = @job.cp_photos.build #for multi-pics
@@ -31,6 +32,7 @@ class JobsController < ApplicationController
     @cp_photos = @job.cp_photos.all
     @job_labels = @job.jb_labels.where(:is_of_company => true)
     @cp_managers = @job.cp_managers
+    @qr = RQRCode::QRCode.new(job_url(@job).to_s, :size => 6, :level => :h )
   end
 
   def edit
@@ -81,6 +83,28 @@ class JobsController < ApplicationController
       flash[:warning] = "你目前未申请该职位哦~"
     end
     redirect_to job_path(@job)
+  end
+
+  def collect_job
+    @job = Job.find(params[:id])
+    if !current_user.is_collected_job?(@job)
+      current_user.collect_job!(@job)
+      flash[:notice] = "成功收藏！"
+    else
+      flash[:warning] = "你已收藏过了哦~"
+    end
+    redirect_to :back
+  end
+
+  def cancel_collect_job
+    @job = Job.find(params[:id])
+    if current_user.is_collected_job?(@job)
+      current_user.cancel_collect_job!(@job)
+      flash[:warning] = "您已取消收藏~！"
+    else
+      flash[:warning] = "还没收藏，怎么取消呢~~~XD"
+    end
+    redirect_to :back
   end
 
   private
