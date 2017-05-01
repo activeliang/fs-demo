@@ -105,7 +105,11 @@
         <% if index == 0 %>
         <div class="row product-item-1">
           <div class="col-sm-5 col-xs-12">
+            <% if cp_product.product_image.present? %>
             <%= image_tag(cp_product.product_image.medium.url, class: "img-responsive") %>
+          <% else %>
+            <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "img-responsive") %>
+            <% end %>
           </div>
           <div class="col-sm-7 col-xs-12">
             <div class="product-title">
@@ -130,7 +134,11 @@
       <% else %>
         <div class="row product-item-1 product-second-row">
           <div class="col-sm-5 col-xs-12">
+            <% if cp_product.product_image.present? %>
             <%= image_tag(cp_product.product_image.medium.url, class: "img-responsive") %>
+          <% else %>
+            <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "img-responsive") %>
+            <% end %>
           </div>
           <div class="col-sm-7 col-xs-12">
             <div class="product-title">
@@ -238,7 +246,7 @@
         <div class="manager-content">
           <h2><%= cp_manager.name %></h2>
           <h4><%= cp_manager.post %></h4>
-          <p><%= cp_manager.description %></p>
+          <p><%= cp_manager.description.strip[0..130] + "..."%></p>
         </div>
         <% if cp_manager.website.present? %>
         <div class="manager-website">

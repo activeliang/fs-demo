@@ -1,4 +1,4 @@
-/* ÀÁÈËÍ¼¿â ËÑ¼¯ÕûÀí www.lanrentuku.com */
+/* ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ ï¿½Ñ¼ï¿½ï¿½ï¿½ï¿½ï¿½ www.lanrentuku.com */
 
 *,
 *:after,
@@ -134,7 +134,7 @@ a{
 	margin: 0px 4px;
 	padding: 0px 6px;
 	color: #aaa;
-	line-height: 20px;	
+	line-height: 20px;
 	font-size: 13px;
 	text-shadow: 1px 1px 1px #fff;
 	border: 1px solid #ddd;
@@ -158,4 +158,10 @@ a{
 .codrops-demos a.current-demo,
 .codrops-demos a.current-demo:hover{
 	background: #f6f6f6;
+}
+.da-thumbs #hahali {
+  background: #fff;
+  padding: 0;
+  border: 3px solid #e8e8e8;
+  position: relative;
 }
