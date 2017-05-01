@@ -31,7 +31,7 @@
           <span class="label label-success">
             <i></i>小伙伴认证</span>
         </h1>
-        <p><%= @job.cp_subtitle %></p>
+        <p><%= @job.cp_subtitle.strip[0..27] + "..." %></p>
       </div>
       <div class="col-sm-5 text-center">
         <div class="job-btn">
@@ -123,7 +123,7 @@
               <% end %>
             </div>
             <div class="product-description">
-              <%= simple_format(cp_product.description.strip[0..110] ) %>
+              <%= simple_format(cp_product.description.strip[0..110] + "..." ) %>
             </div>
           </div>
         </div>
