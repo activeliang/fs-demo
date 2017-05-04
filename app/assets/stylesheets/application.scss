@@ -52,9 +52,9 @@
 .navbar-default {
   background-color : #ffffff;
   border-width :0;
-  margin-bottom: -7px;
+  margin-bottom: 0;
   height :10%;
-  padding: 10px;
+  padding: 8px;
   z-index: 3;
   position: relative;
   border-radius: 0;
@@ -90,7 +90,8 @@
   padding-bottom: 0;
 }
 .navbar-row {
-  // margin-bottom: -5px;
+  margin-bottom: -4px;
+  // height: 70px;
   // overflow: hidden;
 }
 .navbar-btn {
