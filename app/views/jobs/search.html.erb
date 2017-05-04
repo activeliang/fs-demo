@@ -1,0 +1,43 @@
+<div class="content">
+  <h3>搜索职位结果</h3>
+  <% if @jobs.blank? %>
+  <div class="text-center">
+    没有符合搜索条件的资料哦！<br>
+    <%= link_to("查看所有职位", jobs_path, class: "btn btn-sm btn-success") %>
+  </div>
+<% else %>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>企业</th>
+        <th width="400">企业LOGO</th>
+        <th>职位名称</th>
+        <th>薪资</th>
+        <th>所在城市</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to job.cp_name, job_path(job)  %></td>
+        <td>
+          <% if job.cp_image.present? %>
+          <%= image_tag(job.cp_image.thumb.url, class: "img-responsive") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "img-responsive") %>
+          <% end  %>
+        </td>
+        <td><%= link_to job.title, job_path(job) %></td>
+        <td><%= job.wage_lower_bound %>
+          -
+          <%= job.wage_upper_bound %></td>
+        <td><%= job.cp_city %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= will_paginate(@jobs, renderer: BootstrapPagination::Rails) %>
+  </div>
+  <% end %>
+</div>

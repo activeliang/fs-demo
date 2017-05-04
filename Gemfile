@@ -46,7 +46,8 @@ gem 'carrierwave-qiniu'
 gem 'figaro'
 gem "fog-aws"
 gem 'rqrcode'
-
+gem 'ransack'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -52,16 +52,18 @@
 .navbar-default {
   background-color : #ffffff;
   border-width :0;
-  margin-bottom: 0;
+  margin-bottom: -7px;
   height :10%;
-  padding: 1rem .9375rem 1rem .9375rem
+  padding: 10px;
+  z-index: 3;
+  position: relative;
+  border-radius: 0;
 }
 .navbar-brand > img {
   display: inline-block;
   width: 42px;
   margin: 0;
   margin-right: 10px;
-  // height: 32px;
 }
 .navbar-brand {
   font-size: 1.7em;
@@ -76,6 +78,26 @@
 }
 #navbar-img {
   padding: 0;
+}
+.navbar .search-btn:hover {
+  background-color: #2dbe60;
+
+}
+.navbar .search-btn {
+  border-left: 0;
+  font-size: 2.3rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar-row {
+  // margin-bottom: -5px;
+  // overflow: hidden;
+}
+.navbar-btn {
+  font-size: 17px;
+  margin-left: 5px;
+  background-color: #fff;
+  color: #2dbe60;
 }
 
 // 以下用户头像
