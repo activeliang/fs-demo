@@ -25,15 +25,13 @@
   /*position: absolute;*/
   width: 90%;
   margin: 0 auto;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: green;
   background-color: #fff;
 
 }
 .da-thumbs  #hahadiv {
 	position: absolute;
-	/*background: #333;*/
-	/*background: rgb(45,190,96);*/
 	background: linear-gradient(0deg,rgba(0,185,90,.65),#00b95a);
 	transition: all 300ms ease;
 	width: 100%;
