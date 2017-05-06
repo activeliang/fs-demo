@@ -9,7 +9,12 @@
     <% end %>
     <div id="hahadiv">
       <h4><%= job.cp_name %></h4>
-      <span><%= job.cp_subtitle %></span>
+      <div class="line"></div>
+      <span><%= job.cp_subtitle.strip[0..20] %></span>
+      <div class="wel-cp-btn text-center">
+        点击立即查看
+      </div>
+
     </div>
     <% end %>
   </div>

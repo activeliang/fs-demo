@@ -16,9 +16,19 @@
 	overflow: hidden;
 }
 .da-thumbs #hahadiv h4 {
+
   font-size: 3rem;
 	color: rgba(255,255,255,0.9);
 	margin-top: 15px;
+}
+.da-thumbs .wel-cp-btn {
+  /*position: absolute;*/
+  width: 90%;
+  margin: 0 auto;
+  font-size: 2.5rem;
+  color: green;
+  background-color: #fff;
+
 }
 .da-thumbs  #hahadiv {
 	position: absolute;
@@ -31,7 +41,9 @@
 }
 .da-thumbs  span {
 	display: block;
-	margin: 20px 20px 20px 20px;
+  font-size: 1.6rem;
+  height: 70px;
+	margin: 10px 10px 10px 10px;
 	text-transform: uppercase;
 	font-weight: normal;
 	color: rgba(255,255,255,0.9);
