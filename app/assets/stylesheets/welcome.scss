@@ -401,7 +401,7 @@ video {
 .hot-job-list .job-list-items {
   margin-top: 55px;
 }
-.hot-job-list i {
+.hot-job-list .job-list-items i {
   background-image: url(//www.lgstatic.com/www/static/search-result/modules/positions/img/approve@2x_16f87e8.png);
   background-size: 16px 18px;
   position: relative;
@@ -554,7 +554,7 @@ video {
 .jumbotron-3 {
   padding: 40px;
   background-color: rgb(78, 169, 110);
-  margin: 0 -15px 0 -15px;
+  margin: 50px -15px 0 -15px;
   border-radius: 0 !important;//圆角为0
 }
 .form-actions-2 .btn-1 {
