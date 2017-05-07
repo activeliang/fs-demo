@@ -397,6 +397,88 @@ video {
     font-size: 1.8rem;
     letter-spacing: .3rem;
 }
+// 以下是热门职位
+.hot-job-list .job-list-items {
+  margin-top: 55px;
+}
+.hot-job-list i {
+  background-image: url(//www.lgstatic.com/www/static/search-result/modules/positions/img/approve@2x_16f87e8.png);
+  background-size: 16px 18px;
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  margin-left: .5em;
+  background: url(//www.lgstatic.com/www/static/search-result/modules/positions/img/approve_aae725a.png) no-repeat 0 0;
+  vertical-align: middle;
+  top: -2px;
+  // cursor: pointer;
+
+}
+.hot-job-list .list-item {
+  color: #555;
+  border: 1px solid #ededed;
+  margin-top: 18px;
+  // background-color: #e8e8e8;
+}
+.hot-job-list img {
+  float: right;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  margin: 10px;
+}
+.hot-job-list .list-item h2 {
+  color: #00b38a;
+  font-size: 1.8rem;
+  margin-top: 28px;
+  font-weight: 300;
+}
+.hot-job-list .list-item a {
+  color: #00b38a;
+}
+.hot-job-list .list-item h2 span {
+  color: #999;
+  font-size: 1.4rem;
+}
+.hot-job-list .list-item-2 {
+  background-color: #fafafa;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.list-item-1 h3 {
+  color: #fd5f39;
+  margin-top: 15px;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.list-item-1 h3 span {
+  color: #888 !important;
+  margin-left: 15px;
+}
+.list-item-1 h4 {
+  font-size: 1.5rem;
+  color: #777;
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 12px;
+}
+.list-item-2 .label-info {
+  display: inline-block;
+  max-width: 84px;
+  height: 20px;
+  padding: 0 5px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #555;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-left: 6px;
+  background-color: #fafafa;
+  font-weight: 300;
+}
+
 
 
 // 以下是介绍区

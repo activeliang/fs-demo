@@ -1,14 +1,76 @@
-<div class="container">
+<div class="container hot-job-list">
   <div class="row">
-    <!-- <div class="list-head">
-      <div class="row">
-        <div class="head-title">
-          工作地点：
-        </div>
-        <% @job. %>
-      </div>
-    </div> -->
 
-    <div class="list-item"></div>
+    <div class="navi-bar">
+      <div class="row navi-bar-item">
+        <div class="col-sm-4 navi-bar-1">
+          <p>
+            <span class="ui-strip"></span>热门职位：
+          </p>
+        </div>
+        <div class="col-sm-1 col-sm-offset-7 navi-more"><%= link_to("更多>>", jobs_path) %></div>
+        <div class="navi-line"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="job-list-items">
+        <% @jobs.each do |job| %>
+        <div class="list-item row">
+          <div class="col-sm-12 list-item-1">
+            <div class="col-sm-6">
+              <h2><%= link_to job_path(job) do %>
+                <%= job.title %>
+                [<%= job.cp_city %>]
+                <% end %>
+                <span><%= job.updated_at.day - Time.new.day %>天前发布</span>
+              </h2>
+              <h3><%= job.wage_lower_bound %>
+                -
+                <%= job.wage_upper_bound %>
+                <span>全栈营 /
+                  <% if job.is_fulltime %>
+                  全职
+                <% else %>
+                  非全职
+                  <% end %>
+                </span>
+              </h3>
+            </div>
+            <div class="col-sm-6">
+              <div class="cp-mark-img">
+                <% if job.cp_image.present? %>
+                <%= image_tag(job.cp_image.thumb.url, class: "img-responsive") %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+                <% end %>
+              </div>
+              <h2><%= link_to job.cp_name, job_path(job)%>
+                <i class="company_mark">
+                  <span style="display: none;">该企业已上传营业执照并通过资质验证审核</span>
+                </i>
+              </h2>
+              <h4><%= job.cp_type %>
+                /
+                <%= job.cp_stage %></h4>
+            </div>
+          </div>
+          <div class="col-sm-12 list-item-2">
+            <div class="col-sm-6">
+              <% job.jb_labels.limit(4).each do |jb_label| %>
+              <div class="label label-info">
+                <%= jb_label.label_item %>
+              </div>
+              <% end %>
+            </div>
+            <div class="col-sm-6">
+              <p>“
+                <%= job.temptation.strip[0..15] %>
+                ”</p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
