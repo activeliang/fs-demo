@@ -158,30 +158,32 @@
         </div>
       </div>
     </div>
-    <!-- 以下是contact-top条： -->
-    <div class="contact-topv" id="contacttop">
-      <div class=" container-fluid contact-top">
-        <div class="container">
-          <div class="col-xs-2 top-user-img">
-            <%=image_tag( @resume.user.aavatar.url, class: "img-responsive") %>
-          </div>
-          <div class="col-xs-7">
-            <h1 class="user-name"><%= @resume.name %></h1>
-            <p>期望工作地点：<%= @resume.work_place %></p>
-          </div>
-          <div class="col-xs-3">
-            <% if current_user %>
-            <% if current_user.is_employ_it?(@resume) %>
-            <button type="button" class="btn btn-success liang-btn disabled" name="button">已申请挖走TA</button>
-            <%= link_to("取消", cancel_employ_resume_path(@resume), method: :post) %>
-            <% elsif %>
-            <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
-            <% end %>
-          <% else %>
-            <button class="btn btn-success liang-btn" onclick="myFunction()">申请挖走TA</button>
-            <% end %>
-          </div>
-        </div>
+
+  </div>
+</div>
+
+<!-- 以下是contact-top条： -->
+<div class="contact-topv" id="contacttop">
+  <div class=" container-fluid contact-top">
+    <div class="container">
+      <div class="col-xs-2 top-user-img">
+        <%=image_tag( @resume.user.aavatar.url, class: "img-responsive") %>
+      </div>
+      <div class="col-xs-7">
+        <h1 class="user-name"><%= @resume.name %></h1>
+        <p>期望工作地点：<%= @resume.work_place %></p>
+      </div>
+      <div class="col-xs-3">
+        <% if current_user %>
+        <% if current_user.is_employ_it?(@resume) %>
+        <button type="button" class="btn btn-success liang-btn disabled" name="button">已申请挖走TA</button>
+        <%= link_to("取消", cancel_employ_resume_path(@resume), method: :post) %>
+        <% elsif %>
+        <%= link_to("申请挖走TA", employ_it_resume_path(@resume), method: :post, class: "btn liang-btn btn-success liang-btn") %>
+        <% end %>
+      <% else %>
+        <button class="btn btn-success liang-btn" onclick="myFunction()">申请挖走TA</button>
+        <% end %>
       </div>
     </div>
   </div>
@@ -247,5 +249,19 @@
       x.className = x.className.replace("show", "");
     }, 4000);
     document.getElementById('id01').style.display = 'block'
+  }
+
+  window.onscroll = function () {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    var x = document.getElementById("contacttop")
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      x.className = "show";
+      // document.getElementById("contacttop").style.display = "block"; document.getElementById("contacttop").style.transition = ".5s ease";
+    } else {
+      x.className = x.className.replace("show", "");
+    }
   }
 </script>

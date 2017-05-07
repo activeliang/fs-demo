@@ -435,4 +435,18 @@ oA[0].onclick = function move() {
     oA[0].onclick = move;
   }
 }
+// 以下是下拉时显示导航条
+window.onscroll = function () {
+  scrollFunction()
+};
+
+function scrollFunction() {
+  var x = document.getElementById("contacttop1")
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    x.className = "show";
+    // document.getElementById("contacttop").style.display = "block"; document.getElementById("contacttop").style.transition = ".5s ease";
+  } else {
+    x.className = x.className.replace("show", "");
+  }
+}
 </script>

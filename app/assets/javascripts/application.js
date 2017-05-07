@@ -56,16 +56,3 @@ function scrollFunction() {
     x.className = x.className.replace("show", "");
     }
 }
-// 以下是用来固定首页导航条的
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  var x = document.getElementById("contacttop2")
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      x.className = "show";
-        // document.getElementById("contacttop").style.display = "block";
-        // document.getElementById("contacttop").style.transition = ".5s ease";
-    } else {
-    x.className = x.className.replace("show", "");
-    }
-}

@@ -291,4 +291,19 @@
     }, 4000);
     document.getElementById('id01').style.display = 'block'
   }
+
+  window.onscroll = function () {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    var x = document.getElementById("contacttop2")
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      x.className = "show";
+      alert(0);
+      // document.getElementById("contacttop").style.display = "block"; document.getElementById("contacttop").style.transition = ".5s ease";
+    } else {
+      x.className = x.className.replace("show", "");
+    }
+  }
 </script>
